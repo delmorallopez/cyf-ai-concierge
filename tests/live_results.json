@@ -1,0 +1,163 @@
+[
+  {
+    "id": "CYF-T1-001",
+    "prompt": "Am I eligible for the CodeYourFuture (CYF) courses?",
+    "response": "CodeYourFuture supports people who have experienced disadvantage and want to start a career in technology. Eligibility for progression to the Intro to Programming course includes being over 18, having low income, seeking a career in tech, and living within 90 minutes by public transport of a CYF region (Sheffield, Glasgow, Manchester, Birmingham, London, or Cape Town). The Intro to Digital course encourages applications from people whose circumstances are not listed and has different eligibility criteria. You can check more details on the CYF regions page: https://codeyourfuture.io/regions/",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-002",
+    "prompt": "Do applicants need to have the right to work in the UK?",
+    "response": "No, applicants do not need to have the right to work in the UK to sign up for CodeYourFuture courses. However, this does not guarantee eligibility to work in a future job.",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-003",
+    "prompt": "I do not have a work visa or ID. Can I still take this course?",
+    "response": "Yes, you can take CodeYourFuture courses regardless of your legal status in the country. However, please note that the certified Duolingo English Test used in later eligibility steps involves identity checks. If you do not have ID, CYF will need to advise you on your individual next steps.",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-004",
+    "prompt": "Can I take this course if I am on UK benefits?",
+    "response": "Yes, you can take CodeYourFuture courses if you are on UK benefits. The FAQ states that people receiving UK benefits can join the courses, and you do not have to be on benefits to participate. It is recommended to inform your job coach if you progress to the Intro to Programming course. For advice on how studying or reimbursements might affect your benefits, please speak to your job coach or a qualified adviser.",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-005",
+    "prompt": "How does CodeYourFuture measure low income?",
+    "response": "CodeYourFuture measures low income as household income after taxes and housing costs below 60% of the median income in the person's region, taking household size into account. For a full explanation and examples, you can refer to CYF's low-income guidance document here: https://docs.google.com/document/d/1kZajo6tnEkHz_KPycPxK0rWyPJezjPNte_q9GF4VVV4/edit?tab=t.0#heading=h.dt6q3od158l4",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-006",
+    "prompt": "What level of English is required for this course?",
+    "response": "Intro to Digital has no formal English-level requirement. The CYF FAQ refers to B2 English for later stages, but the precise requirement for each course needs confirmation from CYF. \n\nSource: https://docs.google.com/document/d/1a_BqRRdLOVRHXFDm8HO9riTAr_8M1AFCa2FO2QBd6pg/edit?usp=sharing\n\nWould you like information about English support or how to assess your level?",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-007",
+    "prompt": "Are your courses free?",
+    "response": "Yes, all CodeYourFuture courses are free. If you want to learn more, you can visit their official information.",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-008",
+    "prompt": "Which regions/cities are you located in?",
+    "response": "CodeYourFuture is located in six regions: Birmingham (West Midlands), Glasgow (Scotland), Manchester (North West), London, Sheffield, and Cape Town (South Africa). Learners joining in-person courses must live within 90 minutes by public transport of a region. You can check more information on CYF's regions page: https://codeyourfuture.io/regions/",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-009",
+    "prompt": "Are the courses online or in-person?",
+    "response": "Intro to Digital is online, with optional online and in-person workshops. From Intro to Programming onwards, trainees are generally expected to attend Saturday classes in person and complete coursework during the week. Some Checkpoint and Software Development sessions may be online depending on regional arrangements.",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-010",
+    "prompt": "Which day and time are the classes?",
+    "response": "According to the CodeYourFuture FAQ:\n\n- Intro to Digital has optional Saturday in-person workshops starting at 10 am and Wednesday online workshops from 7 pm to 9 pm.\n- Intro to Programming has mandatory Saturday in-person classes from 10 am to 5 pm.\n- Checkpoint and Software Development normally have mandatory Saturday classes from 10 am to 5 pm, potentially online in some regions.\n- Launch classes are listed as mandatory online Saturdays from 10 am to 5 pm.\n\nIf you want more details or confirmation for your region, please check with CYF directly.",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-011",
+    "prompt": "What is the weekly commitment to do your courses?",
+    "response": "The weekly commitment for CodeYourFuture courses varies by stage. Intro to Digital involves about 20–40 hours of self-paced study within a month. For Intro to Programming, Checkpoint, and Software Development courses, the expected commitment is around 28 hours per week, including 20 hours of independent study and 8 hours of class time. The Saturday classes typically run from 10 am to 5 pm. Please check with CYF for the exact class times and commitments.",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-012",
+    "prompt": "I don't have access to a computer or a laptop. Can I still take this course?",
+    "response": "You need access to a laptop or computer for the Intro to Digital course. If you don't have one, you can use public library computers, free computer centres, or borrow a device. Laptop requests may be available after acceptance onto the Intro to Programming course through CYF's Signpost service, but you should not submit a laptop request before that stage. For more details, you can check CYF's guidance on laptop access. \n\nSources: https://www.gov.uk/book-internet-access-at-library, https://www.mygov.scot/public-libraries, https://docs.codeyourfuture.io/leaders/joining-the-course/laptops/minimum-laptop-specs, https://signposts.codeyourfuture.io/",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-013",
+    "prompt": "I need financial support with barriers (laptops, transport, childcare)",
+    "response": "CodeYourFuture may provide support for eligible trainees with transport, registered childcare, internet, and class-day lunch, depending on the course stage and enrolment status. Usually, expenses must be paid first and then claimed back under the Trainee Expenses Policy within 30 days. Laptop loans are available only after joining the Intro to Programming course. For personal circumstances or specific needs, you should contact CYF's Pastoral team through an approved channel.\n\nFor more details, you can refer to their expenses policy here: https://docs.google.com/document/d/1UuPLflvuSED3XczbzGzgj2utwzXbWP-fxKMkqLaqHo4/edit?tab=t.0\n\nWould you like information on how to contact the Pastoral team?",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-014",
+    "prompt": "Why should I take a course at CodeYourFuture?",
+    "response": "You should consider taking a course at CodeYourFuture because they offer free courses with practical technical and employability learning. You'll get support from a community of professionals and peers. No previous coding experience is needed to start, and the courses provide guidance to help prepare you for a tech career. However, completing a course does not guarantee employment. For more details, you can visit their official site.",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-015",
+    "prompt": "What courses does CYF have?",
+    "response": "CodeYourFuture (CYF) offers two main programmes:\n\n1. Basic Online Skills: A free three-week course covering device use, managing apps and files, and online safety.\n\n2. Software Development Pathway: This includes several stages—\n   - Intro to Digital: A self-paced introductory course.\n   - Intro to Programming\n   - Checkpoint\n   - Software Development\n\nProgression assessments are required between stages. Later stages involve substantial weekly coursework and group learning.\n\nYou can find more details at:\n- https://codeyourfuture.io/dds/\n- https://itd.codeyourfuture.io/\n- https://curriculum.codeyourfuture.io/itp/\n- https://curriculum.codeyourfuture.io/checkpoint/\n- https://curriculum.codeyourfuture.io/sdc/",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-016",
+    "prompt": "What is the Intro to Digital (ITD) course?",
+    "response": "The Intro to Digital (ITD) course is CodeYourFuture's introductory course designed for people with or without previous tech experience. It involves around 20–40 hours of self-paced online study within a month. The course covers topics such as generative AI, data analysis and visualisation, HTML, CSS, JavaScript, and building and deploying simple websites. Optional workshops and community support are also available.\n\nYou can find more details and the curriculum at https://itd.codeyourfuture.io/ and register at https://course1.codeyourfuture.io/sign-up.",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-017",
+    "prompt": "I have no coding experience. Can I still join?",
+    "response": "Yes, you can still join. CodeYourFuture's Intro to Digital course is designed for beginners and does not require any previous coding experience. You can start learning with them even if you have no prior knowledge. For more details, you can visit https://itd.codeyourfuture.io/",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-018",
+    "prompt": "I want to sign up for the CYF programme. What should I do?",
+    "response": "To sign up for the CodeYourFuture (CYF) programme, you can start by exploring the Intro to Digital course and registering through the CYF Intro to Digital registration page. You may also want to review the official Become a Student page for the most current application guidance. Keep in mind that after completing Intro to Digital, progressing to Intro to Programming involves additional eligibility and English-language steps, and completing the first course does not automatically guarantee a place in the next one.\n\nYou can find more information and sign up here:\n- Intro to Digital registration: https://course1.codeyourfuture.io/sign-up\n- Become a Student page: https://codeyourfuture.io/become-a-student/",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-019",
+    "prompt": "Are CYF courses accredited?",
+    "response": "No, CodeYourFuture (CYF) courses are not accredited.",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-020",
+    "prompt": "Is a job guaranteed at the end of the course?",
+    "response": "No, CodeYourFuture does not guarantee employment after completing its courses. However, CYF provides career support, including CV reviews, mock interviews, mentoring and connections with hiring partners. \n\nFor more details, see the official FAQ: https://codeyourfuture.io/become-a-student/",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-021",
+    "prompt": "How does CodeYourFuture help people find jobs?",
+    "response": "CodeYourFuture supports job seekers with employability guides, career mentoring, CV and LinkedIn reviews, mock interviews, community support, and connections with hiring partners. Learners are encouraged to actively apply for jobs themselves, as employment is not guaranteed. You can find more details here: https://curriculum.codeyourfuture.io/guides/employability/",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-022",
+    "prompt": "I have access needs or need a reasonable adjustment to join the class",
+    "response": "CodeYourFuture provides online learning materials and some flexibility around completion time, plus opportunities to retake courses. If you have additional accessibility needs or require a specific adjustment, you can use CYF's official access-needs form to share your requirements confidentially. Transport and childcare support are handled separately under the expenses policy.\n\nHere is the access-needs form link: https://docs.google.com/forms/d/e/1FAIpQLSfKTuY10bVm5R8Hu3w5xYQJfISMHA231g6n0nCERctrpm7Dng/viewform\n\nIf you need more details, you can also check https://curriculum.codeyourfuture.io/ or the expenses policy document. Would you like help with anything else?",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  },
+  {
+    "id": "CYF-T1-023",
+    "prompt": "I have mobility or venue accessibility concerns",
+    "response": "If you have mobility or venue accessibility concerns, CodeYourFuture asks you to complete their access-needs form so the team can contact you about your requirements. Exact venue addresses are usually shared after registration.\n\nYou can fill out the form here: https://docs.google.com/forms/d/e/1FAIpQLSfKTuY10bVm5R8Hu3w5xYQJfISMHA231g6n0nCERctrpm7Dng/viewform\n\nWould you like information on how to register for a course as well?",
+    "manual_result": "not_reviewed",
+    "reviewer_notes": ""
+  }
+]

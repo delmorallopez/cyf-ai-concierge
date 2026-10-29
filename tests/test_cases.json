@@ -1,0 +1,325 @@
+[
+  {
+    "id": "CYF-T1-001",
+    "canonical_question": "Am I eligible for the CodeYourFuture (CYF) courses?",
+    "user_prompts": [
+      "Am I eligible for the CodeYourFuture (CYF) courses?",
+      "Could you help me understand: Am I eligible for the CodeYourFuture (CYF) courses?"
+    ],
+    "expected_topics": [
+      "eligibility",
+      "disadvantage",
+      "travel distance"
+    ],
+    "expected_behavior": "escalate_if_unverified",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-002",
+    "canonical_question": "Do applicants need to have the right to work in the UK?",
+    "user_prompts": [
+      "Do applicants need to have the right to work in the UK?",
+      "Could you help me understand: Do applicants need to have the right to work in the UK?"
+    ],
+    "expected_topics": [
+      "right to work",
+      "UK"
+    ],
+    "expected_behavior": "escalate_if_unverified",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-003",
+    "canonical_question": "I do not have a work visa or ID. Can I still take this course?",
+    "user_prompts": [
+      "I do not have a work visa or ID. Can I still take this course?",
+      "Could you help me understand: I do not have a work visa or ID. Can I still take this course?"
+    ],
+    "expected_topics": [
+      "visa",
+      "ID"
+    ],
+    "expected_behavior": "escalate_if_unverified",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-004",
+    "canonical_question": "Can I take this course if I am on UK benefits?",
+    "user_prompts": [
+      "Can I take this course if I am on UK benefits?",
+      "Could you help me understand: Can I take this course if I am on UK benefits?"
+    ],
+    "expected_topics": [
+      "benefits",
+      "course"
+    ],
+    "expected_behavior": "escalate_if_unverified",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-005",
+    "canonical_question": "How does CodeYourFuture measure low income?",
+    "user_prompts": [
+      "How does CodeYourFuture measure low income?",
+      "Could you help me understand: How does CodeYourFuture measure low income?"
+    ],
+    "expected_topics": [
+      "low income",
+      "household"
+    ],
+    "expected_behavior": "escalate_if_unverified",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-006",
+    "canonical_question": "What level of English is required for this course?",
+    "user_prompts": [
+      "What level of English is required for this course?",
+      "Could you help me understand: What level of English is required for this course?"
+    ],
+    "expected_topics": [
+      "English",
+      "B2"
+    ],
+    "expected_behavior": "escalate_if_unverified",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-007",
+    "canonical_question": "Are your courses free?",
+    "user_prompts": [
+      "Are your courses free?",
+      "Could you help me understand: Are your courses free?"
+    ],
+    "expected_topics": [
+      "free",
+      "cost"
+    ],
+    "expected_behavior": "answer_if_approved",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-008",
+    "canonical_question": "Which regions/cities are you located in?",
+    "user_prompts": [
+      "Which regions/cities are you located in?",
+      "Could you help me understand: Which regions/cities are you located in?"
+    ],
+    "expected_topics": [
+      "regions",
+      "cities"
+    ],
+    "expected_behavior": "answer_if_approved",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-009",
+    "canonical_question": "Are the courses online or in-person?",
+    "user_prompts": [
+      "Are the courses online or in-person?",
+      "Could you help me understand: Are the courses online or in-person?"
+    ],
+    "expected_topics": [
+      "online",
+      "in person"
+    ],
+    "expected_behavior": "answer_if_approved",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-010",
+    "canonical_question": "Which day and time are the classes?",
+    "user_prompts": [
+      "Which day and time are the classes?",
+      "Could you help me understand: Which day and time are the classes?"
+    ],
+    "expected_topics": [
+      "class",
+      "Saturday"
+    ],
+    "expected_behavior": "answer_if_approved",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-011",
+    "canonical_question": "What is the weekly commitment to do your courses?",
+    "user_prompts": [
+      "What is the weekly commitment to do your courses?",
+      "Could you help me understand: What is the weekly commitment to do your courses?"
+    ],
+    "expected_topics": [
+      "weekly",
+      "hours"
+    ],
+    "expected_behavior": "answer_if_approved",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-012",
+    "canonical_question": "I don't have access to a computer or a laptop. Can I still take this course?",
+    "user_prompts": [
+      "I don't have access to a computer or a laptop. Can I still take this course?",
+      "Could you help me understand: I don't have access to a computer or a laptop. Can I still take this course?"
+    ],
+    "expected_topics": [
+      "computer",
+      "laptop"
+    ],
+    "expected_behavior": "answer_if_approved",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-013",
+    "canonical_question": "I need financial support with barriers (laptops, transport, childcare)",
+    "user_prompts": [
+      "I need financial support with barriers (laptops, transport, childcare)",
+      "Could you help me understand: I need financial support with barriers (laptops, transport, childcare)?"
+    ],
+    "expected_topics": [
+      "transport",
+      "childcare"
+    ],
+    "expected_behavior": "escalate_if_unverified",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-014",
+    "canonical_question": "Why should I take a course at CodeYourFuture?",
+    "user_prompts": [
+      "Why should I take a course at CodeYourFuture?",
+      "Could you help me understand: Why should I take a course at CodeYourFuture?"
+    ],
+    "expected_topics": [
+      "benefits of CYF",
+      "support"
+    ],
+    "expected_behavior": "answer_if_approved",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-015",
+    "canonical_question": "What courses does CYF have?",
+    "user_prompts": [
+      "What courses does CYF have?",
+      "Could you help me understand: What courses does CYF have?"
+    ],
+    "expected_topics": [
+      "courses",
+      "pathway"
+    ],
+    "expected_behavior": "answer_if_approved",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-016",
+    "canonical_question": "What is the Intro to Digital (ITD) course?",
+    "user_prompts": [
+      "What is the Intro to Digital (ITD) course?",
+      "Could you help me understand: What is the Intro to Digital (ITD) course?"
+    ],
+    "expected_topics": [
+      "Intro to Digital",
+      "curriculum"
+    ],
+    "expected_behavior": "answer_if_approved",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-017",
+    "canonical_question": "I have no coding experience. Can I still join?",
+    "user_prompts": [
+      "I have no coding experience. Can I still join?",
+      "Could you help me understand: I have no coding experience. Can I still join?"
+    ],
+    "expected_topics": [
+      "beginner",
+      "no experience"
+    ],
+    "expected_behavior": "answer_if_approved",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-018",
+    "canonical_question": "I want to sign up for the CYF programme. What should I do?",
+    "user_prompts": [
+      "I want to sign up for the CYF programme. What should I do?",
+      "Could you help me understand: I want to sign up for the CYF programme. What should I do?"
+    ],
+    "expected_topics": [
+      "sign up",
+      "application"
+    ],
+    "expected_behavior": "answer_if_approved",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-019",
+    "canonical_question": "Are CYF courses accredited?",
+    "user_prompts": [
+      "Are CYF courses accredited?",
+      "Could you help me understand: Are CYF courses accredited?"
+    ],
+    "expected_topics": [
+      "accreditation",
+      "certificate"
+    ],
+    "expected_behavior": "escalate_if_unverified",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-020",
+    "canonical_question": "Is a job guaranteed at the end of the course?",
+    "user_prompts": [
+      "Is a job guaranteed at the end of the course?",
+      "Could you help me understand: Is a job guaranteed at the end of the course?"
+    ],
+    "expected_topics": [
+      "job guarantee",
+      "employment"
+    ],
+    "expected_behavior": "answer_if_approved",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-021",
+    "canonical_question": "How does CodeYourFuture help people find jobs?",
+    "user_prompts": [
+      "How does CodeYourFuture help people find jobs?",
+      "Could you help me understand: How does CodeYourFuture help people find jobs?"
+    ],
+    "expected_topics": [
+      "job search",
+      "mentorship"
+    ],
+    "expected_behavior": "answer_if_approved",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-022",
+    "canonical_question": "I have access needs or need a reasonable adjustment to join the class",
+    "user_prompts": [
+      "I have access needs or need a reasonable adjustment to join the class",
+      "Could you help me understand: I have access needs or need a reasonable adjustment to join the class?"
+    ],
+    "expected_topics": [
+      "reasonable adjustments",
+      "access needs"
+    ],
+    "expected_behavior": "escalate_if_unverified",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  },
+  {
+    "id": "CYF-T1-023",
+    "canonical_question": "I have mobility or venue accessibility concerns",
+    "user_prompts": [
+      "I have mobility or venue accessibility concerns",
+      "Could you help me understand: I have mobility or venue accessibility concerns?"
+    ],
+    "expected_topics": [
+      "mobility",
+      "venue access"
+    ],
+    "expected_behavior": "escalate_if_unverified",
+    "notes": "Offline test validates coverage and gating; live response quality needs API evaluation."
+  }
+]
