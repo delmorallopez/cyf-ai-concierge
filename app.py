@@ -29,12 +29,20 @@ GREETINGS = {
     "good morning",
     "good afternoon",
     "good evening",
-    "what do you do?"
+}
+
+CAPABILITY_QUESTIONS = {
+    "what do you do",
+    "what can you do",
+    "how can you help me",
+    "what can i ask you",
+    "who are you",
 }
 
 def get_greeting_response(message: str) -> str | None:
     normalized = re.sub(
-        r"[^\w\s]", "", message.lower()
+        r"[^\w\s]", "",
+        message.lower()
     ).strip()
 
     normalized = " ".join(normalized.split())
@@ -45,6 +53,19 @@ def get_greeting_response(message: str) -> str | None:
             "I can help you with course information, eligibility, "
             "applications, and trainee support. "
             "What would you like to know?"
+        )
+
+    if normalized in CAPABILITY_QUESTIONS:
+        return (
+            "I'm the CodeYourFuture AI Concierge! 👋 "
+            "I can help you with:\n\n"
+            "- CYF courses and learning pathways\n"
+            "- Eligibility requirements\n"
+            "- Applications and enrolment\n"
+            "- Course schedules and commitments\n"
+            "- Laptop support and trainee resources\n"
+            "- Career support and next steps\n\n"
+            "What would you like to know about CodeYourFuture?"
         )
 
     return None
