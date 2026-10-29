@@ -1,0 +1,1057 @@
+[
+  {
+    "id": "CYF-T1-001",
+    "tier": 1,
+    "category": "Eligibility and suitability",
+    "question": "Am I eligible for the CodeYourFuture (CYF) courses?",
+    "answer": "CYF supports people who have experienced disadvantage and want to start a career in technology. The FAQ lists suitability circumstances including poverty, long-term unemployment, disability, homelessness, refugee or asylum experience, forced migration, prison, single parenthood and social care. For progression to Intro to Programming, the FAQ lists eligibility criteria: over 18, low income, seeking a career in tech and living within 90 minutes by public transport of a CYF region (Sheffield, Glasgow, Manchester, Birmingham, London or Cape Town). The FAQ encourages people whose circumstances are not listed to apply for Intro to Digital. Completing Intro to Digital is different from passing the eligibility check for Intro to Programming.",
+    "source_urls": [
+      "https://codeyourfuture.io/regions/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high"
+  },
+  {
+    "id": "CYF-T1-002",
+    "tier": 1,
+    "category": "Eligibility and suitability",
+    "question": "Do applicants need to have the right to work in the UK?",
+    "answer": "No. The CYF FAQ states that having the right to work in the UK is not required to sign up for CYF vocational courses. This does not establish eligibility to work in a future job.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high"
+  },
+  {
+    "id": "CYF-T1-003",
+    "tier": 1,
+    "category": "Eligibility and suitability",
+    "question": "I do not have a work visa or ID. Can I still take this course?",
+    "answer": "The CYF FAQ says that people can take its courses independently of their legal status in the country. However, the FAQ also says that the certified Duolingo English Test used in later eligibility steps involves identity checks. If you do not have ID, CYF needs to advise you on your individual next steps.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high"
+  },
+  {
+    "id": "CYF-T1-004",
+    "tier": 1,
+    "category": "Eligibility and suitability",
+    "question": "Can I take this course if I am on UK benefits?",
+    "answer": "Yes. The CYF FAQ says people receiving UK benefits can take its courses, and that people do not have to receive benefits to join. It recommends telling your job coach if you progress to Intro to Programming. For advice on how studying or reimbursements affect your own benefits, speak to your job coach or a qualified adviser.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high"
+  },
+  {
+    "id": "CYF-T1-005",
+    "tier": 1,
+    "category": "Eligibility and suitability",
+    "question": "How does CodeYourFuture measure low income?",
+    "answer": "CYF's FAQ describes low income as household income after taxes and housing costs below 60% of the median income in the person's region, taking household size into account. The full explanation and examples are in CYF's low-income guidance.",
+    "source_urls": [
+      "https://docs.google.com/document/d/1kZajo6tnEkHz_KPycPxK0rWyPJezjPNte_q9GF4VVV4/edit?tab=t.0#heading=h.dt6q3od158l4"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high"
+  },
+  {
+    "id": "CYF-T1-006",
+    "tier": 1,
+    "category": "Eligibility and suitability",
+    "question": "What level of English is required for this course?",
+    "answer": "All CYF courses are delivered in English. The FAQ says Intro to Digital has no English-level requirement and states that B2 English is required to join Intro to Programming. A separate FAQ answer also refers to B2 for the Software Development Course. CYF needs to confirm the precise requirement for each stage.",
+    "source_urls": [
+      "https://docs.google.com/document/d/1a_BqRRdLOVRHXFDm8HO9riTAr_8M1AFCa2FO2QBd6pg/edit?usp=sharing"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high"
+  },
+  {
+    "id": "CYF-T1-007",
+    "tier": 1,
+    "category": "Cost, location and format",
+    "question": "Are your courses free?",
+    "answer": "Yes. The CYF FAQ states that all CodeYourFuture courses are free.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-T1-008",
+    "tier": 1,
+    "category": "Cost, location and format",
+    "question": "Which regions/cities are you located in?",
+    "answer": "The FAQ lists six CYF regions: Birmingham (West Midlands), Glasgow (Scotland), Manchester (North West), London, Sheffield and Cape Town (South Africa). It says learners joining in-person courses must live within 90 minutes by public transport of a region. Check CYF's regions page for more information.",
+    "source_urls": [
+      "https://codeyourfuture.io/regions/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium"
+  },
+  {
+    "id": "CYF-T1-009",
+    "tier": 1,
+    "category": "Cost, location and format",
+    "question": "Are the courses online or in-person?",
+    "answer": "Intro to Digital is online, with optional online and in-person workshops. From Intro to Programming onwards, the FAQ generally expects trainees to attend Saturday classes in person and complete coursework during the week. Some Checkpoint and Software Development sessions may be online depending on regional arrangements.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium"
+  },
+  {
+    "id": "CYF-T1-010",
+    "tier": 1,
+    "category": "Cost, location and format",
+    "question": "Which day and time are the classes?",
+    "answer": "According to the FAQ, Intro to Digital has optional Saturday in-person workshops starting at 10 am and Wednesday online workshops from 7 pm to 9 pm. Intro to Programming has mandatory Saturday in-person classes from 10 am to 5 pm. Checkpoint and Software Development normally have mandatory Saturday classes from 10 am to 5 pm, potentially online in some regions. Launch classes are listed as mandatory online Saturdays from 10 am to 5 pm.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium"
+  },
+  {
+    "id": "CYF-T1-011",
+    "tier": 1,
+    "category": "Cost, location and format",
+    "question": "What is the weekly commitment to do your courses?",
+    "answer": "The FAQ describes Intro to Digital as approximately 20–40 hours of self-paced study within a month. For Intro to Programming, Checkpoint and Software Development, it describes an expected commitment of about 28 hours per week: 20 hours of independent study and 8 hours of class. The listed Saturday clock times and 8-hour class commitment should be checked with CYF.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium"
+  },
+  {
+    "id": "CYF-T1-012",
+    "tier": 1,
+    "category": "Cost, location and format",
+    "question": "I don't have access to a computer or a laptop. Can I still take this course?",
+    "answer": "You need access to a laptop or computer for Intro to Digital. The FAQ suggests using public library computers, free computer centres, or borrowing a device. CYF says laptop requests may be available after acceptance onto Intro to Programming, via its Signpost service. Do not submit a laptop request before that stage.",
+    "source_urls": [
+      "https://www.gov.uk/book-internet-access-at-library",
+      "https://www.mygov.scot/public-libraries",
+      "https://docs.codeyourfuture.io/leaders/joining-the-course/laptops/minimum-laptop-specs",
+      "https://signposts.codeyourfuture.io/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium"
+  },
+  {
+    "id": "CYF-T1-013",
+    "tier": 1,
+    "category": "Cost, location and format",
+    "question": "I need financial support with barriers (laptops, transport, childcare)",
+    "answer": "The FAQ describes possible support for eligible trainees with transport, registered childcare, internet and class-day lunch, depending on the course stage and enrolment status. It says expenses generally must be paid first and claimed back under the Trainee Expenses Policy, within 30 days. Laptop loans are described as available only after joining Intro to Programming. For personal circumstances, contact CYF's Pastoral team through an approved channel.",
+    "source_urls": [
+      "https://docs.google.com/document/d/1UuPLflvuSED3XczbzGzgj2utwzXbWP-fxKMkqLaqHo4/edit?tab=t.0"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high"
+  },
+  {
+    "id": "CYF-T1-014",
+    "tier": 1,
+    "category": "Courses and joining",
+    "question": "Why should I take a course at CodeYourFuture?",
+    "answer": "CYF offers free courses, practical technical and employability learning, and support from a community of professionals and peers. The FAQ says no previous coding experience is needed to start, and that learners can receive guidance with preparing for a tech career. Completing a course does not guarantee employment.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium"
+  },
+  {
+    "id": "CYF-T1-015",
+    "tier": 1,
+    "category": "Courses and joining",
+    "question": "What courses does CYF have?",
+    "answer": "The FAQ describes two programmes. Basic Online Skills is a free three-week course about using devices, managing apps and files, and online safety. The software development pathway is Intro to Digital, then Intro to Programming, then Checkpoint, then Software Development, with progression assessments between stages. Intro to Digital is self-paced; later stages involve substantial weekly coursework and group learning.",
+    "source_urls": [
+      "https://codeyourfuture.io/dds/",
+      "https://itd.codeyourfuture.io/",
+      "https://curriculum.codeyourfuture.io/itp/",
+      "https://curriculum.codeyourfuture.io/checkpoint/",
+      "https://curriculum.codeyourfuture.io/sdc/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium"
+  },
+  {
+    "id": "CYF-T1-016",
+    "tier": 1,
+    "category": "Courses and joining",
+    "question": "What is the Intro to Digital (ITD) course?",
+    "answer": "Intro to Digital is CYF's introductory course for people with or without previous tech experience. The FAQ describes around 20–40 hours of self-paced online study within a month, covering generative AI, data analysis and visualisation, HTML, CSS, JavaScript, and building and deploying simple websites. Optional workshops and community support are available. You can find the curriculum and registration page online.",
+    "source_urls": [
+      "https://itd.codeyourfuture.io/",
+      "https://course1.codeyourfuture.io/sign-up"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium"
+  },
+  {
+    "id": "CYF-T1-017",
+    "tier": 1,
+    "category": "Courses and joining",
+    "question": "I have no coding experience. Can I still join?",
+    "answer": "Yes. The CYF FAQ says no previous coding experience is needed to start learning with CodeYourFuture. Intro to Digital is designed to accommodate beginners.",
+    "source_urls": [
+      "https://itd.codeyourfuture.io/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-T1-018",
+    "tier": 1,
+    "category": "Courses and joining",
+    "question": "I want to sign up for the CYF programme. What should I do?",
+    "answer": "To get started, explore Intro to Digital and use the CYF Intro to Digital registration page. You can also review the official Become a Student page for current application guidance. After Intro to Digital, progression to Intro to Programming involves additional eligibility and English-language steps; completing the first course does not automatically secure a place in the next one.",
+    "source_urls": [
+      "https://course1.codeyourfuture.io/sign-up",
+      "https://codeyourfuture.io/become-a-student/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium"
+  },
+  {
+    "id": "CYF-T1-019",
+    "tier": 1,
+    "category": "Trust and outcomes",
+    "question": "Are CYF courses accredited?",
+    "answer": "The supplied FAQ extract does not provide a clear answer about whether CYF courses are formally accredited. Please check with the CYF team before relying on any accreditation claim.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high"
+  },
+  {
+    "id": "CYF-T1-020",
+    "tier": 1,
+    "category": "Trust and outcomes",
+    "question": "Is a job guaranteed at the end of the course?",
+    "answer": "No. CYF does not guarantee a job at the end of a course. The FAQ describes support such as CV reviews, interview preparation, mentorship, community job-search activities and connections with hiring partners.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-T1-021",
+    "tier": 1,
+    "category": "Trust and outcomes",
+    "question": "How does CodeYourFuture help people find jobs?",
+    "answer": "CYF describes job-search support including employability guides, career mentoring, CV and LinkedIn reviews, mock interviews, community support and relationships with hiring partners. Learners are expected to actively apply for jobs themselves. Employment is not guaranteed.",
+    "source_urls": [
+      "https://curriculum.codeyourfuture.io/guides/employability/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium"
+  },
+  {
+    "id": "CYF-T1-022",
+    "tier": 1,
+    "category": "Access needs",
+    "question": "I have access needs or need a reasonable adjustment to join the class",
+    "answer": "The FAQ says CYF provides online learning materials, some flexibility around completion time and opportunities to retake courses. Trainees with additional accessibility needs can use CYF's access-needs form. Transport and childcare support are handled separately under the expenses policy. If you need a specific adjustment, use the official form rather than sharing sensitive details in the chatbot.",
+    "source_urls": [
+      "https://docs.google.com/forms/d/e/1FAIpQLSfKTuY10bVm5R8Hu3w5xYQJfISMHA231g6n0nCERctrpm7Dng/viewform",
+      "https://curriculum.codeyourfuture.io/",
+      "https://docs.google.com/document/d/1UuPLflvuSED3XczbzGzgj2utwzXbWP-fxKMkqLaqHo4/edit?tab=t.0"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high"
+  },
+  {
+    "id": "CYF-T1-023",
+    "tier": 1,
+    "category": "Access needs",
+    "question": "I have mobility or venue accessibility concerns",
+    "answer": "CYF asks people with mobility or venue accessibility concerns to complete its access-needs form so the team can contact them about their requirements. Exact venue addresses are normally shared after registration.",
+    "source_urls": [
+      "https://docs.google.com/forms/d/e/1FAIpQLSfKTuY10bVm5R8Hu3w5xYQJfISMHA231g6n0nCERctrpm7Dng/viewform"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high"
+  },
+  {
+    "id": "CYF-T2-001",
+    "tier": 2,
+    "category": "Course details",
+    "question": "I know some programming. Can I skip any of the courses?",
+    "answer": "No. The CYF FAQ says trainees must follow the course sequence: Intro to Digital, Intro to Programming, Checkpoint, then Software Development Course. Some stages can be completed faster by completing the work and passing the required assessments, but the sequence cannot be skipped.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T4-001",
+    "tier": 4,
+    "category": "Handle with care",
+    "question": "When does the next course or intake start?",
+    "answer": "Course dates and intake schedules can change. Please consult the current CYF course registration page or CYF Portal for the next intake; do not rely on an undated calendar.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "restricted"
+  },
+  {
+    "id": "CYF-T4-002",
+    "tier": 4,
+    "category": "Handle with care",
+    "question": "Can I join a cohort that is running right now?",
+    "answer": "The original FAQ says that joining an Intro to Digital intake already underway may be possible, while other courses follow cohort-based joining. Check the current CYF Portal or registration instructions for the applicable rule and deadlines.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "restricted"
+  },
+  {
+    "id": "CYF-T2-002",
+    "tier": 2,
+    "category": "Course details",
+    "question": "What teaching method does CYF use?",
+    "answer": "The CYF curriculum is based on the flipped classroom model. We expect trainees to start building their understanding independently as soon as possible. From the beginning of the course, trainees are expected to prepare and take ownership of their learning before they attend in-person sessions. This video can help you understand the flipped classroom. https://youtu.be/r2b7GeuqkPc The classes aren’t lectures. At CYF we have to maximise the time we have together by working in person on projects, hitting blockers, and learning together. We are not a school. We are a community of professionals coming together to share skills and build real things to help people get real jobs within one year. Time is very important at CYF. We try our best to use everyone’s time as well as we can. We want to use our time together to help learners with the things they can’t do at home: debugging, pair programming, code review, and building projects.",
+    "source_urls": [
+      "https://youtu.be/r2b7GeuqkPc"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-003",
+    "tier": 2,
+    "category": "Course details",
+    "question": "I want to know more about the Intro to Programming (ITP) course.",
+    "answer": "CodeYourFuture's Intro to Programming course is a comprehensive, self-paced program designed to equip you with essential programming skills. This course will give you a solid foundation in programming, preparing you for further learning and real-world projects. The course is 13 weeks long, with the potential for extra tracks. The course is divided into 4 modules, each containing 3 sprints. By the end of the course, you'll be able to: Predict and explain program execution Refactor code based on new requirements Write composable functions Turn business requirements into test cases Design applications based on user stories Work with datasets Verify web application accessibility Understand processes and file descriptors Use GitHub effectively, including pull requests",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-004",
+    "tier": 2,
+    "category": "Course details",
+    "question": "Tell me more about the Checkpoint",
+    "answer": "CodeYourFuture's Checkpoint is an intensive 22-day assessment course designed for trainees who have completed the Intro to Programming (ITP) and wish to join the Software Development Course (SDC). By completing the Checkpoint, you'll gain hands-on experience in project development, teamwork, and independent coding. You'll also improve your ability to articulate technical concepts, a crucial skill in the tech industry. During the Checkpoint, you'll work on three projects: two group projects and one solo project. For each project, your tasks will be to: 1. Build a complete project that meets all requirements, including tests 2. Develop a thorough understanding of all the code in your project, as you'll need to explain it The Checkpoint aims to identify candidates ready to train as professional software engineers. The program assesses your ability to: 1. Collaborate in a team to build working software with tests 2. Write simple code independently 3. Clearly explain your work in English These core goals reflect the skills needed for success in the CYF Software Development Course and as a future software engineer.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-005",
+    "tier": 2,
+    "category": "Course details",
+    "question": "Can you tell me more about your Software Development Course (SDC)?",
+    "answer": "The Software Development Programme is 12 weeks, part-time. The Software Development Programme (SDC) has shifted focus from traditional web development to prioritising systems engineering, infrastructure, and operations. This involves challenging participants with more complex tasks in areas such as systems work, Linux, troubleshooting, data structures, and algorithms. Regular demonstrations allow participants to showcase their progress to the community, while the integration of existing systems courses provides additional learning opportunities. The ultimate goal is to cultivate critical thinking and problem-solving skills that will help you stand out as a developer.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T3-001",
+    "tier": 3,
+    "category": "Joining and preparing",
+    "question": "Where is the course content?",
+    "answer": "All our content is open source and available online. The main page is this one: https://curriculum.codeyourfuture.io/ We then have specific pages for each course: https://curriculum.codeyourfuture.io/itd/ https://curriculum.codeyourfuture.io/itp/ https://curriculum.codeyourfuture.io/checkpoint/ https://curriculum.codeyourfuture.io/sdc/ https://curriculum.codeyourfuture.io/launch/",
+    "source_urls": [
+      "https://curriculum.codeyourfuture.io/",
+      "https://curriculum.codeyourfuture.io/itd/",
+      "https://curriculum.codeyourfuture.io/itp/",
+      "https://curriculum.codeyourfuture.io/checkpoint/",
+      "https://curriculum.codeyourfuture.io/sdc/",
+      "https://curriculum.codeyourfuture.io/launch/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-006",
+    "tier": 2,
+    "category": "Course details",
+    "question": "How is CodeYourFuture funded?",
+    "answer": "CYF is currently primarily funded by companies, sometimes through hiring. i.e. When CYF connects graduates to hiring companies, may CYF ask for a hiring fee. Overall, we have partners, sponsors and donors. CYF does not currently have any public (government) funding.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-007",
+    "tier": 2,
+    "category": "Course details",
+    "question": "How is my data used?",
+    "answer": "Data will be saved when you sign up with and you can read our Privacy Policy for more information: https://codeyourfuture.io/privacy-policy/ For trainees, we request extra information so we can understand the impact of our work and find ways to improve it, which is explained in this document. When reporting on our achievements, all data is anonymised and aggregated. We will never use your private information without your explicit permission.",
+    "source_urls": [
+      "https://codeyourfuture.io/privacy-policy/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T4-003",
+    "tier": 4,
+    "category": "Handle with care",
+    "question": "Where can I find your governance/compliance policies?",
+    "answer": "CYF publishes its governance policies at https://codeyourfuture.io/governance/.",
+    "source_urls": [
+      "https://codeyourfuture.io/governance/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "restricted"
+  },
+  {
+    "id": "CYF-T4-004",
+    "tier": 4,
+    "category": "Handle with care",
+    "question": "Success stories from trainees",
+    "answer": "CYF shares trainee success stories on its blog. Please visit the official CodeYourFuture website and follow the blog link.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "restricted"
+  },
+  {
+    "id": "CYF-T2-008",
+    "tier": 2,
+    "category": "Eligibility and English test",
+    "question": "How long is my CYF badge/certificate valid for?",
+    "answer": "The badges you are issued are valid for 12 months from issue date. If you're applying to ITP and your ITD badge is more than a year old, you'll need to redo the Intro to Digital course before you can join.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-009",
+    "tier": 2,
+    "category": "Eligibility and English test",
+    "question": "My ITD badge has expired. What should I do?",
+    "answer": "Restart Intro to Digital via the CYF Portal. Follow the steps in: I have to restart Intro to Digital. How do I do this? Some previously submitted content may still be reusable if the course material hasn't changed. ## I have questions about coming to the classes",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T3-002",
+    "tier": 3,
+    "category": "Laptops and letters",
+    "question": "Can CodeYourFuture provide a letter to help me open a bank account?",
+    "answer": "CodeYourFuture can write a Letter of Introduction to support you in opening a bank account. This letter is accepted at Lloyds, Halifax, and Royal Bank of Scotland. Requirements to request a letter: You must be an enrolled trainee You must have attended in-person (face-to-face) sessions You must provide a copy of your Application Registration Card (ARC) for CYF records How to request your letter: Please complete our Bank Account Letter Request Form",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T4-005",
+    "tier": 4,
+    "category": "Handle with care",
+    "question": "What is the address of the class venues?",
+    "answer": "Exact venue addresses are provided to registered participants through CYF communications, including email or Slack. Do not provide private venue addresses.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "restricted"
+  },
+  {
+    "id": "CYF-T3-003",
+    "tier": 3,
+    "category": "Support and community",
+    "question": "How do I find my community or people in my region?",
+    "answer": "That’s a great question! The community is the heart of CodeYourFuture, so knowing how to get in touch with them is crucial! The main online place to get in touch with your community is on Slack, a platform for collaboration and instant communication. You will get access to Slack once the Intro to Digital course starts. On Slack, you will find your community channel by using the name below. Copy and paste the below into the Slack search bar, and join the channel. \\#london-community \\#north-west-community \\#scotland-community \\#sheffield-community \\#west-midlands-community \\#cape-town-community",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T5-001",
+    "tier": 5,
+    "category": "Programme life",
+    "question": "How can I get support with my coursework?",
+    "answer": "The best ways to get help with the Intro to Digital coursework are: Ask in Slack Attending a workshop. You can get help from other trainees as well as tech professionals. All information is available on Slack, which you’ll receive an invite to once you start Intro to Digital or sign your trainee agreement for Intro to Programming.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T4-006",
+    "tier": 4,
+    "category": "Handle with care",
+    "question": "Do you provide lunch? What’s the process and budget?",
+    "answer": "The CYF FAQ says lunch is provided during Saturday classes. For arrangements, dietary requirements or other logistics, ask your local community team.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "restricted"
+  },
+  {
+    "id": "CYF-T3-004",
+    "tier": 3,
+    "category": "Support and community",
+    "question": "What is Slack, and how does it work?",
+    "answer": "Slack is the operating system that brings people together. And because we all just meet on Saturdays, we need a way of talking to each other during the week too. Slack is that place. Slack is also a software used actively in the tech industry for communication. So by learning how to use it, you’ll already know how to get around it on your first job. Our Slack is organised as follows: Intro to Digital and Basic Online Skills workspace CYF Community workspace: includes Intro to Programming trainee volunteers All workspaces have the same channel structure, so search for key words such as your region i.e. “London” and find the channels that you’d like to join, for example #london-community Our automated workflows will invite you to the most important channels, but some channels might be missing, so join them yourself. Watch this video about Slack Essentials at CYF.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T3-005",
+    "tier": 3,
+    "category": "Support and community",
+    "question": "I need help to find information about a problem or a question",
+    "answer": "If in doubt, reach out. We are here to support you. We might not always be able to solve your problem, but we can at least help you finding a way when we have contacts. \\ Questions that are not personal Usually, at least 1 other person will have the same question as you. So ask on your community channel on Slack \\ \\ https://signposts.codeyourfuture.io/ Our signpost website has many internal and external resources, so go to it, select your region, and choose the theme you need help with \\ \\ Community Talk to a volunteer or trainee you trust, or reach out to a staff member. We are here to understand your issue and guide you. \\ \\ Code of Conduct We do not tolerate discrimination or harassment in our community. This page explains examples and tells you how to report it. It’s important to report these situations to keep our community safe. \\ \\ Safeguarding If you see any kind of abuse, you must report it immediately. See this page for examples and how to report it. \\",
+    "source_urls": [
+      "https://signposts.codeyourfuture.io/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T3-006",
+    "tier": 3,
+    "category": "Support and community",
+    "question": "Who is my point of contact?",
+    "answer": "Your main point of contact will be the volunteers of your region - or the volunteers supporting you online. So if you have questions, post on Slack or talk to them on a Saturday class. The second contact point are your fellow trainees. Many of them might know the answers to your questions, too. If you have any issues that they can’t solve, we have staff members who can support you. They should be easy to spot and should have been introduced to you, but if not, post a question on the channel.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T4-007",
+    "tier": 4,
+    "category": "Handle with care",
+    "question": "Where can I find the venue's fire safety information?",
+    "answer": "Fire safety information is available at the venue and in the regional Slack community channel, including pinned documents. Follow the venue staff instructions.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "restricted"
+  },
+  {
+    "id": "CYF-T2-010",
+    "tier": 2,
+    "category": "After signing up for Intro to Digital",
+    "question": "I have signed up for the Intro to Digital (ITD) course. What happens next?",
+    "answer": "Well done for taking the first step! Let’s go through what comes next. \\ There is a difference between the course curriculum AND the course platform. Course Curriculum: It’s our open source page, which you can use immediately to start studying - don’t wait Course Platform: Is where you will submit the final material. This only opens on the 1st day of the month in which the course is running (i.e. 1st April) \\ What can you do now? 1. Check out our When does the next course start? Do you have a calendar? to see when the next course starts and add it to your calendar 2. You will receive an email and SMS reminder a couple of days before the course starts. 3. Start studying using the curriculum: https://itd.codeyourfuture.io/ (Keep in mind, we do update and change things slightly, so you might have to make changes to your exercise before submitting it when the course starts.)",
+    "source_urls": [
+      "https://itd.codeyourfuture.io/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-011",
+    "tier": 2,
+    "category": "After signing up for Intro to Digital",
+    "question": "I have to restart Intro to Digital. How do I do this?",
+    "answer": "If you signed up with us in a previous Intro to Digital course, you can restart the course when a new one starts. This means you will have to resubmit all work, because the curriculum will probably change between courses. How to do this: 1. Go to the login page of our Course Platform on day 1 of the month the course is running 2. Log in with the email you signed up with 3. Scroll down on the home page 4. Click the restart button",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-012",
+    "tier": 2,
+    "category": "After signing up for Intro to Digital",
+    "question": "I couldn’t finish or had to withdraw from the ITD course this time.",
+    "answer": "Yes, you can come back when Intro to Digital is running again. 1. Check out our calendar 2. Go to the login page of our Course Platform on day 1 of the month the course is running 3. Log in with the email you signed up with 4. Scroll down on the home page 5. Click the restart button If you don't finish in time, you'll need to wait for the next ITD intake and restart from Step 0. The portal doesn't save your progress. If you've kept your own copy of your answers, you can resubmit them, but please note the questions may have changed since you started.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-013",
+    "tier": 2,
+    "category": "After signing up for Intro to Digital",
+    "question": "What happens when I finish Intro to Digital?",
+    "answer": "Congratulations on finishing Intro to Digital! You now have to go through our eligibility steps to be invited for Intro to Programming. The steps are: 1. Fill in the eligibility form 2. Pass eligibility 3. Request an English coupon 4. Take the English test (2 days to receive the result) 5. Pass the English test 6. Sign the Trainee Agreement All of these must be done before the next course, and the deadlines will be on the portal.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-014",
+    "tier": 2,
+    "category": "After signing up for Intro to Digital",
+    "question": "I completed Intro to Digital. I want to get ready for Intro to Programming. What should I do?",
+    "answer": "Whilst waiting for the eligibility check (see info below), you can join the #waiting-room channel and continue learning. 🧑‍💻 Start the prep for Intro to Programming Get familiar with your curriculum. https://curriculum.codeyourfuture.io/itp/ Understand how our curriculum works: https://curriculum.codeyourfuture.io/how-this-works/ Check out the course overview: https://curriculum.codeyourfuture.io/itp/overview/ Work on the prep of backlog - you can finish ITP faster if you want. Other ideas: 🧠 Learn to learn 1. Take this online learning course on online studying: Learning to Learn 2. Take Learning How to Learn: Powerful mental tools to help you master tough subjects | Coursera (Click the \"Join for Free\" button and sign up for an account (Do not pay for the course!) 3. Read this article to start learning like a programmer: Learning to Learn | CSS-Tricks 💪 Do the stretch As a CYF trainee and later professional, you will always be learning and growing. What strategies will you develop now to help you on the course and in your career? Here are some good-quality courses we recommend: 1. Open University, returning to STEM 2. Open University mathematics: patterns and formulas 3. BBC Functional Skills ⭐ Become a power user 1. Increase your typing speed: https://monkeytype.com/ 2. Explore the building blocks of programming with our Blocks course https://blocks.codeyourfuture.io/ 3. Get to grips with your IDE: https://www\\.codecademy.com/article/visual-studio-code 4. Discover Devtools: https://www\\.youtube.com/watch?v=gTVpBbFWry8 5. Explore Linux: https://www\\.yo 6. Join GitHub and start learning: https://skills.github.com/ 🐙 Get Git 1. GitHub - skills/introduction-to-github: Get.",
+    "source_urls": [
+      "https://curriculum.codeyourfuture.io/itp/",
+      "https://curriculum.codeyourfuture.io/how-this-works/",
+      "https://curriculum.codeyourfuture.io/itp/overview/",
+      "https://monkeytype.com/",
+      "https://blocks.codeyourfuture.io/",
+      "https://www\\.codecademy.com/article/visual-studio-code",
+      "https://www\\.youtube.com/watch?v=gTVpBbFWry8",
+      "https://www\\.yo",
+      "https://skills.github.com/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-015",
+    "tier": 2,
+    "category": "Eligibility and English test",
+    "question": "How can I find my CodeYourFuture badge?",
+    "answer": "Go to the Accredible website and retrieve your badge.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-016",
+    "tier": 2,
+    "category": "Course details",
+    "question": "Laptop specification for the course",
+    "answer": "These are our suggested minimum laptop specifications, depending if you are getting a new or old laptop. New Laptops Processor: Intel Core i5 / AMD Ryzen 5 (8th Gen or newer) / Apple Silicon (M1 or newer) RAM: 8 GB minimum (12 GB – 16 GB highly recommended) Storage: 500 GB SSD or larger (Strictly no HDDs) Display: 1920 x 1080 (Full HD) resolution or greater Keyboard: Standard English layout Connectivity: Built-in Wi-Fi 5/6 and at least 2 USB ports Extras: Integrated webcam and microphone required Used / Refurbished Laptops Processor: Intel Core i5 / AMD Ryzen 5 (8th Gen or newer) / Apple Silicon (M1 or newer) RAM: 8 GB absolute minimum (12 GB – 16 GB highly recommended; 4 GB is no longer accepted) Storage: 256 GB SSD or larger (Strictly no HDDs) Keyboard: Standard English layout Hardware Health: Battery must hold a minimum 2-hour charge; power brick/charger must be included. Security: Must be fully unlocked (No corporate MDM, firmware locks, or BIOS passwords) Connectivity: Built-in Wi-Fi and at least 2 USB ports Extras: Integrated webcam and microphone required",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-017",
+    "tier": 2,
+    "category": "Eligibility and English test",
+    "question": "What’s the difference between Intro to Digital Completion and Intro to Programming eligibility?",
+    "answer": "Completing Intro to Digital means you passed our first course and learned many useful admin skills you can apply in your job and life. To join Intro to Programming, you must pass our eligibility requirements. As a non-profit, we must ensure we are supporting the people within our mission, and this is the right moment to do this check. ## Eligibility questions",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-018",
+    "tier": 2,
+    "category": "Eligibility and English test",
+    "question": "What is the eligibility check and process?",
+    "answer": "You can read about what we consider for eligibility on this question. The process is: 1. Pass Eligibility survey: in which we calculate if you are from a low-income background - read more on this doc - and if you are too far to attend our in-person classes 2. Pass Duolingo English Test: for now, we ask everyone to take the test - no matter where you are born, what you studied, etc. You will NOT pay for this test; Duolingo is our partner and gives it to us for free. 3. Sign the trainee agreement This process will always have a deadline to be done, which is communicated via email and Slack - so keep an eye on both, check your junk folder regularly, and mark our emails as trusted so you don’t miss out on it.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-019",
+    "tier": 2,
+    "category": "Course details",
+    "question": "If I have questions about next steps or the process, what’s the first place I should check?",
+    "answer": "The CYF Portal is your first call for information. It shows all steps you have to take, clarifies the next steps, and has any other information.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-020",
+    "tier": 2,
+    "category": "Eligibility and English test",
+    "question": "What’s the difference between the Duolingo English Test I took during Intro to Digital and the certified test you ask me to take for eligibility?",
+    "answer": "During Intro to Digital, you use the _*practice*_ test. For eligibility, you will do the _*Duolingo English Test (DET)*_, which is a formal test, with many checks (ID, rules for laptop/cameras), and you get a certificate too!",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-021",
+    "tier": 2,
+    "category": "Eligibility and English test",
+    "question": "I do not have a quiet space to take the Duolingo English Test. Can you help?",
+    "answer": "Post on your community Slack channel (i.e. #london-community) so you can go to our offices on Saturday and take the test from there. Many of our regions also have extra laptops you can use for that in the location.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-022",
+    "tier": 2,
+    "category": "Eligibility and English test",
+    "question": "I am a native speaker and/or have an English certificate. Can I waive the Duolingo test?",
+    "answer": "No, right now we only accept the Duolingo English test to ensure we have a standard way of evaluating all trainees equally. The test is free, and if you have good English, it will be easy for you to pass it.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-023",
+    "tier": 2,
+    "category": "Eligibility and English test",
+    "question": "I took the Duolingo test, but it was not complete or uncertified.",
+    "answer": "Your first point of contact is the Duolingo support team. They can look into the reasons this happened and hopefully give you a second chance to take the test.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-024",
+    "tier": 2,
+    "category": "Eligibility and English test",
+    "question": "I want to improve my English. What should I do?",
+    "answer": "To join the Code Your Future Software Development Course you need a B2 level of English. [How is proficient in English defined? [Public]]\\(https://docs.google.com/document/d/1a_BqRRdLOVRHXFDm8HO9riTAr_8M1AFCa2FO2QBd6pg/edit?usp=sharing) If your English level is not high enough yet, don’t give up. We will welcome you when you are ready. There are free videos and courses to help you learn more English. ## Improve your English Speaking and Listening 1. Speak English every day with one native speaker. 2. Speak for at least 15 minutes each day. 3. Download the Duolingo app on your phone and practice your English. 4. Come to CYF socials and drop-in workshops and talk to us! Writing and Reading 1. Take the PD Coursework seriously and write without using AI. 2. Download the Duolingo app on your phone and practice your English. 3. Read a page of a book, online article or anything of your interest and choice in English. 4. Take 15 min a day and write a short text. Check it with a Grammar AI. Understand what your mistakes were. Try re-writing it until it is correct. Other tips Use the Elevate app - the free version allows you to play 3 games for free per day! Go to the shops and talk to the shop workers. Join your local library. They often have English-speaking or reading groups. Go to story-time sessions if you have babies or small children. When watching TV or movies, put the English captions on so you can follow along. Join an English language exchange and share your own language with a native speaker. Improve your Technical English by attending tech meetups ## Online ### The BBC The BBC runs free video courses to help you learn English: BBC Learning English - Homepage If you.",
+    "source_urls": [
+      "https://docs.google.com/document/d/1a_BqRRdLOVRHXFDm8HO9riTAr_8M1AFCa2FO2QBd6pg/edit?usp=sharing",
+      "https://www\\.refugeecouncil.org.uk/service-category/integration/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T2-025",
+    "tier": 2,
+    "category": "Eligibility and English test",
+    "question": "I missed the deadline. What happens next?",
+    "answer": "We run courses all year long, so we need to have deadlines to be able to start a cohort and give those participants the best chance for success. The deadlines are communicated via email, Slack and on our portal - so keep an eye on all, check your junk folder regularly, and mark our emails as trusted so you don’t miss out on them. When you miss the deadline, you must let us know you want to join the next cohort, which we call a deferral. Please do it using the CYF Portal. See details here.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T3-007",
+    "tier": 3,
+    "category": "Joining and preparing",
+    "question": "Can I join the Intro to Programming cohort that is running now?",
+    "answer": "No. The CYF FAQ states that trainees cannot join an Intro to Programming cohort already underway. Check the CYF Portal for the next available cohort; do not rely on old dates.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T5-002",
+    "tier": 5,
+    "category": "Account and portal problems",
+    "question": "Do I need to do the ITP eligibility process if I completed it before?",
+    "answer": "If you've previously done the ITP eligibility process, here's what applies if you're reapplying. Do I need to sign up again? Yes. We've moved to a brand new system, so everyone needs to create a new sign-up, even if you've been through this before. Do I need to complete the eligibility process again? Yes. The rules haven't changed, so this should be straightforward if you've done it before. Do I need to take the Duolingo English test again? No, not if you've already passed it. The system will identify your email address and pick up your latest result automatically. If you used a different email for your Duolingo test, and it's a Gmail account, you can link it to your current account. If the system still doesn't pick up your certificate, send a message via the Portal with the email address you used for the test, and we'll add it manually. Do I need to sign a new agreement? Yes, you'll need to sign the new agreement as part of this process. Do I need to link my GitHub again? Yes, you'll need to link your GitHub account to your new account.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "handoff"
+  },
+  {
+    "id": "CYF-T5-003",
+    "tier": 5,
+    "category": "Account and portal problems",
+    "question": "I have a previous Duolingo result, but the CYF Portal is not identifying it.",
+    "answer": "Use the “Need help?” option and send us details of your certificate and the email address you used for it, so we can check it for you.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "handoff"
+  },
+  {
+    "id": "CYF-T5-004",
+    "tier": 5,
+    "category": "Account and portal problems",
+    "question": "I am trying to log on to the CYF Portal, but it is not recognising my email.",
+    "answer": "Have you ever used the CYF Portal? If not, follow the instructions in the email we sent. Create a new account. This is a brand new portal, and your data from the previous Trainee Portal will not be transferred.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "handoff"
+  },
+  {
+    "id": "CYF-T5-005",
+    "tier": 5,
+    "category": "Account and portal problems",
+    "question": "I have done all the steps for the eligibility. How do I join the correct Slack workspace?",
+    "answer": "The Slack invite and other instructions were sent to you in the Trainee Agreement confirmation email. Please read it and follow the steps and links on it. ## I am doing Intro to Programming",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "handoff"
+  },
+  {
+    "id": "CYF-T3-008",
+    "tier": 3,
+    "category": "Joining and preparing",
+    "question": "How do I start preparing for Intro to Programming (ITP)?",
+    "answer": "Get familiar with your curriculum. https://curriculum.codeyourfuture.io/itp/ Understand how our curriculum works: https://curriculum.codeyourfuture.io/how-this-works/ Check out the course overview: https://curriculum.codeyourfuture.io/itp/overview/ Work on the prep of backlog - you can finish ITP faster if you want.",
+    "source_urls": [
+      "https://curriculum.codeyourfuture.io/itp/",
+      "https://curriculum.codeyourfuture.io/how-this-works/",
+      "https://curriculum.codeyourfuture.io/itp/overview/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T5-006",
+    "tier": 5,
+    "category": "Programme life",
+    "question": "I cannot make it to a class or have missed a class. Who do I inform about this?",
+    "answer": "Always let your community know first, on your community Slack channel (i.e. #scotland-community). They are your weekly group, so they should be your first point of contact We also ask you to explain why you missed any of the first 5 classes. That’s because they are mandatory, since if you miss the first module, you will fall behind quickly - and will not be able to enrol on time.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "handoff"
+  },
+  {
+    "id": "CYF-T3-009",
+    "tier": 3,
+    "category": "Joining and preparing",
+    "question": "What does it mean to be an enrolled trainee?",
+    "answer": "Everyone who is doing a course with us is a trainee. When you finish the first module of Intro to Programming within the deadline, we consider you an enrolled trainee. The enrolled trainee is part of the pastoral duty CodeYourFuture has as an educational organisation. This identifies that you are a person actively learning with us, and we must support you accordingly. Once you are enrolled, you get some extra perks, such as the Udemy platform for free, expenses covered for all courses, etc. Your enrollment is valid for the entire course plus 6 weeks after it finishes. You are enrolled on every course after ITD, once you are accepted to it.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T5-007",
+    "tier": 5,
+    "category": "Programme life",
+    "question": "Is there a deadline to enrol as a trainee?",
+    "answer": "Yes. This deadline will be communicated on Slack and on our portal, but it’s 5 weeks into the course.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "handoff"
+  },
+  {
+    "id": "CYF-T3-010",
+    "tier": 3,
+    "category": "Laptops and letters",
+    "question": "I need a laptop for Intro to Programming. How can I request it, and what is the process?",
+    "answer": "Once you join Intro to Programming, you can request a laptop on Signpost. Please do NOT request it until you have been accepted as a trainee on the Intro to Programming course, since you’ll be wasting your and our time. Process 1. You request the laptop via our Signpost page 2. The team will check if you are an active trainee 3. They will send you a Laptop agreement using the email laptop AT codeyourfuture.io 4. You sign the agreement 5. The laptop will be sent as soon as possible 6. Your loan is valid for 12 months",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T5-008",
+    "tier": 5,
+    "category": "Laptops and leaving",
+    "question": "How do I return my CYF laptop?",
+    "answer": "How should I package and send the laptop? You must package the laptop along with all accessories, including the charger. Please use Royal Mail to post the package. What is the return address? Please mark the package ATT: CodeYourFuture and use the following address: CYF - 4th floor Blue Star House, 234-244 Stockwell Rd, London, SW9 9SP, UK. What should I do with my data before returning the device? You must remove all your personal files from the device before posting it. Please note that the device will be wiped as soon as it is returned. How do I handle the postage costs? If you need financial assistance to cover the cost of postage, please email laptops\\@codeyourfuture.io for help. You can also claim back the postage costs by using the official CYF expense form. What information do I need to provide after posting? As soon as you have posted the package, you must email CYF with the tracking number and the name of the courier used. Once received and confirmed, the team will mark the laptop as returned in their records.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "handoff"
+  },
+  {
+    "id": "CYF-T5-009",
+    "tier": 5,
+    "category": "Programme life",
+    "question": "What are the pair programming sessions?",
+    "answer": "Pair programming is working together with someone else to code a solution to a problem. It’s an excellent way to develop programming and communication skills, which you will need for your job interviews. Everyone at CYF can pair program. This can be trainee-trainee, trainee-alumni, trainee-volunteer, alumni-volunteer. Read our https://curriculum.codeyourfuture.io/guides/pair-programming/ and head to #cyf-pair-programming to book your session. We recommend doing a weekly session, lasting 30 minutes.",
+    "source_urls": [
+      "https://curriculum.codeyourfuture.io/guides/pair-programming/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T5-010",
+    "tier": 5,
+    "category": "Programme life",
+    "question": "How does code review work?",
+    "answer": "Mentors and trainees all review code and collaborate on improving code quality. We are all helping each other to talk, write, and think about code more clearly. Your code will be reviewed every week, and you will learn and improve with every feedback. You must add the correct format and labels so your pull requests are sent for review. Read these guides: https://curriculum.codeyourfuture.io/guides/reviewing/ https://curriculum.codeyourfuture.io/guides/reviewing/using-labels/",
+    "source_urls": [
+      "https://curriculum.codeyourfuture.io/guides/reviewing/",
+      "https://curriculum.codeyourfuture.io/guides/reviewing/using-labels/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T5-011",
+    "tier": 5,
+    "category": "Programme life",
+    "question": "What are the demos, and why should I present there?",
+    "answer": "We have weekly demo sessions on Tuesdays 6 pm and Fridays 11 am, so all trainees can practice their presentations. This is the link to join it. This is a great opportunity for you to practice your presentation skills and get clear, actionable feedback from your community, regardless of being staff, trainee, volunteer, etc. With this skill, you will be much better during your job interviews, when running through what you achieved, built and answering questions. We recommend demoing at least once every 2 weeks during all courses. Add these meetings to your calendar: https://curriculum.codeyourfuture.io/module/how-our-curriculum-works/#calendar",
+    "source_urls": [
+      "https://curriculum.codeyourfuture.io/module/how-our-curriculum-works/#calendar"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T3-011",
+    "tier": 3,
+    "category": "Support and community",
+    "question": "What is Career Mentorship? Why do I need a career mentor?",
+    "answer": "Once you are in Intro to Programming, you should have a career mentor. Career mentorship is a collaborative and trust-based partnership to support you in your career development. A volunteer with professional experience will work with you, a CodeYourFuture trainee, in a 1-2-1 relationship. The goal is for the volunteer to guide your professional journey. They can help you with strategic ideas, industry perspective and share their experience so you can achieve your career goals. This is _NOT_ a session to discuss technical questions or review a pull request. That’s what pair programming is there for. As a mentee, you must: Define what you want to achieve: before requesting a mentor, be clear on what you want to achieve. A vague request gets a vague result. A specific goal (e.g., \"I want to refine my portfolio for junior dev roles\") leads to a much more successful match. Own the Logistics: You are the driver of this relationship. It’s your responsibility to book the sessions with your mentor. Don't wait for them to chase you - if you don't book it, it won't happen. Respect the volunteer’s time: Your mentor is donating their time. If you absolutely must cancel, do it, whenever possible, days in advance. Not showing up is very disrespectful to the volunteer and to CodeYourFuture. Keep it Professional, Not Personal: Use each meeting to focus on career direction, skill gaps, and industry insights. Don’t expect the mentor to fix things for you. You own your journey and should be prepared to lead on it Come Prepared to Work: Never show up to a session empty-handed. Bring specific questions, be ready to be challenged, and commit to following up on any actions in the previous.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T5-012",
+    "tier": 5,
+    "category": "Programme life",
+    "question": "What should I do when I finish Intro to Programming?",
+    "answer": "If you want to continue the programme, apply for https://curriculum.codeyourfuture.io/checkpoint/. You will receive a Codility test that you must pass with 100%. If you pass it, you’ll be invited to the next Checkpoint If you do less than 100%, use your results as specific feedback. You can identify what you do not know well enough yet and should work on. Share your results in a pair programming session.",
+    "source_urls": [
+      "https://curriculum.codeyourfuture.io/checkpoint/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T3-012",
+    "tier": 3,
+    "category": "Jobs after the course",
+    "question": "I graduated from Intro to Programming. Can I get a job?",
+    "answer": "Yes, we have a lot of Intro to Programming (ITP) graduates who have found jobs. Examples of roles are: Business Analyst, IT Support, Tester or Front-end developer. If you want to get a job after ITP, we will help you - see the question below for more information ## How do you help me find a job?",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T3-013",
+    "tier": 3,
+    "category": "Jobs after the course",
+    "question": "How does CYF help me in my job search",
+    "answer": "Our professional volunteers are here to help you. Employability guides: read our employability guides https://curriculum.codeyourfuture.io/guides/employability/ Career mentor: a 1-2-1 support to guide you on your journey Profile review: review your CV, cover letter, LinkedIn and portfolio by asking for help on #cyf-profile-review Mock-interview: ask for help to practice for your behavioural or technical interviews on #cyf-interview-practice Employability sessions: join a session and work with a group of graduates looking for work. These are shared on #cyf-employment",
+    "source_urls": [
+      "https://curriculum.codeyourfuture.io/guides/employability/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T3-014",
+    "tier": 3,
+    "category": "Jobs after the course",
+    "question": "What type of jobs does CYF help prepare trainees for?",
+    "answer": "CodeYourFuture helps people who need it most to reach their goal of working in tech. Some examples of jobs in tech: A developer role in any company A DevOps/Cloud role in any company A product or delivery role in a software development team A QA or test role in a software development team A support desk role helping customers to use software effectively A UX/UI role in a software development team Read more about how we define ‘good jobs in tech’.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T3-015",
+    "tier": 3,
+    "category": "Laptops and letters",
+    "question": "I need a reference or a letter of support",
+    "answer": "Once you have enrolled in the Intro to Programming course (ITP), we’ll happily provide you with a reference letter (for example, for a job application, a visa, or a course). Please fill in this form: 👉 Request a Reference or Letter of Support Tell us what you need and why. This helps us write the right letter for you. Important details: Standard templates only: We issue our CodeYourFuture standard reference template and cannot accommodate bespoke or custom template requests. Notice period: Please allow enough time before your deadline. It takes up to 5 working days for our team to reply. ## I have to or want to leave my course",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T5-013",
+    "tier": 5,
+    "category": "Laptops and leaving",
+    "question": "I have to withdraw from or defer because I can’t or don’t want to do the course anymore",
+    "answer": "For Intro to Digital, the FAQ says you may stop and return when your availability changes. For later courses, request a deferral through the CYF Portal. If you want to withdraw entirely, use the CYF withdrawal form or ask your community team for the current link.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "high",
+    "response_type": "handoff"
+  }
+]

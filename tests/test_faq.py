@@ -17,10 +17,29 @@ class TestFAQ(unittest.TestCase):
         cls.records = load_all()
         cls.by_id = {r['id']:r for r in cls.records}
 
-    def test_exactly_23_unique_cases_and_records(self):
-        self.assertEqual(len(self.records), 23)
-        self.assertEqual(len(CASES), 23)
-        self.assertEqual(set(self.by_id), {c['id'] for c in CASES})
+     
+    def test_all_tiers_and_unique_records(self):
+        from collections import Counter
+
+        self.assertEqual(len(self.records), 83)
+
+        ids = [record["id"] for record in self.records]
+        self.assertEqual(len(ids), len(set(ids)))
+
+        tier_counts = Counter(
+            record["tier"] for record in self.records
+        )
+
+        self.assertEqual(
+            dict(tier_counts),
+            {
+                1: 23,
+                2: 25,
+                3: 15,
+                4: 7,
+                5: 13,
+            }
+        )
 
     def test_unapproved_records_are_excluded(self):
         self.assertEqual(approved_faq(), [])
