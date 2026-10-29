@@ -21,6 +21,33 @@ if dev_mode:
 if not records:
     st.warning("No FAQ answers are available in this mode.")
 
+GREETINGS = {
+    "hi",
+    "hello",
+    "hey",
+    "hiya",
+    "good morning",
+    "good afternoon",
+    "good evening",
+}
+
+def get_greeting_response(message: str) -> str | None:
+    normalized = re.sub(
+        r"[^\w\s]", "", message.lower()
+    ).strip()
+
+    normalized = " ".join(normalized.split())
+
+    if normalized in GREETINGS:
+        return (
+            "Hello! 👋 Welcome to the CodeYourFuture AI Concierge. "
+            "I can help you with course information, eligibility, "
+            "applications, and trainee support. "
+            "What would you like to know?"
+        )
+
+    return None
+
 
 def contextual_query(prompt, history):
     """Resolve short follow-ups from the previous user topic without exposing chat history."""
@@ -44,37 +71,104 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 if prompt := st.chat_input("Ask about CodeYourFuture courses"):
+
+    # Save the user's message
     search_query = contextual_query(prompt, st.session_state.messages)
-    st.session_state.messages.append({"role": "user", "content": prompt})
+
+    st.session_state.messages.append({
+        "role": "user",
+        "content": prompt
+    })
+
     with st.chat_message("user"):
         st.markdown(prompt)
+
     with st.chat_message("assistant"):
-        if not records:
+
+        # 1. Handle greetings before FAQ retrieval
+        greeting_reply = get_greeting_response(prompt)
+
+        if greeting_reply is not None:
+            reply = greeting_reply
+
+        # 2. Check whether FAQ records are available
+        elif not records:
             reply = NO_RECORDS_REPLY
+
         else:
+            # 3. Retrieve relevant FAQ records
             matches = retrieve(search_query, records)
+
             if not matches:
                 reply = NO_MATCH_REPLY
+
             else:
+                # 4. Check whether the answer needs special handling
                 controlled = controlled_reply(matches[0])
+
                 if controlled is not None:
                     reply = controlled
+
+                # 5. Check OpenAI API configuration
                 elif not os.getenv("OPENAI_API_KEY"):
-                    reply = "An OpenAI API key is required to run this pilot."
+                    reply = (
+                        "An OpenAI API key is required "
+                        "to run this pilot."
+                    )
+
                 else:
-                    evidence = [r for r in matches if controlled_reply(r) is None]
+                    # 6. Build evidence from retrieved FAQs
+                    evidence = [
+                        r for r in matches
+                        if controlled_reply(r) is None
+                    ]
+
+                    # 7. Generate a grounded answer using OpenAI
                     try:
                         response = OpenAI().chat.completions.create(
-                            model=os.getenv("OPENAI_MODEL", "gpt-4.1-mini"),
+                            model=os.getenv(
+                                "OPENAI_MODEL",
+                                "gpt-4.1-mini"
+                            ),
                             temperature=0.0,
                             messages=[
-                                {"role": "system", "content": SYSTEM_POLICY + "\nFAQ EVIDENCE:\n" + build_faq_context(evidence)},
-                                {"role": "user", "content": search_query},
+                                {
+                                    "role": "system",
+                                    "content": (
+                                        SYSTEM_POLICY
+                                        + "\nFAQ EVIDENCE:\n"
+                                        + build_faq_context(evidence)
+                                    )
+                                },
+                                {
+                                    "role": "user",
+                                    "content": search_query
+                                }
                             ],
                         )
-                        reply = response.choices[0].message.content or NO_MATCH_REPLY
+
+                        reply = (
+                            response.choices[0].message.content
+                            or NO_MATCH_REPLY
+                        )
+
                     except Exception as error:
-                        print(f"OpenAI request error type: {type(error).__name__}", flush=True)
-                        reply = "The assistant is temporarily unavailable. Please try again later."
+                        print(
+                            f"OpenAI request error type: "
+                            f"{type(error).__name__}",
+                            flush=True
+                        )
+
+                        reply = (
+                            "The assistant is temporarily unavailable. "
+                            "Please try again later."
+                        )
+
+        # 8. Display the assistant's response
         st.markdown(reply)
-    st.session_state.messages.append({"role": "assistant", "content": reply})
+
+    # 9. Save the assistant's response
+    st.session_state.messages.append({
+        "role": "assistant",
+        "content": reply
+    })
