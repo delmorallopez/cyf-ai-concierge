@@ -29,6 +29,7 @@ GREETINGS = {
     "good morning",
     "good afternoon",
     "good evening",
+    "what do you do?"
 }
 
 def get_greeting_response(message: str) -> str | None:
