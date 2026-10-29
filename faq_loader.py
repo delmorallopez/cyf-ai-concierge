@@ -73,6 +73,87 @@ ALIASES = {
     "duration": "long", "weeks": "week", "results": "result",
 }
 
+import re
+
+def application_intent(query: str) -> str | None:
+    normalized = re.sub(r"[^\w\s]", " ", query.lower())
+    normalized = " ".join(normalized.split())
+
+    if normalized in {
+        "how do i apply to codeyourfuture",
+        "how can i apply to codeyourfuture",
+        "how do i apply to cyf",
+    }:
+        return "CYF-T2-026"
+
+    if normalized in {
+        "how do i check my application progress",
+        "how can i check my application status",
+        "where can i see my application status",
+    }:
+        return "CYF-T2-027"
+    
+    if normalized in {
+        "how many hours per week do i need to study",
+        "how much time do i need to study each week",
+        "what is the weekly study commitment",
+        "how many hours a week is the course",
+    }:
+        return "CYF-T2-028"
+    
+    if normalized in {
+        "where can i find trainee support",
+        "where can i get help as a trainee",
+        "how can i get trainee support",
+    }:
+        return "CYF-T3-005"
+
+    if normalized in {
+        "what career support is available",
+        "what job support does cyf provide",
+        "how does cyf help me find a job",
+    }:
+        return "CYF-T1-021"
+
+    if normalized in {
+        "what happens after completing the programme",
+        "what happens after i finish the programme",
+        "what support is available after graduation",
+    }:
+        return "CYF-T3-013"
+    
+    if normalized in {
+        "can codeyourfuture provide a laptop",
+        "can cyf provide a laptop",
+        "can i get a laptop from codeyourfuture",
+        "does codeyourfuture provide laptops",
+        "how can i request a laptop",
+        "how do i request a laptop for itp",
+    }:
+        return "CYF-T3-010"
+    
+    if normalized in {
+        "what is a trainee",
+        "what does trainee mean",
+        "what is an enrolled trainee",
+        "what does it mean to be a trainee",
+        "who is considered a trainee",
+    }:
+        return "CYF-T3-009"
+    
+    location_phrases = (
+        "i live in ",
+        "i am living in ",
+        "i'm living in ",
+        "i'm based in ",
+        "can i apply from ",
+        "can i join from ",
+    )
+
+    if any(phrase in normalized for phrase in location_phrases):
+        return "CYF-T1-001"
+
+    return None
 
 def tokens(text):
     words = re.findall(r"[a-z0-9]+", text.lower())
@@ -103,27 +184,158 @@ def _intent_target(question, records):
 
 
 def retrieve(question, faq_records, limit=4):
-    """Return ranked evidence; conservative on weak matches, no external dependencies."""
+    """Return ranked FAQ evidence with explicit intent routing."""
+
     if not question.strip():
         return []
+
+    # Normalize the user's question
+    normalized = " ".join(
+        re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    normalized = " ".join(
+    re.sub(r"[^\w\s£]", " ", question.lower()).split()
+    )
+
+    income_terms = (
+        "income", "salary", "earns", "earning",
+        "makes", "paid", "wage"
+    )
+
+    household_terms = (
+        "wife", "husband", "partner", "spouse",
+        "household", "family"
+    )
+
+    if (
+        any(term in normalized.split() for term in income_terms)
+        and any(term in normalized.split() for term in household_terms)
+    ):
+        for record in faq_records:
+            if record["id"] == "CYF-T1-001":
+                return [record]
+
+    # Retrieve multiple FAQs for general trainee support
+    if normalized in {
+        "where can i find trainee support",
+        "how can i get support as a trainee",
+        "where can trainees get help",
+    }:
+        support_ids = [
+            "CYF-T3-005",
+            "CYF-T5-001",
+            "CYF-T3-006",
+        ]
+
+        matches = [
+            record
+            for faq_id in support_ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+
+        return matches[:limit]
+
+
+        # Questions about working while attending CYF classes
+    if (
+        any(term in normalized for term in (
+            "working",
+            "work full time",
+            "work part time",
+            "have a job",
+            "employed",
+        ))
+        and any(term in normalized for term in (
+            "class",
+            "course",
+            "study",
+            "attend",
+        ))
+    ) or normalized in {
+        "when are the classes",
+        "what days are the classes",
+        "are classes on saturdays",
+        "what time do classes start",
+    }:
+        schedule_ids = [
+            "CYF-T1-010",
+            "CYF-T1-011",
+            "CYF-T1-009",
+        ]
+
+        matches = [
+            record
+            for faq_id in schedule_ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+
+        return matches[:limit]
+    
+    
+    # Existing explicit intent routing
+    target_id = application_intent(question)
+
+    if target_id:
+        for record in faq_records:
+            if record["id"] == target_id:
+                return [record]
+
+    # Keep the rest of your existing retrieval logic below.
+    # 2. Handle existing intent routing
     routed = _intent_target(question, faq_records)
+
     if routed:
         return routed[:limit]
+
+    # 3. Tokenise the question
     q = tokens(question)
+
     if not q:
         return []
+
+    # 4. Rank FAQ records by similarity
     ranked = []
+
     for record in faq_records:
         title = tokens(record["question"])
+
         overlap = len(q & title)
         precision = overlap / len(q)
         coverage = overlap / max(1, len(title))
-        similarity = SequenceMatcher(None, question.lower(), record["question"].lower()).ratio()
-        score = 0.65 * precision + 0.25 * coverage + 0.10 * similarity
+
+        similarity = SequenceMatcher(
+            None,
+            question.lower(),
+            record["question"].lower()
+        ).ratio()
+
+        score = (
+            0.65 * precision
+            + 0.25 * coverage
+            + 0.10 * similarity
+        )
+
         if overlap and (precision >= 0.4 or overlap >= 2):
             ranked.append((score, record))
-    ranked.sort(key=lambda item: item[0], reverse=True)
+
+    # 5. Sort by highest score
+    ranked.sort(
+        key=lambda item: item[0],
+        reverse=True
+    )
+
+    # 6. Reject weak matches
     if not ranked or ranked[0][0] < 0.36:
         return []
+
+    # 7. Return the best matching FAQs
     best = ranked[0][0]
-    return [r for score, r in ranked if score >= max(0.36, best - 0.15)][:limit]
+
+    return [
+        record
+        for score, record in ranked
+        if score >= max(0.36, best - 0.15)
+    ][:limit]

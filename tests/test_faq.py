@@ -21,11 +21,14 @@ class TestFAQ(unittest.TestCase):
     def test_all_tiers_and_unique_records(self):
         from collections import Counter
 
-        self.assertEqual(len(self.records), 83)
+        # Total FAQ records
+        self.assertEqual(len(self.records), 86)
 
+        # Check for duplicate IDs
         ids = [record["id"] for record in self.records]
         self.assertEqual(len(ids), len(set(ids)))
 
+        # Validate records per tier
         tier_counts = Counter(
             record["tier"] for record in self.records
         )
@@ -34,7 +37,7 @@ class TestFAQ(unittest.TestCase):
             dict(tier_counts),
             {
                 1: 23,
-                2: 25,
+                2: 28,
                 3: 15,
                 4: 7,
                 5: 13,

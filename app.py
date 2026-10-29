@@ -8,6 +8,7 @@ from openai import OpenAI
 
 from app_policy import SYSTEM_POLICY, NO_MATCH_REPLY, NO_RECORDS_REPLY, controlled_reply
 from faq_loader import approved_faq, reviewed_faq, build_faq_context, retrieve
+from chat_utils import TOPIC_RESPONSES
 
 load_dotenv()
 st.set_page_config(page_title="CYF AI Concierge", page_icon="💬")
@@ -37,63 +38,6 @@ CAPABILITY_QUESTIONS = {
     "how can you help me",
     "what can i ask you",
     "who are you",
-}
-
-TOPIC_RESPONSES = {
-    "cyf courses and learning pathways": (
-        "CodeYourFuture offers a learning pathway that includes "
-        "Intro to Digital (ITD), Intro to Programming (ITP), "
-        "Checkpoint, and the Software Development Course (SDC).\n\n"
-        "You can ask me:\n"
-        "- What is Intro to Digital?\n"
-        "- Can I skip a course?\n"
-        "- How long does Intro to Programming take?"
-    ),
-
-    "eligibility requirements": (
-        "I can help you understand CodeYourFuture's "
-        "eligibility requirements.\n\n"
-        "You can ask me:\n"
-        "- Who can apply to CodeYourFuture?\n"
-        "- Do I need the right to work in the UK?\n"
-        "- What level of English do I need?"
-    ),
-
-    "applications and enrolment": (
-        "I can guide you through the CodeYourFuture "
-        "application and enrolment process.\n\n"
-        "You can ask me:\n"
-        "- How do I apply to CodeYourFuture?\n"
-        "- What happens after I complete Intro to Digital?\n"
-        "- How do I check my application progress?"
-    ),
-
-    "course schedules and commitments": (
-        "I can help you understand course durations, "
-        "study commitments, and schedules.\n\n"
-        "You can ask me:\n"
-        "- How long does Intro to Programming take?\n"
-        "- How many hours per week do I need to study?\n"
-        "- When does the next course start?"
-    ),
-
-    "laptop support and trainee resources": (
-        "I can provide information about laptop support "
-        "and resources available to CYF trainees.\n\n"
-        "You can ask me:\n"
-        "- Can CodeYourFuture provide a laptop?\n"
-        "- How do I request a laptop for ITP?\n"
-        "- Where can I find trainee support?"
-    ),
-
-    "career support and next steps": (
-        "I can explain the career support available "
-        "through CodeYourFuture.\n\n"
-        "You can ask me:\n"
-        "- Does CodeYourFuture guarantee a job?\n"
-        "- What career support is available?\n"
-        "- What happens after completing the programme?"
-    ),
 }
 
 def get_greeting_response(message: str) -> str | None:

@@ -788,6 +788,42 @@
     "response_type": "answer"
   },
   {
+    "id": "CYF-T2-026",
+    "tier": 2,
+    "category": "Applications and enrolment",
+    "question": "How do I apply to CodeYourFuture?",
+    "answer": "To get started with CodeYourFuture, visit https://codeyourfuture.io/become-a-student/ and follow the registration instructions. The learning pathway begins with Intro to Digital (ITD), followed by Intro to Programming (ITP), Checkpoint and the Software Development Course (SDC). After ITD, complete the required eligibility and enrolment steps shown in the CYF Portal.",
+    "source_urls": [
+      "https://codeyourfuture.io/become-a-student/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low"
+  }, 
+  {
+    "id": "CYF-T2-027",
+    "tier": 2,
+    "category": "Applications and enrolment",
+    "question": "How do I check my application progress?",
+    "answer": "Check the CYF Portal for your application steps, outstanding requirements and relevant deadlines. If you cannot access the Portal or need assistance with your application status, use the 'Need help?' option. The AI Concierge cannot access individual application records.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "medium"
+  },
+  {
+    "id": "CYF-T2-028",
+    "tier": 2,
+    "category": "Course schedules and commitments",
+    "question": "How many hours per week do I need to study?",
+    "answer": "The study commitment depends on the course. Intro to Digital (ITD) involves approximately 20–40 hours of self-paced study in total, typically completed within 28 days. Intro to Programming (ITP) requires more than 28 hours per week over 13 weeks. Checkpoint and the Software Development Course have their own study requirements. Which course are you interested in?",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low"
+  },
+
+  {
     "id": "CYF-T3-007",
     "tier": 3,
     "category": "Joining and preparing",
