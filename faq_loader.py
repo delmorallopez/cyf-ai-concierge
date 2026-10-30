@@ -183,6 +183,41 @@ def _intent_target(question, records):
     return [indexed[rid] for rid in targets if rid in indexed]
 
 
+def eligibility_intent(question):
+    normalized = " ".join(
+        re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    eligibility_terms = (
+        "unemployed",
+        "unemployment",
+        "university degree",
+        "degree",
+        "age limit",
+        "how old",
+        "refugee",
+        "asylum seeker",
+        "asylum seekers",
+    )
+
+    if any(term in normalized for term in eligibility_terms):
+        return ["CYF-T1-001", "CYF-T1-003"]
+
+    location_terms = (
+        "i live in",
+        "i am living in",
+        "i m living in",
+        "i m based in",
+        "can i apply from",
+        "can i join from",
+    )
+
+    if any(term in normalized for term in location_terms):
+        return ["CYF-T1-008", "CYF-T1-001"]
+
+    return []
+
+
 def retrieve(question, faq_records, limit=4):
     """Return ranked FAQ evidence with explicit intent routing."""
 
@@ -215,6 +250,22 @@ def retrieve(question, faq_records, limit=4):
         for record in faq_records:
             if record["id"] == "CYF-T1-001":
                 return [record]
+
+
+    eligibility_ids = eligibility_intent(question)
+
+    if eligibility_ids:
+        matches = [
+            record
+            for faq_id in eligibility_ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+
+        if matches:
+            return matches[:limit]
+        
+
 
     # Retrieve multiple FAQs for general trainee support
     if normalized in {
@@ -274,7 +325,7 @@ def retrieve(question, faq_records, limit=4):
 
         return matches[:limit]
     
-    
+
     # Existing explicit intent routing
     target_id = application_intent(question)
 
