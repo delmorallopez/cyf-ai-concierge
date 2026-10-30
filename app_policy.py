@@ -26,6 +26,9 @@ Additional grounding and support rules:
    or personal account information.
 7. Do not invent course intake dates or disclose
    private venue addresses.
+
+"Do not include FAQ IDs, source references, citations, or a Sources section in your response. "
+"Use the retrieved FAQ records internally to ground your answer, but present only the user-facing answer."
 """
 
 NO_MATCH_REPLY = (

@@ -184,3 +184,41 @@ def test_suggested_questions_are_unique():
     assert len(questions) == len(set(questions)), (
         "Duplicate suggested questions found."
     )
+
+
+
+@pytest.mark.parametrize(
+    "question, expected_ids",
+    [
+        (
+            "Can I join CYF if I live outside the UK?",
+            ["CYF-T1-008", "CYF-T1-001", "CYF-T1-009"],
+        ),
+        (
+            "Are there any online-only courses?",
+            ["CYF-T1-009", "CYF-T1-016"],
+        ),
+        (
+            "What happens if I miss a Saturday class?",
+            ["CYF-T1-009", "CYF-T1-010"],
+        ),
+        (
+            "Can I attend classes in a different CYF region?",
+            ["CYF-T1-008", "CYF-T1-010"],
+        ),
+        (
+            "I live two hours from London. Can I still apply?",
+            ["CYF-T1-001", "CYF-T1-008"],
+        ),
+    ],
+)
+def test_location_attendance_retrieval(question, expected_ids):
+    matches = retrieve(question, reviewed_faq())
+
+    actual_ids = [record["id"] for record in matches]
+
+    assert actual_ids == expected_ids, (
+        f"\nQuestion: {question}"
+        f"\nExpected: {expected_ids}"
+        f"\nActual: {actual_ids}"
+    )

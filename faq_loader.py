@@ -271,6 +271,83 @@ def eligibility_intent(question):
     return []
 
 
+def location_attendance_intent(question):
+    normalized = " ".join(
+        re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    # Applicants outside the UK
+    if any(term in normalized for term in (
+        "outside the uk",
+        "outside of the uk",
+        "outside the united kingdom",
+        "outside britain",
+    )):
+        return [
+            "CYF-T1-008",
+            "CYF-T1-001",
+            "CYF-T1-009",
+        ]
+
+    # Online courses
+    if any(term in normalized for term in (
+        "online only",
+        "fully online",
+        "online courses",
+        "online course",
+        "remote learning",
+        "study remotely",
+    )):
+        return [
+            "CYF-T1-009",
+            "CYF-T1-016",
+        ]
+
+    # Missing Saturday classes
+    if any(term in normalized for term in (
+        "miss a saturday",
+        "miss saturday",
+        "miss a class",
+        "miss classes",
+        "absent from class",
+        "cannot attend saturday",
+    )):
+        return [
+            "CYF-T1-009",
+            "CYF-T1-010",
+        ]
+
+    # Attending another CYF region
+    if any(term in normalized for term in (
+        "different cyf region",
+        "another cyf region",
+        "different region",
+        "another region",
+        "change region",
+        "switch region",
+    )):
+        return [
+            "CYF-T1-008",
+            "CYF-T1-010",
+        ]
+
+    # Travelling more than 90 minutes
+    if any(term in normalized for term in (
+        "two hours from",
+        "2 hours from",
+        "more than 90 minutes",
+        "over 90 minutes",
+        "two hours away",
+        "2 hours away",
+    )):
+        return [
+            "CYF-T1-001",
+            "CYF-T1-008",
+        ]
+
+    return []
+
+
 def retrieve(question, faq_records, limit=4):
     """Return ranked FAQ evidence with explicit intent routing."""
 
@@ -304,6 +381,20 @@ def retrieve(question, faq_records, limit=4):
             if record["id"] == "CYF-T1-001":
                 return [record]
 
+
+    attendance_ids = location_attendance_intent(question)
+
+    if attendance_ids:
+        matches = [
+            record
+            for faq_id in attendance_ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+
+        if matches:
+            return matches[:limit]
+        
 
     eligibility_ids = eligibility_intent(question)
 
