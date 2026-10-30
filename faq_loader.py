@@ -214,6 +214,59 @@ def eligibility_intent(question):
 
     if any(term in normalized for term in location_terms):
         return ["CYF-T1-008", "CYF-T1-001"]
+    
+    # Income verification and supporting documents
+    income_proof_terms = (
+        "proof of income",
+        "prove my income",
+        "provide proof",
+        "income documents",
+        "income verification",
+        "payslip",
+        "payslips",
+        "bank statement",
+    )
+
+    if any(term in normalized for term in income_proof_terms):
+        return ["CYF-T2-018", "CYF-T1-005"]
+    
+
+    # Financial circumstances and income eligibility
+    if any(term in normalized for term in (
+        "universal credit",
+        "benefits",
+        "household income",
+        "low income",
+        "working part time",
+        "part time job",
+        "partner earns",
+        "wife earns",
+        "husband earns",
+    )):
+        return ["CYF-T1-001", "CYF-T1-005"]
+
+    # Income verification questions
+    if (
+        any(term in normalized for term in (
+            "proof of income",
+            "prove my income",
+            "income documents",
+            "payslip",
+            "bank statement",
+        ))
+    ):
+        return ["CYF-T2-018", "CYF-T1-005"]
+
+    # Course fees
+    if any(term in normalized for term in (
+        "pay anything",
+        "course fees",
+        "course fee",
+        "is cyf free",
+        "are the courses free",
+        "cost of the course",
+    )):
+        return ["CYF-T1-014"]
 
     return []
 
@@ -265,8 +318,6 @@ def retrieve(question, faq_records, limit=4):
         if matches:
             return matches[:limit]
         
-
-
     # Retrieve multiple FAQs for general trainee support
     if normalized in {
         "where can i find trainee support",
@@ -390,3 +441,4 @@ def retrieve(question, faq_records, limit=4):
         for score, record in ranked
         if score >= max(0.36, best - 0.15)
     ][:limit]
+

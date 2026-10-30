@@ -14,7 +14,7 @@ def extract_suggested_questions():
     for topic, response in TOPIC_RESPONSES.items():
         matches = re.findall(
             r"(?m)^\s*-\s+(.+\?)\s*$",
-            response
+            response,
         )
 
         for question in matches:
@@ -43,7 +43,7 @@ def test_topic_responses_have_suggestions():
     for topic, response in TOPIC_RESPONSES.items():
         assert re.search(
             r"(?m)^\s*-\s+.+\?\s*$",
-            response
+            response,
         ), f"No suggested questions for topic: {topic}"
 
 
@@ -54,7 +54,6 @@ def test_topic_responses_have_suggestions():
 def test_suggested_question_has_faq(topic, question):
     """Every suggested question must retrieve an FAQ."""
     records = reviewed_faq()
-
     matches = retrieve(question, records)
 
     assert matches, (
@@ -62,6 +61,7 @@ def test_suggested_question_has_faq(topic, question):
         f"\nQuestion: {question}"
         "\nNo matching reviewed FAQ was retrieved."
     )
+
 
 @pytest.mark.parametrize("question", [
     "My wife makes £30k/year",
@@ -74,6 +74,7 @@ def test_household_income_routes_to_eligibility(question):
 
     assert matches
     assert matches[0]["id"] == "CYF-T1-001"
+
 
 @pytest.mark.parametrize(
     "question, expected_id",
@@ -97,17 +98,60 @@ def test_suggested_question_retrieves_correct_faq(
     )
 
 
+@pytest.mark.parametrize(
+    "question, expected_id",
+    [
+        (
+            "I'm currently receiving Universal Credit. Can I apply?",
+            "CYF-T1-001",
+        ),
+        (
+            "Do I need to provide proof of my income?",
+            "CYF-T2-018",
+        ),
+        (
+            "Do I have to pay anything for the courses?",
+            "CYF-T1-014",
+        ),
+        (
+            "Can I apply if I'm working part-time?",
+            "CYF-T1-001",
+        ),
+    ],
+)
+def test_financial_circumstances_retrieval(question, expected_id):
+    matches = retrieve(question, reviewed_faq())
+
+    assert matches, f"No FAQ retrieved for: {question}"
+
+    assert matches[0]["id"] == expected_id, (
+        f"Question: {question}\n"
+        f"Expected: {expected_id}\n"
+        f"Received: {matches[0]['id']}"
+    )
+
+
 @pytest.mark.parametrize("question", [
     "I live in Turkey. Can I get in your course?",
     "I live in Spain. Can I apply?",
     "Can I join from Germany?",
     "I'm based in France. Am I eligible?",
+    "I'm based in Cape Town. Can I apply?",
 ])
 def test_location_eligibility(question):
     matches = retrieve(question, reviewed_faq())
 
     assert matches, f"No FAQ retrieved for: {question}"
-    assert matches[0]["id"] == "CYF-T1-001"    
+
+    actual_ids = [record["id"] for record in matches]
+
+    assert actual_ids[:2] == [
+        "CYF-T1-008",
+        "CYF-T1-001",
+    ], (
+        f"Question: {question}\n"
+        f"Retrieved: {actual_ids}"
+    )
 
 
 @pytest.mark.parametrize("question", [
@@ -129,7 +173,7 @@ def test_working_and_class_schedule(question):
         f"Retrieved: {actual_ids}"
     )
 
-    
+
 def test_suggested_questions_are_unique():
     """Avoid duplicate questions across topic menus."""
     questions = [
