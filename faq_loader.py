@@ -568,6 +568,64 @@ def career_support_intent(question):
     return []
 
 
+def trainee_support_intent(question):
+    normalized = " ".join(
+        re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    # Slack community and communication
+    if "slack" in normalized and any(
+        term in normalized
+        for term in ("community", "trainee", "join", "group")
+    ):
+        return ["CYF-T5-001"]
+
+    # Coursework and assignment support
+    if any(term in normalized for term in (
+        "help with assignments",
+        "help with my assignments",
+        "assignment help",
+        "help with coursework",
+        "ask volunteers for help",
+    )):
+        return ["CYF-T5-001"]
+
+    # Falling behind with learning
+    if any(term in normalized for term in (
+        "falling behind",
+        "fallen behind",
+        "struggling to keep up",
+        "behind with coursework",
+        "behind on assignments",
+    )):
+        return ["CYF-T5-001"]
+
+    # Temporary break or deferral
+    if any(term in normalized for term in (
+        "take a break",
+        "pause the programme",
+        "pause the course",
+        "defer my course",
+        "defer the course",
+        "temporary break",
+    )):
+        return ["CYF-T5-013"]
+
+    # Leaving or withdrawing
+    if any(term in normalized for term in (
+        "decide to leave",
+        "leave the course",
+        "withdraw from the course",
+        "withdraw from cyf",
+        "quit the course",
+        "stop studying",
+    )):
+        return ["CYF-T5-013"]
+
+    return []
+
+
+
 def retrieve(question, faq_records, limit=4):
     """Return ranked FAQ evidence with explicit intent routing."""
 
@@ -620,6 +678,19 @@ def retrieve(question, faq_records, limit=4):
         matches = [
             record
             for faq_id in laptop_ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+
+        if matches:
+            return matches[:limit]
+        
+    trainee_ids = trainee_support_intent(question)
+
+    if trainee_ids:
+        matches = [
+            record
+            for faq_id in trainee_ids
             for record in faq_records
             if record["id"] == faq_id
         ]

@@ -47,6 +47,43 @@ def test_topic_responses_have_suggestions():
         ), f"No suggested questions for topic: {topic}"
 
 
+
+@pytest.mark.parametrize(
+    "question, expected_ids",
+    [
+        (
+            "Is there a Slack community for trainees?",
+            ["CYF-T5-001"],
+        ),
+        (
+            "Can I ask volunteers for help with assignments?",
+            ["CYF-T5-001"],
+        ),
+        (
+            "What should I do if I'm falling behind?",
+            ["CYF-T5-001"],
+        ),
+        (
+            "Can I take a break from the programme?",
+            ["CYF-T5-013"],
+        ),
+        (
+            "What happens if I decide to leave the course?",
+            ["CYF-T5-013"],
+        ),
+    ],
+)
+def test_trainee_support_retrieval(question, expected_ids):
+    matches = retrieve(question, reviewed_faq())
+    actual_ids = [record["id"] for record in matches]
+
+    assert actual_ids == expected_ids, (
+        f"\nQuestion: {question}"
+        f"\nExpected: {expected_ids}"
+        f"\nActual: {actual_ids}"
+    )
+
+
 @pytest.mark.parametrize(
     "topic, question",
     SUGGESTED_QUESTIONS,
