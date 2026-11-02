@@ -231,6 +231,42 @@ def test_application_enquiry_retrieval(question, expected_ids):
     "question, expected_ids",
     [
         (
+            "Do I need to know Python or JavaScript before joining?",
+            ["CYF-T1-014"],
+        ),
+        (
+            "What programming languages will I learn?",
+            ["CYF-T2-005"],
+        ),
+        (
+            "How long does the full CYF programme take?",
+            ["CYF-T1-018", "CYF-T2-005"],
+        ),
+        (
+            "Can I study at my own pace?",
+            ["CYF-T1-009"],
+        ),
+        (
+            "What happens if I struggle with the coursework?",
+            ["CYF-T3-005", "CYF-T5-001"],
+        ),
+    ],
+)
+def test_learning_pathway_retrieval(question, expected_ids):
+    matches = retrieve(question, reviewed_faq())
+    actual_ids = [record["id"] for record in matches]
+
+    assert actual_ids == expected_ids, (
+        f"\nQuestion: {question}"
+        f"\nExpected: {expected_ids}"
+        f"\nActual: {actual_ids}"
+    )
+
+
+@pytest.mark.parametrize(
+    "question, expected_ids",
+    [
+        (
             "Can I join CYF if I live outside the UK?",
             ["CYF-T1-008", "CYF-T1-001", "CYF-T1-009"],
         ),

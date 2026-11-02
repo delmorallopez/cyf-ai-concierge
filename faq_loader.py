@@ -404,6 +404,69 @@ def application_enquiry_intent(question):
     return []
 
 
+def learning_pathway_intent(question):
+    normalized = " ".join(
+        re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    # Previous programming knowledge
+    if any(term in normalized for term in (
+        "know python",
+        "know javascript",
+        "programming experience",
+        "coding experience",
+        "know how to code",
+        "before joining",
+    )):
+        return ["CYF-T1-014"]
+
+    # Programming languages taught
+    if any(term in normalized for term in (
+        "programming languages",
+        "languages will i learn",
+        "learn python",
+        "learn javascript",
+        "languages are taught",
+    )):
+        return ["CYF-T2-005"]
+
+    # Full programme duration
+    if any(term in normalized for term in (
+        "full cyf programme take",
+        "full programme take",
+        "entire programme",
+        "whole programme",
+        "programme duration",
+    )):
+        return [
+            "CYF-T1-018",
+            "CYF-T2-005",
+        ]
+
+    # Self-paced learning
+    if any(term in normalized for term in (
+        "my own pace",
+        "self paced",
+        "study at my pace",
+        "flexible learning",
+    )):
+        return ["CYF-T1-009"]
+
+    # Struggling with coursework
+    if any(term in normalized for term in (
+        "struggle with",
+        "struggling with",
+        "fall behind",
+        "coursework difficult",
+        "need help studying",
+    )):
+        return [
+            "CYF-T3-005",
+            "CYF-T5-001",
+        ]
+
+    return []
+
 
 def retrieve(question, faq_records, limit=4):
     """Return ranked FAQ evidence with explicit intent routing."""
@@ -438,6 +501,18 @@ def retrieve(question, faq_records, limit=4):
             if record["id"] == "CYF-T1-001":
                 return [record]
 
+    learning_ids = learning_pathway_intent(question)
+
+    if learning_ids:
+        matches = [
+            record
+            for faq_id in learning_ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+
+        if matches:
+            return matches[:limit]
 
     attendance_ids = location_attendance_intent(question)
 
