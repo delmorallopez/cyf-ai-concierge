@@ -85,6 +85,34 @@ def test_trainee_support_retrieval(question, expected_ids):
 
 
 @pytest.mark.parametrize(
+    "question, expected_ids",
+    [
+        (
+            "I'm 45 years old and have never worked in IT. Can I join?",
+            ["CYF-T1-001", "CYF-T1-014"],
+        ),
+        (
+            "I have a full-time job and two children. Is the programme suitable for me?",
+            ["CYF-T1-001", "CYF-T2-028", "CYF-T1-011"],
+        ),
+        (
+            "I don't speak English very well. Can I still apply?",
+            ["CYF-T2-018"],
+        ),
+    ],
+)
+def test_complex_eligibility_retrieval(question, expected_ids):
+    matches = retrieve(question, reviewed_faq())
+    actual_ids = [record["id"] for record in matches]
+
+    assert actual_ids == expected_ids, (
+        f"\nQuestion: {question}"
+        f"\nExpected: {expected_ids}"
+        f"\nActual: {actual_ids}"
+    )
+
+
+@pytest.mark.parametrize(
     "topic, question",
     SUGGESTED_QUESTIONS,
 )

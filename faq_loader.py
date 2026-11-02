@@ -625,6 +625,63 @@ def trainee_support_intent(question):
     return []
 
 
+def complex_eligibility_intent(question):
+    normalized = " ".join(
+        re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    # Adult applicant with no IT experience
+    if (
+        any(term in normalized for term in (
+            "never worked in it",
+            "no it experience",
+            "no tech experience",
+            "no coding experience",
+            "never worked in tech",
+        ))
+        and any(term in normalized for term in (
+            "can i join",
+            "can i apply",
+            "am i eligible",
+        ))
+    ):
+        return ["CYF-T1-001", "CYF-T1-014"]
+
+    # Full-time work and family commitments
+    if (
+        any(term in normalized for term in (
+            "full time job",
+            "working full time",
+            "work full time",
+            "employed full time",
+        ))
+        and any(term in normalized for term in (
+            "children",
+            "kids",
+            "family",
+            "suitable for me",
+            "can i join",
+        ))
+    ):
+        return ["CYF-T1-001", "CYF-T2-028", "CYF-T1-011"]
+
+    
+    # English proficiency
+    if any(term in normalized for term in (
+        "don t speak english very well",
+        "dont speak english very well",
+        "do not speak english very well",
+        "my english is not good",
+        "poor english",
+        "limited english",
+        "english fluency",
+        "not fluent in english",
+    )):
+        return ["CYF-T2-018"]
+
+
+    return []
+
 
 def retrieve(question, faq_records, limit=4):
     """Return ranked FAQ evidence with explicit intent routing."""
@@ -665,6 +722,19 @@ def retrieve(question, faq_records, limit=4):
         matches = [
             record
             for faq_id in career_ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+
+        if matches:
+            return matches[:limit]
+        
+    complex_ids = complex_eligibility_intent(question)
+
+    if complex_ids:
+        matches = [
+            record
+            for faq_id in complex_ids
             for record in faq_records
             if record["id"] == faq_id
         ]
