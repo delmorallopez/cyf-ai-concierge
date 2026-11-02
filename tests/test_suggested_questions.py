@@ -294,6 +294,35 @@ def test_laptop_support_retrieval(question, expected_ids):
         f"\nActual: {actual_ids}"
     )
 
+
+@pytest.mark.parametrize(
+    "question, expected_ids",
+    [
+        (
+            "Will CYF help me prepare my CV?",
+            ["CYF-T1-021", "CYF-T3-011"],
+        ),
+        (
+            "Does CYF provide interview preparation?",
+            ["CYF-T1-021", "CYF-T3-011"],
+        ),
+        (
+            "Do companies hire CYF graduates?",
+            ["CYF-T3-012", "CYF-T1-021"],
+        ),
+    ],
+)
+def test_career_support_retrieval(question, expected_ids):
+    matches = retrieve(question, reviewed_faq())
+    actual_ids = [record["id"] for record in matches]
+
+    assert actual_ids == expected_ids, (
+        f"\nQuestion: {question}"
+        f"\nExpected: {expected_ids}"
+        f"\nActual: {actual_ids}"
+    )
+
+
 @pytest.mark.parametrize(
     "question, expected_ids",
     [

@@ -22,7 +22,7 @@ class TestFAQ(unittest.TestCase):
         from collections import Counter
 
         # Total FAQ records
-        self.assertEqual(len(self.records), 86)
+        self.assertEqual(len(self.records), 87)
 
         # Check for duplicate IDs
         ids = [record["id"] for record in self.records]
@@ -40,7 +40,7 @@ class TestFAQ(unittest.TestCase):
                 2: 28,
                 3: 15,
                 4: 7,
-                5: 13,
+                5: 14,
             }
         )
 

@@ -526,6 +526,48 @@ def laptop_support_intent(question):
 
     return []
 
+
+def career_support_intent(question):
+    normalized = " ".join(
+        re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    # CV and professional profile
+    if any(term in normalized for term in (
+        "prepare my cv",
+        "help with my cv",
+        "review my cv",
+        "cv preparation",
+        "cover letter",
+        "linkedin profile",
+        "portfolio review",
+    )):
+        return ["CYF-T1-021", "CYF-T3-011"]
+
+    # Interview preparation
+    if any(term in normalized for term in (
+        "interview preparation",
+        "prepare for interviews",
+        "prepare for an interview",
+        "mock interviews",
+        "interview practice",
+        "interview support",
+    )):
+        return ["CYF-T1-021", "CYF-T3-011"]
+
+    # Graduate employment
+    if any(term in normalized for term in (
+        "companies hire",
+        "hire cyf graduates",
+        "cyf graduates get jobs",
+        "graduates find jobs",
+        "employment after cyf",
+    )):
+        return ["CYF-T3-012", "CYF-T1-021"]
+
+    return []
+
+
 def retrieve(question, faq_records, limit=4):
     """Return ranked FAQ evidence with explicit intent routing."""
 
@@ -559,6 +601,19 @@ def retrieve(question, faq_records, limit=4):
             if record["id"] == "CYF-T1-001":
                 return [record]
 
+    career_ids = career_support_intent(question)
+
+    if career_ids:
+        matches = [
+            record
+            for faq_id in career_ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+
+        if matches:
+            return matches[:limit]
+        
     laptop_ids = laptop_support_intent(question)
 
     if laptop_ids:

@@ -1088,6 +1088,18 @@
     "status": "reviewed",
     "review_notes": "Checked against the original CYF FAQ.",
     "risk_level": "high",
-    "response_type": "handoff"
+    "response_type": "answer"
+  },
+  {
+    "id": "CYF-T5-014",
+    "tier": 5,
+    "category": "Certificates and completion",
+    "question": "Will I receive a certificate after completing the course?",
+    "answer": "CYF does not offer formal certification for its software development courses. The Basic Online Skills course offers a completion certificate to learners who attend all required sessions and complete the homework.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "New FAQ entry. Requires verification and approval by CYF.",
+    "risk_level": "medium",
+    "response_type": "answer"
   }
 ]
