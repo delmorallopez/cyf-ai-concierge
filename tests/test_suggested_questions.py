@@ -267,6 +267,37 @@ def test_learning_pathway_retrieval(question, expected_ids):
     "question, expected_ids",
     [
         (
+            "Can I use a tablet instead of a laptop?",
+            ["CYF-T1-012", "CYF-T3-010"],
+        ),
+        (
+            "What laptop specifications do I need?",
+            ["CYF-T2-016"],
+        ),
+        (
+            "Do I have to return the laptop after the course?",
+            ["CYF-T5-008", "CYF-T3-010"],
+        ),
+        (
+            "Can I keep the laptop after graduation?",
+            ["CYF-T3-010", "CYF-T5-008"],
+        ),
+    ],
+)
+def test_laptop_support_retrieval(question, expected_ids):
+    matches = retrieve(question, reviewed_faq())
+    actual_ids = [record["id"] for record in matches]
+
+    assert actual_ids == expected_ids, (
+        f"\nQuestion: {question}"
+        f"\nExpected: {expected_ids}"
+        f"\nActual: {actual_ids}"
+    )
+
+@pytest.mark.parametrize(
+    "question, expected_ids",
+    [
+        (
             "Can I join CYF if I live outside the UK?",
             ["CYF-T1-008", "CYF-T1-001", "CYF-T1-009"],
         ),

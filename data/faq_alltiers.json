@@ -957,7 +957,7 @@
     "status": "reviewed",
     "review_notes": "Checked against the original CYF FAQ.",
     "risk_level": "high",
-    "response_type": "handoff"
+    "response_type": "answer"
   },
   {
     "id": "CYF-T5-009",

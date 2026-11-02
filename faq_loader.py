@@ -468,6 +468,64 @@ def learning_pathway_intent(question):
     return []
 
 
+
+def laptop_support_intent(question):
+    normalized = " ".join(
+        re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    # Laptop specifications
+    if any(term in normalized for term in (
+        "laptop specifications",
+        "laptop specs",
+        "minimum laptop",
+        "computer requirements",
+        "what laptop do i need",
+        "laptop requirements",
+    )):
+        return ["CYF-T2-016"]
+
+    # Tablets and alternative devices
+    if any(term in normalized for term in (
+        "use a tablet",
+        "tablet instead",
+        "use an ipad",
+        "ipad instead",
+        "tablet for the course",
+    )):
+        return ["CYF-T1-012", "CYF-T3-010"]
+
+    # Laptop problems: no specific repair policy documented
+    if any(term in normalized for term in (
+        "laptop stops working",
+        "laptop stopped working",
+        "laptop is broken",
+        "laptop broke",
+        "laptop not working",
+        "laptop damaged",
+    )):
+        return []
+
+        # Returning a laptop - check first
+    if any(term in normalized for term in (
+        "return the laptop",
+        "return my laptop",
+        "send the laptop back",
+        "laptop return",
+    )):
+        return ["CYF-T5-008", "CYF-T3-010"]
+
+    # Keeping a laptop after graduation
+    if any(term in normalized for term in (
+        "keep the laptop",
+        "keep my laptop",
+        "laptop after graduation",
+        "laptop after the course",
+    )):
+        return ["CYF-T3-010", "CYF-T5-008"]
+
+    return []
+
 def retrieve(question, faq_records, limit=4):
     """Return ranked FAQ evidence with explicit intent routing."""
 
@@ -501,6 +559,19 @@ def retrieve(question, faq_records, limit=4):
             if record["id"] == "CYF-T1-001":
                 return [record]
 
+    laptop_ids = laptop_support_intent(question)
+
+    if laptop_ids:
+        matches = [
+            record
+            for faq_id in laptop_ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+
+        if matches:
+            return matches[:limit]
+        
     learning_ids = learning_pathway_intent(question)
 
     if learning_ids:
