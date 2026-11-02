@@ -191,6 +191,46 @@ def test_suggested_questions_are_unique():
     "question, expected_ids",
     [
         (
+            "How long does the application process take?",
+            ["CYF-T2-018", "CYF-T2-026"],
+        ),
+        (
+            "What happens after I submit my application?",
+            ["CYF-T2-026", "CYF-T2-018"],
+        ),
+        (
+            "Can I apply more than once?",
+            ["CYF-T2-026"],
+        ),
+        (
+            "What should I do if my application is rejected?",
+            ["CYF-T2-018", "CYF-T2-026"],
+        ),
+        (
+            "Can I change my application details after submitting?",
+            ["CYF-T2-026", "CYF-T2-027"],
+        ),
+        (
+            "I haven't received a confirmation email. What should I do?",
+            ["CYF-T2-026", "CYF-T2-027"],
+        ),
+    ],
+)
+def test_application_enquiry_retrieval(question, expected_ids):
+    matches = retrieve(question, reviewed_faq())
+    actual_ids = [record["id"] for record in matches]
+
+    assert actual_ids == expected_ids, (
+        f"\nQuestion: {question}"
+        f"\nExpected: {expected_ids}"
+        f"\nActual: {actual_ids}"
+    )
+
+
+@pytest.mark.parametrize(
+    "question, expected_ids",
+    [
+        (
             "Can I join CYF if I live outside the UK?",
             ["CYF-T1-008", "CYF-T1-001", "CYF-T1-009"],
         ),

@@ -348,6 +348,63 @@ def location_attendance_intent(question):
     return []
 
 
+def application_enquiry_intent(question):
+    normalized = " ".join(
+        re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    if any(term in normalized for term in (
+        "how long does the application",
+        "application process take",
+        "how long to apply",
+        "application timeline",
+    )):
+        return ["CYF-T2-018", "CYF-T2-026"]
+
+    if any(term in normalized for term in (
+        "after i submit",
+        "after submitting my application",
+        "after applying",
+        "submitted my application",
+    )):
+        return ["CYF-T2-026", "CYF-T2-018"]
+
+    if any(term in normalized for term in (
+        "apply more than once",
+        "apply again",
+        "reapply",
+        "re application",
+    )):
+        return ["CYF-T2-026"]
+
+    if any(term in normalized for term in (
+        "application is rejected",
+        "application was rejected",
+        "application rejected",
+        "not accepted",
+    )):
+        return ["CYF-T2-018", "CYF-T2-026"]
+
+    if any(term in normalized for term in (
+        "change my application",
+        "edit my application",
+        "update my application",
+        "change application details",
+    )):
+        return ["CYF-T2-026", "CYF-T2-027"]
+
+    if any(term in normalized for term in (
+        "confirmation email",
+        "confirmation e mail",
+        "no confirmation",
+        "haven t received an email",
+    )):
+        return ["CYF-T2-026", "CYF-T2-027"]
+
+    return []
+
+
+
 def retrieve(question, faq_records, limit=4):
     """Return ranked FAQ evidence with explicit intent routing."""
 
@@ -395,7 +452,19 @@ def retrieve(question, faq_records, limit=4):
         if matches:
             return matches[:limit]
         
+    enquiry_ids = application_enquiry_intent(question)
 
+    if enquiry_ids:
+        matches = [
+            record
+            for faq_id in enquiry_ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+
+        if matches:
+            return matches[:limit]
+        
     eligibility_ids = eligibility_intent(question)
 
     if eligibility_ids:
