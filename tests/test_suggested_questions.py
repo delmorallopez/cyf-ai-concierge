@@ -111,7 +111,32 @@ def test_complex_eligibility_retrieval(question, expected_ids):
         f"\nActual: {actual_ids}"
     )
 
+def test_income_means_testing_retrieval():
+    question = (
+        "Do I meet the income/means-testing "
+        "eligibility criteria?"
+    )
 
+    matches = retrieve(question, reviewed_faq())
+
+    assert [r["id"] for r in matches] == ["CYF-T1-005"]
+
+
+def test_eligibility_rejection_retrieval():
+    question = (
+        "I was rejected on eligibility "
+        "(income, Duolingo, etc.) — what are my options?"
+    )
+
+    matches = retrieve(question, reviewed_faq())
+
+    assert [r["id"] for r in matches] == [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026",
+    ]
+
+    
 @pytest.mark.parametrize(
     "topic, question",
     SUGGESTED_QUESTIONS,

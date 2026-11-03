@@ -50,9 +50,10 @@
     "tier": 1,
     "category": "Eligibility and suitability",
     "question": "How does CodeYourFuture measure low income?",
-    "answer": "CYF's FAQ describes low income as household income after taxes and housing costs below 60% of the median income in the person's region, taking household size into account. The full explanation and examples are in CYF's low-income guidance.",
+    "answer": "CodeYourFuture assesses financial eligibility using a low-income threshold of less than 60% of the regional median income after tax and housing costs. To understand whether you meet the income and means-testing criteria, read the Income Assessment & Means Testing Guidance (How Is Income Defined): https://docs.google.com/document/d/1kZajo6tnEkHz_KPycPxK0rWyPJezjPNte_q9GF4VVV4/edit?tab=t.0#heading=h.54j2vkidmpne. You can also review the general eligibility criteria at https://codeyourfuture.io/train-with-us/. CYF will assess your eligibility during the application process.",
     "source_urls": [
-      "https://docs.google.com/document/d/1kZajo6tnEkHz_KPycPxK0rWyPJezjPNte_q9GF4VVV4/edit?tab=t.0#heading=h.dt6q3od158l4"
+      "https://docs.google.com/document/d/1kZajo6tnEkHz_KPycPxK0rWyPJezjPNte_q9GF4VVV4/edit?tab=t.0#heading=h.54j2vkidmpne",
+      "https://codeyourfuture.io/train-with-us/"
     ],
     "status": "reviewed",
     "review_notes": "Checked against the original CYF FAQ.",

@@ -683,12 +683,58 @@ def complex_eligibility_intent(question):
     return []
 
 
+def eligibility_rejection_intent(question):
+    normalized = " ".join(
+        re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    rejection_terms = (
+        "rejected", "rejection", "failed eligibility",
+        "not eligible", "ineligible", "didn t qualify",
+        "did not qualify"
+    )
+
+    if any(term in normalized for term in rejection_terms):
+        if any(term in normalized for term in (
+            "eligibility", "income", "duolingo",
+            "english test", "assessment"
+        )):
+            return [
+                "CYF-T1-005",
+                "CYF-T2-018",
+                "CYF-T2-026",
+            ]
+
+    return []
+
+
+
 def retrieve(question, faq_records, limit=4):
     """Return ranked FAQ evidence with explicit intent routing."""
 
     if not question.strip():
         return []
 
+    normalized = " ".join(
+    re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    if any(term in normalized for term in (
+        "means testing",
+        "means tested",
+        "income eligibility",
+        "income criteria",
+        "income threshold",
+        "financial eligibility",
+        "do i meet the income",
+    )):
+        matches = [
+            record for record in faq_records
+            if record["id"] == "CYF-T1-005"
+        ]
+        if matches:
+            return matches[:limit]
+        
     # Normalize the user's question
     normalized = " ".join(
         re.sub(r"[^\w\s]", " ", question.lower()).split()
@@ -716,6 +762,19 @@ def retrieve(question, faq_records, limit=4):
             if record["id"] == "CYF-T1-001":
                 return [record]
 
+   
+    rejection_ids = eligibility_rejection_intent(question)
+
+    if rejection_ids:
+        matches = [
+            record
+            for faq_id in rejection_ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+        if matches:
+            return matches[:limit]
+        
     career_ids = career_support_intent(question)
 
     if career_ids:
