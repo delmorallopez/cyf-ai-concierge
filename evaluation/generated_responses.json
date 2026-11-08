@@ -1,0 +1,92 @@
+[
+  {
+    "response_id": 1,
+    "question": "I'm 45 years old and have never worked in IT. Can I join?",
+    "retrieved_faq_ids": [
+      "CYF-T1-001",
+      "CYF-T1-014"
+    ],
+    "answer": "Yes, at 45 and without IT experience, you can join CodeYourFuture starting with the Intro to Digital course, which is open to many people regardless of background. Progression to further courses like Intro to Programming has additional eligibility criteria, but Intro to Digital is a good starting point."
+  },
+  {
+    "response_id": 2,
+    "question": "I'm 45 years old and have never worked in IT. Can I join?",
+    "retrieved_faq_ids": [
+      "CYF-T1-001",
+      "CYF-T1-014"
+    ],
+    "answer": "Yes, you can join CodeYourFuture courses even if you're 45 and have no IT experience. CYF supports people with no prior coding background, and you can start with the Intro to Digital course, which is open to all regardless of circumstances."
+  },
+  {
+    "response_id": 3,
+    "question": "I'm 45 years old and have never worked in IT. Can I join?",
+    "retrieved_faq_ids": [
+      "CYF-T1-001",
+      "CYF-T1-014"
+    ],
+    "answer": "Yes, you can join CodeYourFuture courses even without IT experience. If you are over 18 and meet criteria like low income and living near a CYF region, you can apply for Intro to Programming; otherwise, you can start with Intro to Digital, which is open to all."
+  },
+  {
+    "response_id": 4,
+    "question": "I'm 45 years old and have never worked in IT. Can I join?",
+    "retrieved_faq_ids": [
+      "CYF-T1-001",
+      "CYF-T1-014"
+    ],
+    "answer": "Yes, you can join CodeYourFuture courses even if you have never worked in IT. CYF supports people from various backgrounds, including those without prior tech experience, and offers free beginner-friendly courses to help start a career in technology."
+  },
+  {
+    "response_id": 5,
+    "question": "I'm 45 years old and have never worked in IT. Can I join?",
+    "retrieved_faq_ids": [
+      "CYF-T1-001",
+      "CYF-T1-014"
+    ],
+    "answer": "Yes, you can join CodeYourFuture courses even if you are 45 and have no IT experience. CYF supports people from various backgrounds, including those without prior tech work, and you can start with the Intro to Digital course which has no strict eligibility requirements."
+  },
+  {
+    "response_id": 6,
+    "question": "I'm 45 years old and have never worked in IT. Can I join?",
+    "retrieved_faq_ids": [
+      "CYF-T1-001",
+      "CYF-T1-014"
+    ],
+    "answer": "Yes, you can join CodeYourFuture courses even at 45 with no IT experience. CYF supports people facing disadvantage and welcomes beginners, so you can start with their Intro to Digital course without prior coding experience."
+  },
+  {
+    "response_id": 7,
+    "question": "I'm 45 years old and have never worked in IT. Can I join?",
+    "retrieved_faq_ids": [
+      "CYF-T1-001",
+      "CYF-T1-014"
+    ],
+    "answer": "Yes, you can join CodeYourFuture courses at 45 with no IT experience. CYF supports people facing disadvantage who want to start a tech career, and no previous coding experience is needed to start. You can begin with the Intro to Digital course to get started."
+  },
+  {
+    "response_id": 8,
+    "question": "I'm 45 years old and have never worked in IT. Can I join?",
+    "retrieved_faq_ids": [
+      "CYF-T1-001",
+      "CYF-T1-014"
+    ],
+    "answer": "Yes, you can join CodeYourFuture courses even at 45 with no IT experience. Intro to Digital is open to anyone, and no previous coding experience is needed to start. If you later want to progress to Intro to Programming, you would need to meet additional criteria like being over 18, low income, and living near a CYF region."
+  },
+  {
+    "response_id": 9,
+    "question": "I'm 45 years old and have never worked in IT. Can I join?",
+    "retrieved_faq_ids": [
+      "CYF-T1-001",
+      "CYF-T1-014"
+    ],
+    "answer": "Yes, you can join CodeYourFuture courses even at 45 with no IT experience. CYF supports people from diverse backgrounds, including those new to tech, and no previous coding experience is needed to start. You can begin with the Intro to Digital course to get started on your tech career pathway."
+  },
+  {
+    "response_id": 10,
+    "question": "I'm 45 years old and have never worked in IT. Can I join?",
+    "retrieved_faq_ids": [
+      "CYF-T1-001",
+      "CYF-T1-014"
+    ],
+    "answer": "Yes, you can join CodeYourFuture courses even if you are 45 and have no IT experience. CYF supports people with no prior coding background and offers free courses to help you start a tech career. You can begin with the Intro to Digital course, which does not require eligibility checks."
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "response_id": 1,
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-001",
+        "CYF-T1-014"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that a 45-year-old with no IT experience can join CodeYourFuture starting with the Intro to Digital course, which is open to many people regardless of background. It also correctly notes that progression to Intro to Programming has additional eligibility criteria. This is fully supported by the FAQ evidence."
+    }
+  },
+  {
+    "response_id": 2,
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-001",
+        "CYF-T1-014"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that a 45-year-old with no IT experience can join CYF courses, supported by the eligibility criteria and encouragement to apply for Intro to Digital regardless of circumstances. It also aligns with the fact that no prior coding experience is needed."
+    }
+  },
+  {
+    "response_id": 3,
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-001",
+        "CYF-T1-014"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that a person without IT experience can join CYF courses, specifying eligibility criteria for Intro to Programming and the open access nature of Intro to Digital, all supported by the FAQ evidence."
+    }
+  },
+  {
+    "response_id": 4,
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-001",
+        "CYF-T1-014"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that people without prior IT experience can join CYF courses, supported by the eligibility criteria and encouragement to apply for Intro to Digital. It also accurately reflects that courses are beginner-friendly and free, as per the FAQs."
+    }
+  },
+  {
+    "response_id": 5,
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-001",
+        "CYF-T1-014"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that a 45-year-old with no IT experience can join CYF courses, specifically Intro to Digital, which has no strict eligibility requirements. This is supported by CYF-T1-001, which encourages people not meeting Intro to Programming criteria to apply for Intro to Digital, and CYF-T1-014, which confirms no prior coding experience is needed."
+    }
+  },
+  {
+    "response_id": 6,
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-001",
+        "CYF-T1-014"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that a 45-year-old with no IT experience can join CYF courses, as CYF supports disadvantaged people and welcomes beginners. It accurately references the Intro to Digital course as suitable for those without prior coding experience, consistent with the eligibility and course guidance in the FAQs."
+    }
+  },
+  {
+    "response_id": 7,
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-001",
+        "CYF-T1-014"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that a 45-year-old with no IT experience can join CYF courses, as CYF supports people facing disadvantage who want to start a tech career and no prior coding experience is needed. It also appropriately mentions starting with the Intro to Digital course, which is encouraged for those whose circumstances are not listed for Intro to Programming eligibility."
+    }
+  },
+  {
+    "response_id": 8,
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-001",
+        "CYF-T1-014"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that a 45-year-old with no IT experience can join CodeYourFuture courses, specifically Intro to Digital, which is open to anyone without prior coding experience. It also accurately explains the additional eligibility criteria for progressing to Intro to Programming, all supported by the provided FAQs."
+    }
+  },
+  {
+    "response_id": 9,
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-001",
+        "CYF-T1-014"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that a 45-year-old with no IT experience can join CYF courses, supported by the eligibility criteria and encouragement to apply for Intro to Digital. It also correctly notes no prior coding experience is needed and suggests starting with Intro to Digital, all supported by the FAQs."
+    }
+  },
+  {
+    "response_id": 10,
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-001",
+        "CYF-T1-014"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that a 45-year-old with no IT experience can join CYF courses, supported by the eligibility criteria and encouragement to apply for Intro to Digital. It also accurately notes that no prior coding experience is needed and that Intro to Digital does not require eligibility checks."
+    }
+  }
+]

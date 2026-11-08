@@ -1,0 +1,357 @@
+[
+  {
+    "response_id": 1,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": false,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [
+        "The answer does not mention the possibility of retaking the Duolingo test or other specific next steps beyond reviewing eligibility criteria.",
+        "It does not clarify that the eligibility process includes multiple steps (income, Duolingo test, trainee agreement) or mention deadlines and communication channels.",
+        "The answer could be more informative about what improving the situation entails or how to prepare for reapplication."
+      ],
+      "reason": "The answer is factually correct and supported by the FAQs regarding eligibility criteria and process, and it provides a relevant link. However, it lacks completeness by not detailing the full eligibility process, communication about deadlines, or specific options after rejection beyond reviewing criteria and reapplying."
+    }
+  },
+  {
+    "response_id": 2,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": false,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [
+        "The answer does not specify any concrete next steps or alternative options after rejection beyond reapplying when eligible.",
+        "No mention of potential appeals, waiting periods, or other support options if rejected."
+      ],
+      "reason": "The answer correctly states that CYF does not specify alternative options after eligibility rejection in the provided FAQs and directs the user to review eligibility and reapply. However, it lacks completeness because it does not mention any further guidance or steps beyond reapplication, which might be relevant to the user."
+    }
+  },
+  {
+    "response_id": 3,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": false,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [
+        "The answer does not mention the possibility of reapplying if circumstances change explicitly stated in the FAQs.",
+        "The answer does not provide any specific alternative options or next steps beyond reviewing eligibility and contacting CYF."
+      ],
+      "reason": "The answer correctly states that the FAQs do not specify alternative options after eligibility rejection and directs the user to review eligibility criteria and contact CYF. However, it lacks completeness because it does not mention that eligibility is assessed during the application process or that the user should keep an eye on communications for deadlines, nor does it mention any potential for reapplication if circumstances change."
+    }
+  },
+  {
+    "response_id": 4,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that if rejected on eligibility criteria such as income or Duolingo test, one cannot enroll at that time and should review eligibility requirements and reapply when eligible. It provides a relevant link to the official application page. This aligns with the eligibility process and income assessment described in the FAQs."
+    }
+  },
+  {
+    "response_id": 5,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": false,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [
+        "Does not mention that eligibility includes passing the Duolingo English Test and signing the trainee agreement.",
+        "Does not specify that the eligibility process has deadlines communicated via email and Slack.",
+        "Does not provide guidance on what to do if rejected beyond reviewing eligibility and reapplying."
+      ],
+      "reason": "The answer correctly states that eligibility rejection can be reviewed and reapplication is possible, and provides a relevant link. However, it omits important details about the eligibility process steps (Duolingo test, trainee agreement, deadlines) and does not mention any specific options or next steps after rejection beyond reapplying, making it incomplete though factually correct and grounded."
+    }
+  },
+  {
+    "response_id": 6,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": false,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [
+        "The answer does not mention that eligibility includes passing the Duolingo English Test and signing the trainee agreement.",
+        "The answer does not specify that the eligibility process has deadlines communicated via email and Slack.",
+        "The answer does not provide any guidance on whether or how to appeal or what specific next steps to take after rejection."
+      ],
+      "reason": "The answer correctly states that the FAQ does not specify alternative options after eligibility rejection and suggests reviewing eligibility requirements and reapplying if circumstances change, which is supported by the evidence. However, it lacks completeness by omitting details about the eligibility process steps, deadlines, and communication channels, and does not mention any potential next steps or appeals."
+    }
+  },
+  {
+    "response_id": 7,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": false,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [
+        "The answer does not mention any specific options or next steps after rejection beyond reapplying if circumstances change.",
+        "No guidance is provided on whether appeals, alternative tests, or support are available.",
+        "The answer does not clarify if there is any possibility to contest or review the eligibility decision."
+      ],
+      "reason": "The answer correctly states that eligibility criteria and process are outlined in the FAQs and provides relevant links. However, it lacks completeness because the FAQs do not specify alternative options after rejection, and the answer does not clarify this explicitly or suggest contacting CYF for further advice."
+    }
+  },
+  {
+    "response_id": 8,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": false,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [
+        "The answer does not mention that the eligibility process includes a deadline communicated via email and Slack, which is important for applicants to know.",
+        "The answer does not specify that the Duolingo test is free and mandatory for all applicants.",
+        "The answer does not provide guidance on what to do if rejected beyond reviewing eligibility and trying again later."
+      ],
+      "reason": "The answer correctly states that CodeYourFuture does not specify alternative options after eligibility rejection and points to relevant resources. However, it lacks completeness by omitting details about the eligibility process deadlines, the free Duolingo test, and any procedural next steps or advice for rejected applicants."
+    }
+  },
+  {
+    "response_id": 9,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that the FAQs do not specify alternative options after eligibility rejection and directs the user to review eligibility criteria and application steps using the provided official links, which aligns with the evidence."
+    }
+  },
+  {
+    "response_id": 10,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": false,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [
+        "The answer does not mention that the eligibility process includes a deadline communicated via email and Slack, which is important for applicants to know.",
+        "The answer does not specify that the Duolingo test is free and mandatory for all applicants.",
+        "The answer does not provide any explicit guidance on what to do if rejected beyond suggesting to improve eligibility and reapply, which is not detailed in the FAQs."
+      ],
+      "reason": "The answer correctly states that the FAQs do not specify alternative options after rejection and provides relevant links for more information. However, it lacks completeness by omitting details about the eligibility process deadlines, the free Duolingo test, and any procedural guidance on next steps after rejection."
+    }
+  },
+  {
+    "response_id": 1,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains that applicants rejected due to income or Duolingo eligibility can review the eligibility criteria and income guidance, provides relevant links from the FAQs, and mentions the possibility of contacting CYF for reconsideration or reapplication without guaranteeing it. This aligns with the documented eligibility process and income assessment guidance."
+    }
+  },
+  {
+    "response_id": 2,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly references the income eligibility criteria and Duolingo test requirements, provides relevant links to official guidance and application pages, and appropriately notes that reconsideration or reapplication is possible but not guaranteed. All claims are supported by the provided FAQ evidence."
+    }
+  },
+  {
+    "response_id": 3,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains that applicants rejected for eligibility reasons such as income or Duolingo test can review the eligibility criteria and income guidance, provides relevant links, and suggests contacting CYF for reconsideration or reapplication, which aligns with the provided FAQ evidence."
+    }
+  },
+  {
+    "response_id": 4,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly references the income eligibility criteria and Duolingo test requirements, provides relevant links to official guidance and application pages, and appropriately notes that reconsideration or reapplication options may exist but are not guaranteed. All claims are supported by the provided FAQ evidence."
+    }
+  },
+  {
+    "response_id": 5,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": false,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [
+        "The answer does not explicitly mention the Duolingo English Test is free and mandatory as part of eligibility.",
+        "The answer does not clarify that eligibility includes attendance feasibility (distance to in-person classes).",
+        "The answer does not specify that the eligibility process has deadlines communicated via email and Slack.",
+        "The answer does not mention that there is no guaranteed appeal process explicitly stated in the FAQs."
+      ],
+      "reason": "The answer correctly directs the user to review income and eligibility criteria and suggests contacting CYF for reconsideration, which is reasonable. However, it lacks details about the Duolingo test being free and mandatory, the attendance/distance eligibility factor, and the communication/deadline process. Also, the FAQs do not explicitly mention an appeal or reconsideration process, so stating 'no guaranteed appeal process' is cautious but not directly supported. Overall, the answer is factually correct and grounded but incomplete."
+    }
+  },
+  {
+    "response_id": 6,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains that applicants rejected due to income or Duolingo eligibility can review the income assessment and eligibility criteria, provides relevant links from the FAQs, and notes that while reconsideration may be possible, no specific appeal or retake process is guaranteed. This aligns with the documented eligibility process and guidance."
+    }
+  },
+  {
+    "response_id": 7,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly references the income eligibility criteria and the Duolingo test requirement, provides relevant links to the official income assessment guidance and application page, and advises contacting CYF for reconsideration or reapplication, which aligns with the documented eligibility and application process."
+    }
+  },
+  {
+    "response_id": 8,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains that applicants rejected due to income or Duolingo eligibility can review the eligibility criteria and income guidance, provides relevant links, and suggests contacting CYF for reconsideration or reapplication options, which aligns with the provided FAQ evidence."
+    }
+  },
+  {
+    "response_id": 9,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains that applicants rejected due to income or Duolingo eligibility can review the eligibility criteria and income assessment guidance, provides relevant links from the FAQs, and suggests contacting CYF for reconsideration or reapplication options. This aligns with the documented eligibility process and resources."
+    }
+  },
+  {
+    "response_id": 10,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains that applicants rejected due to income or Duolingo eligibility can review the eligibility criteria and income guidance, provides relevant links, and mentions the possibility of contacting CYF for reconsideration or reapplication, which aligns with the provided FAQ evidence."
+    }
+  }
+]

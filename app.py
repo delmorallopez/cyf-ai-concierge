@@ -12,7 +12,7 @@ from chat_utils import TOPIC_RESPONSES
 
 load_dotenv()
 st.set_page_config(page_title="CYF AI Concierge", page_icon="💬")
-st.title("CodeYourFuture AI Concierge")
+st.title("CYF AI Concierge Model B")
 st.caption("Information pilot · Not an official application or eligibility decision")
 
 dev_mode = os.getenv("CYF_DEV_MODE", "").lower() == "true"
