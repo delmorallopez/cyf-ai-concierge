@@ -1,0 +1,322 @@
+[
+  {
+    "response_id": 1,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that eligibility is assessed strictly during application and that if rejected, the user cannot enroll at this time. It advises reviewing eligibility criteria and improving the situation before reapplying, which aligns with the FAQ evidence. The answer is concise, relevant to the question, and grounded in the provided official sources."
+    }
+  },
+  {
+    "response_id": 2,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that the FAQs do not specify alternative options after eligibility rejection and directs the user to review eligibility criteria and reapply when eligible, which aligns with the documented process. It also appropriately suggests contacting CYF for guidance without asserting any undocumented policies."
+    }
+  },
+  {
+    "response_id": 3,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that the FAQs do not specify alternative options after eligibility rejection and advises reviewing eligibility criteria and considering reapplication if circumstances change, which aligns with the provided evidence. It does not make unsupported claims and provides relevant links for further information."
+    }
+  },
+  {
+    "response_id": 4,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that if rejected on eligibility criteria such as income or Duolingo test, the applicant cannot enroll at that time and suggests reviewing eligibility requirements and reapplying when criteria are met. This aligns with the FAQ evidence that eligibility is assessed based on income thresholds and passing the Duolingo test, and that applicants must meet these to enroll. The answer also provides a relevant link for further guidance, consistent with the FAQs."
+    }
+  },
+  {
+    "response_id": 5,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that no alternative options after eligibility rejection are specified in the FAQs, advises reviewing eligibility criteria and reapplying if eligible later, and provides the official application link. This aligns with the FAQ evidence which details eligibility criteria and process but does not mention appeals or alternative options after rejection."
+    }
+  },
+  {
+    "response_id": 6,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that the FAQ does not specify alternative options after eligibility rejection and appropriately suggests reviewing eligibility criteria and reapplying if circumstances change. It is concise, does not make unsupported claims about appeals or retakes, and provides a relevant official link for further guidance, fully grounded in the provided FAQ evidence."
+    }
+  },
+  {
+    "response_id": 7,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that the FAQs do not specify alternative options after eligibility rejection and advises reviewing eligibility criteria and considering reapplication if circumstances change. It provides a relevant link for further guidance, aligning with the FAQ evidence which outlines eligibility criteria and process but does not mention appeals or alternatives after rejection."
+    }
+  },
+  {
+    "response_id": 8,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that the FAQ does not specify alternative options after eligibility rejection and directs the user to review eligibility requirements and the official application page. This aligns with the FAQ evidence which outlines eligibility criteria and the application process but does not mention appeals or retakes. The answer is concise, accurate, and grounded in the provided FAQ."
+    }
+  },
+  {
+    "response_id": 9,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that the FAQs do not specify alternative options after eligibility rejection and directs the user to review eligibility criteria and reapply if their situation changes. It is complete relative to the question and grounded in the provided FAQ evidence."
+    }
+  },
+  {
+    "response_id": 10,
+    "group": "baseline",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that the FAQs do not specify alternative options after eligibility rejection and suggests improving eligibility and reapplying, which aligns with the absence of documented post-rejection procedures. It provides relevant links for further information and is consistent with the FAQ evidence."
+    }
+  },
+  {
+    "response_id": 1,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains that eligibility rejection can be reviewed by consulting the income and eligibility criteria documents, provides relevant links, and notes that reconsideration or reapplication options are not guaranteed, which aligns with the FAQ evidence. It sufficiently addresses the user's question about options after rejection without making unsupported claims."
+    }
+  },
+  {
+    "response_id": 2,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains the eligibility criteria related to income and Duolingo test, provides relevant links to official guidance, and appropriately states that reconsideration or reapplication is not guaranteed but can be inquired about. This aligns with the FAQ evidence without making unsupported claims."
+    }
+  },
+  {
+    "response_id": 3,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains that eligibility rejection can be reviewed by consulting the income and eligibility criteria documents, provides relevant links, and reasonably suggests contacting CYF about reconsideration without asserting any guaranteed process. This aligns with the FAQ evidence which details eligibility criteria, the assessment process, and application steps, without stating any formal appeal or reapplication policy."
+    }
+  },
+  {
+    "response_id": 4,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains the eligibility criteria related to income and Duolingo test, provides relevant links to official guidance, and appropriately states that reconsideration or reapplication options are not guaranteed but may be inquired about. This aligns with the FAQ evidence without making unsupported claims."
+    }
+  },
+  {
+    "response_id": 5,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly states that eligibility is assessed based on income and Duolingo test criteria, references the relevant guidance documents and website, and appropriately notes that there is no guaranteed appeal process but suggests contacting CYF for possible options. This aligns with the FAQ evidence which details eligibility criteria and process but does not mention any formal appeal or reapplication procedures."
+    }
+  },
+  {
+    "response_id": 6,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains that eligibility rejection due to income or Duolingo test relates to specific criteria and provides links to the official income assessment and eligibility information. It clarifies that no specific appeal or retake process is guaranteed, which aligns with the FAQ evidence. The answer is sufficiently complete for the user's question and is fully grounded in the approved FAQ sources."
+    }
+  },
+  {
+    "response_id": 7,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains that eligibility rejection can be reviewed by consulting the income and eligibility criteria documents, provides relevant links, and notes that reconsideration or reapplication options are not guaranteed, which aligns with the FAQ evidence. It is sufficiently complete for the user's question and grounded in the approved FAQ sources."
+    }
+  },
+  {
+    "response_id": 8,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains that eligibility rejection can be reviewed by consulting the income and eligibility criteria documents and general application info, which aligns with the FAQ evidence. It does not claim any guaranteed appeal or reapplication process but reasonably suggests contacting CYF for options, which is appropriate given no documented formal reconsideration process. The answer is concise and sufficiently addresses the user's question about options after eligibility rejection."
+    }
+  },
+  {
+    "response_id": 9,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains that eligibility rejection can be reviewed by consulting the income and eligibility criteria documents, provides relevant links, and reasonably suggests contacting CYF for reconsideration or reapplication options without asserting any undocumented policies. It is sufficiently complete for the user's question and fully grounded in the approved FAQ evidence."
+    }
+  },
+  {
+    "response_id": 10,
+    "group": "with_examples",
+    "evaluation": {
+      "correct": true,
+      "complete": true,
+      "grounded": true,
+      "source_ids": [
+        "CYF-T1-005",
+        "CYF-T2-018",
+        "CYF-T2-026"
+      ],
+      "issues": [],
+      "reason": "The answer correctly explains the eligibility criteria related to income and Duolingo test, provides relevant links to official guidance and application pages, and appropriately notes that reconsideration or reapplication is not guaranteed but can be inquired about. This aligns with the FAQ evidence without making unsupported claims."
+    }
+  }
+]

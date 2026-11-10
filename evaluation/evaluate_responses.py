@@ -8,27 +8,81 @@ from openai import OpenAI
 from faq_loader import reviewed_faq
 
 load_dotenv()
-client = OpenAI()
 
 BASE_DIR = Path(__file__).resolve().parent
 
-responses = json.loads(
-    (BASE_DIR / "experiment_responses.json").read_text(
-        encoding="utf-8"
-    )
-)
+EVALUATOR_POLICY = """
+You are an independent evaluator of CodeYourFuture
+AI Concierge responses.
 
-faq_by_id = {
-    record["id"]: record
-    for record in reviewed_faq()
+Evaluate the answer using ONLY the approved FAQ evidence.
+
+Evaluate three criteria:
+
+CORRECTNESS:
+- Mark correct=false if the answer contains materially
+  false or unsupported policy claims.
+- Do not assume appeals, retakes, reconsideration,
+  deadlines, or reapplication rights exist unless
+  supported by the FAQ evidence.
+- Distinguish confirmed policies from suggestions
+  to contact CYF to ask about available options.
+
+COMPLETENESS:
+- Judge completeness relative to the user's question.
+- Concise and useful answers can be complete.
+- Do not require unrelated application details.
+- Do not penalise answers for omitting information
+  that the FAQs do not establish.
+- Explaining uncertainty and providing reasonable
+  next steps may be sufficient.
+
+GROUNDING:
+- Every material factual claim about CYF policies
+  must be supported by the provided FAQ evidence.
+- Suggestions to contact CYF are not claims that
+  a particular procedure exists.
+
+CONSISTENCY:
+- Read the answer carefully before identifying
+  missing information.
+- Never claim something is missing if the answer
+  explicitly includes it.
+- Only report issues that materially affect
+  the answer.
+
+Return a JSON object with exactly these fields:
+{
+  "correct": true,
+  "complete": true,
+  "grounded": true,
+  "source_ids": [],
+  "issues": [],
+  "reason": "Short explanation"
 }
 
-results = []
+Use booleans for correct, complete and grounded.
+Only include source IDs from the provided FAQ evidence.
+"""
 
-for item in responses:
+
+def evaluate_answer(question, answer, faq_ids, client=None):
+    """
+    Evaluate one generated answer using approved FAQ evidence.
+
+    Returns a dictionary containing the AI verdict.
+    """
+    if client is None:
+        client = OpenAI()
+
+    faq_by_id = {
+        record["id"]: record
+        for record in reviewed_faq()
+    }
+
     evidence = []
 
-    for faq_id in item["retrieved_faq_ids"]:
+    for faq_id in faq_ids:
         record = faq_by_id.get(faq_id)
 
         if record:
@@ -39,9 +93,14 @@ for item in responses:
                 "source_urls": record.get("source_urls", []),
             })
 
+    if not evidence:
+        raise ValueError(
+            "No approved FAQ evidence found for evaluation."
+        )
+
     prompt = {
-        "question": item["question"],
-        "generated_answer": item["answer"],
+        "question": question,
+        "generated_answer": answer,
         "approved_faq_evidence": evidence,
     }
 
@@ -52,59 +111,94 @@ for item in responses:
         messages=[
             {
                 "role": "system",
-                "content": (
-                    "You are an independent evaluator of "
-                    "CodeYourFuture chatbot responses. "
-                    "Use ONLY the provided FAQ evidence. "
-                    "Do not assume undocumented CYF policies. "
-                    "Evaluate whether the answer is factually "
-                    "correct, sufficiently complete, and "
-                    "supported by the evidence. "
-                    "Return a JSON object with these fields: "
-                    "correct (boolean), "
-                    "complete (boolean), "
-                    "grounded (boolean), "
-                    "source_ids (array of FAQ IDs supporting "
-                    "the answer), "
-                    "issues (array of specific problems), "
-                    "reason (short explanation). "
-                    "Mark correct=false if the response makes "
-                    "a material unsupported or false claim. "
-                    "Mark grounded=false if it contains a "
-                    "material claim not supported by the FAQs. "
-                    "Only include source IDs from the "
-                    "provided evidence."
-                ),
+                "content": EVALUATOR_POLICY,
             },
             {
                 "role": "user",
-                "content": json.dumps(prompt),
+                "content": json.dumps(
+                    prompt,
+                    ensure_ascii=False,
+                ),
             },
         ],
     )
 
-    verdict = json.loads(
-        response.choices[0].message.content
+    content = response.choices[0].message.content
+
+    if not content:
+        raise RuntimeError(
+            "Evaluator returned an empty response."
+        )
+
+    verdict = json.loads(content)
+
+    required_fields = (
+        "correct",
+        "complete",
+        "grounded",
+        "source_ids",
+        "issues",
+        "reason",
     )
 
-    results.append({
-        "response_id": item["response_id"],
-        "group": item["group"],
-        "evaluation": verdict,
-    })
+    for field in required_fields:
+        if field not in verdict:
+            raise ValueError(
+                f"Evaluator response missing field: {field}"
+            )
+
+    return verdict
+
+
+def main():
+    input_file = BASE_DIR / "experiment_responses.json"
+    output_file = (
+        BASE_DIR / "experiment_ai_evaluations_v2.json"
+    )
+
+    responses = json.loads(
+        input_file.read_text(encoding="utf-8")
+    )
+
+    client = OpenAI()
+    results = []
+
+    for item in responses:
+        verdict = evaluate_answer(
+            question=item["question"],
+            answer=item["answer"],
+            faq_ids=item["retrieved_faq_ids"],
+            client=client,
+        )
+
+        results.append({
+            "response_id": item["response_id"],
+            "group": item["group"],
+            "evaluation": verdict,
+        })
+
+        print(
+            f"{item['group']} — "
+            f"Response {item['response_id']}: "
+            f"correct={verdict['correct']}, "
+            f"complete={verdict['complete']}, "
+            f"grounded={verdict['grounded']}"
+        )
+
+    output_file.write_text(
+        json.dumps(
+            results,
+            indent=2,
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
 
     print(
-        f"Response {item['response_id']}: "
-        f"correct={verdict['correct']}, "
-        f"complete={verdict['complete']}, "
-        f"grounded={verdict['grounded']}"
+        f"\nSaved {len(results)} evaluations "
+        f"to {output_file}"
     )
 
-output = BASE_DIR / "experiment_ai_evaluations.json"
 
-output.write_text(
-    json.dumps(results, indent=2, ensure_ascii=False),
-    encoding="utf-8",
-)
-
-print(f"\nSaved {len(results)} AI evaluations to {output}")
+if __name__ == "__main__":
+    main()
