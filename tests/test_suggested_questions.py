@@ -131,12 +131,10 @@ def test_eligibility_rejection_retrieval():
     matches = retrieve(question, reviewed_faq())
 
     assert [r["id"] for r in matches] == [
-        "CYF-T1-005",
-        "CYF-T2-018",
-        "CYF-T2-026",
+        "CYF-T2-029",
     ]
 
-    
+
 @pytest.mark.parametrize(
     "topic, question",
     SUGGESTED_QUESTIONS,
@@ -294,7 +292,7 @@ def test_suggested_questions_are_unique():
         ),
         (
             "What should I do if my application is rejected?",
-            ["CYF-T2-018", "CYF-T2-026"],
+            ["CYF-T2-029"],
         ),
         (
             "Can I change my application details after submitting?",
@@ -326,7 +324,7 @@ def test_application_enquiry_retrieval(question, expected_ids):
         ),
         (
             "What programming languages will I learn?",
-            ["CYF-T2-005"],
+            ["CYF-T2-030"],
         ),
         (
             "How long does the full CYF programme take?",

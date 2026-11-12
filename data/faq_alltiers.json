@@ -825,6 +825,34 @@
   },
 
   {
+    "id": "CYF-T2-029",
+    "tier": 2,
+    "category": "Course schedules and commitments",
+    "question": "What should I do if my application is rejected?",
+    "answer": "If your application wasn't successful this time, please don't give up! You're welcome to work on improving your skills and apply again when you're ready. For example, if your English level isn't high enough yet, you can focus on improving it towards the B2 level required for the Software Development Course. You can review the application requirements at https://codeyourfuture.io/become-a-student/ and contact the CYF team if you're unsure about your next steps.",
+    "source_urls": [
+      "https://codeyourfuture.io/become-a-student/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Checked against the original CYF FAQ.",
+    "risk_level": "low"
+  },
+   
+  {
+    "id": "CYF-T2-030",
+    "tier": 2,
+    "category": "Course content and curriculum",
+    "question": "What programming languages will I learn?",
+    "answer": "In our Intro to Programming course, you will learn programming with HTML and JavaScript, collaborating to deliver working software with tests. For more details on the full curriculum and other languages covered in our programmes, please visit https://codeyourfuture.io/become-a-student/.",
+    "source_urls": [
+      "https://codeyourfuture.io/become-a-student/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Updated based on the supplied curriculum response. Confirmed curriculum details should be checked against the official course materials.",
+    "risk_level": "low"
+  },
+
+  {
     "id": "CYF-T3-007",
     "tier": 3,
     "category": "Joining and preparing",
@@ -1079,6 +1107,59 @@
     "risk_level": "high",
     "response_type": "answer"
   },
+
+  {
+    "id": "CYF-T3-016",
+    "tier": 3,
+    "category": "Trainee support and equipment",
+    "question": "What happens if my CYF laptop stops working?",
+    "answer": "If you're a current CodeYourFuture trainee and your laptop stops working, please reach out to the CYF team through your community Slack channel. You can also visit https://signposts.codeyourfuture.io/, select your region, and find the appropriate support resources.",
+    "source_urls": [
+      "https://signposts.codeyourfuture.io/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Updated based on the supplied trainee device support guidance.",
+    "risk_level": "low"
+  },
+
+  {
+    "id": "CYF-T3-017",
+    "tier": 3,
+    "category": "Trainee wellbeing and personal support",
+    "question": "Who can I speak to about a personal issue?",
+    "answer": "If you're experiencing a personal issue, you can speak to a volunteer or trainee you trust, or reach out directly to a CodeYourFuture staff member. We're here to listen, understand your situation and help guide you towards appropriate support. You can also visit https://signposts.codeyourfuture.io/, select your region and choose the topic you need help with.",
+    "source_urls": [
+      "https://signposts.codeyourfuture.io/"
+    ],
+    "status": "reviewed",
+    "review_notes": "Updated based on the supplied CYF guidance for personal issues and trainee support.",
+    "risk_level": "low"
+  },
+   
+  {
+    "id": "CYF-T3-019",
+    "tier": 3,
+    "category": "Trainee enrolment and course progression",
+    "question": "Is it enough to have my PRs marked as done in order to enrol as a trainee?",
+    "answer": "Everyone taking a CodeYourFuture course is considered a trainee. To become an enrolled trainee, you need to complete the first module of Intro to Programming within the required deadline, normally five weeks into the course. The deadline will be communicated through Slack and the CYF portal. Once enrolled, you can access additional benefits, including free Udemy access and eligible course-related expenses covered by CYF. If you're unsure whether your completed PRs meet the module requirements, please check with your course instructors.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Based on supplied CYF enrolment guidance. Confirm whether completed PRs satisfy module requirements and verify the deadline and benefits before approval.",
+    "risk_level": "medium"
+  },
+
+  {
+    "id": "CYF-T3-020",
+    "tier": 3,
+    "category": "Childcare and trainee support",
+    "question": "Can I bring my baby to class?",
+    "answer": "CodeYourFuture understands that childcare can be a barrier to attending classes. If you're an enrolled trainee, CYF can support you with childcare through a registered provider, covering up to 10 hours at weekends and up to 15 hours during the week. You must use a registered childcare provider for eligible childcare expenses. If you'd like to bring your baby to class, need help finding childcare for Saturday classes, or have difficulties attending because of childcare responsibilities, please contact the CYF Pastoral team to discuss your situation. You can also visit https://signposts.codeyourfuture.io/ to find support resources in your region.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Based on supplied CYF childcare guidance. Confirm childcare allowances and classroom attendance policy with the Pastoral team.",
+    "risk_level": "medium"
+  },
+
   {
     "id": "CYF-T5-013",
     "tier": 5,

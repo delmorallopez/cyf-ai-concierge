@@ -22,7 +22,7 @@ class TestFAQ(unittest.TestCase):
         from collections import Counter
 
         # Total FAQ records
-        self.assertEqual(len(self.records), 87)
+        self.assertEqual(len(self.records), 93)
 
         # Check for duplicate IDs
         ids = [record["id"] for record in self.records]
@@ -37,8 +37,8 @@ class TestFAQ(unittest.TestCase):
             dict(tier_counts),
             {
                 1: 23,
-                2: 28,
-                3: 15,
+                2: 30,
+                3: 19,
                 4: 7,
                 5: 14,
             }

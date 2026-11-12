@@ -348,6 +348,119 @@ def location_attendance_intent(question):
     return []
 
 
+
+def personal_issue_support_intent(question: str) -> bool:
+    text = question.lower().replace("’", "'")
+
+    phrases = (
+        "personal issue",
+        "personal problem",
+        "personal difficulties",
+        "something private",
+        "private matter",
+        "personal support",
+        "personal situation",
+        "someone to talk to",
+        "someone i can talk to",
+        "speak to someone",
+    )
+
+    return any(phrase in text for phrase in phrases)
+
+
+def broken_laptop_intent(question: str) -> bool:
+    text = question.lower().replace("’", "'")
+
+    device_terms = (
+        "laptop",
+        "computer",
+        "device",
+    )
+
+    problem_terms = (
+        "broken",
+        "faulty",
+        "not working",
+        "stops working",
+        "stopped working",
+        "doesn't work",
+        "does not work",
+        "won't turn on",
+        "repair",
+        "technical support",
+        "tech support",
+    )
+
+    # Exclude questions about laptop requirements,
+    # ownership, or alternatives.
+    excluded_terms = (
+        "tablet",
+        "specification",
+        "specs",
+        "requirements",
+        "return the laptop",
+        "keep the laptop",
+        "after graduation",
+        "after the course",
+    )
+
+    if any(term in text for term in excluded_terms):
+        return False
+
+    return (
+        any(term in text for term in device_terms)
+        and any(term in text for term in problem_terms)
+    )
+
+
+def programming_curriculum_intent(question: str) -> bool:
+    text = question.lower()
+
+    phrases = (
+        "programming languages",
+        "programming language",
+        "learn javascript",
+        "teach javascript",
+        "learn html",
+        "teach html",
+        "programming course",
+        "technologies covered",
+        "coding languages",
+    )
+
+    return any(phrase in text for phrase in phrases)
+
+import re
+
+def application_rejection_intent(question: str) -> bool:
+    text = question.lower().replace("’", "'")
+    text = re.sub(r"[^\w\s]", " ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+
+    rejection_phrases = (
+        "application rejected",
+        "application was rejected",
+        "application is rejected",
+        "application unsuccessful",
+        "not accepted",
+        "not get accepted",
+        "didn't get accepted",
+        "rejected",
+        "rejection",
+        "reapply",
+        "apply again",
+        "failed eligibility",
+        "failed the eligibility",
+        "english isn t good enough",
+        "english is not good enough",
+    )
+
+    return any(
+        phrase in text
+        for phrase in rejection_phrases
+    )
+
+
 def application_enquiry_intent(question):
     normalized = " ".join(
         re.sub(r"[^\w\s]", " ", question.lower()).split()
@@ -568,6 +681,21 @@ def career_support_intent(question):
     return []
 
 
+def trainee_enrolment_intent(question: str) -> bool:
+    text = question.lower().replace("’", "'")
+
+    phrases = (
+        "prs marked as done",
+        "pr marked as done",
+        "enrolled trainee",
+        "finish the first module",
+        "complete the first module",
+        "access to udemy",
+        "get access to udemy",
+    )
+
+    return any(phrase in text for phrase in phrases)
+
 def trainee_support_intent(question):
     normalized = " ".join(
         re.sub(r"[^\w\s]", " ", question.lower()).split()
@@ -709,6 +837,77 @@ def eligibility_rejection_intent(question):
 
 
 
+def childcare_support_intent(question: str) -> bool:
+    text = question.lower().replace("’", "'")
+
+    childcare_terms = (
+        "childcare",
+        "child care",
+        "babysitting",
+    )
+
+    funding_terms = (
+        "pay",
+        "cover",
+        "fund",
+        "reimburse",
+        "cost",
+        "expenses",
+    )
+
+    contact_terms = (
+        "who should i contact",
+        "who can i contact",
+        "who do i contact",
+        "who should i speak to",
+    )
+
+    finding_terms = (
+        "find childcare",
+        "finding childcare",
+        "arrange childcare",
+        "looking for childcare",
+        "help me find childcare",
+    )
+
+    has_childcare = any(term in text for term in childcare_terms)
+
+    return has_childcare and (
+        any(term in text for term in funding_terms)
+        or any(term in text for term in contact_terms)
+        or any(term in text for term in finding_terms)
+    )
+
+
+
+def pull_request_problem_intent(question: str) -> bool:
+    text = question.lower().replace("’", "'")
+
+    pr_terms = (
+        "pull request",
+        "pr request",
+        "github pr",
+        "my pr",
+    )
+
+    problem_terms = (
+        "ghost file",
+        "unexpected file",
+        "can't remove",
+        "cannot remove",
+        "problem",
+        "issue",
+        "error",
+        "not working",
+        "help",
+    )
+
+    return (
+        any(term in text for term in pr_terms)
+        and any(term in text for term in problem_terms)
+    )
+
+
 def retrieve(question, faq_records, limit=4):
     """Return ranked FAQ evidence with explicit intent routing."""
 
@@ -762,7 +961,126 @@ def retrieve(question, faq_records, limit=4):
             if record["id"] == "CYF-T1-001":
                 return [record]
 
-   
+    
+    # Application rejection and reapplication questions
+    if application_rejection_intent(question):
+        rejection_faq = next(
+            (
+                record for record in faq_records
+                if record["id"] == "CYF-T2-029"
+            ),
+            None,
+        )
+
+        if rejection_faq:
+            return [rejection_faq][:limit]
+
+
+    # Programming languages and curriculum questions
+    if programming_curriculum_intent(question):
+        programming_faq = next(
+            (
+                record for record in faq_records
+                if record["id"] == "CYF-T2-030"
+            ),
+            None,
+        )
+
+        if programming_faq:
+            return [programming_faq][:limit]
+
+    
+
+    # Broken laptop and technical device support
+    if broken_laptop_intent(question):
+        laptop_faq = next(
+            (
+                record for record in faq_records
+                if record["id"] == "CYF-T3-016"
+            ),
+            None,
+        )
+
+        if laptop_faq:
+            return [laptop_faq][:limit]
+
+
+    
+    # Personal issues and trainee wellbeing support
+    if personal_issue_support_intent(question):
+        personal_support_faq = next(
+            (
+                record for record in faq_records
+                if record["id"] == "CYF-T3-017"
+            ),
+            None,
+        )
+
+        if personal_support_faq:
+            return [personal_support_faq][:limit]
+
+    
+
+    # Trainee enrolment and first-module completion
+    if trainee_enrolment_intent(question):
+        enrolment_faq = next(
+            (
+                record for record in faq_records
+                if record["id"] == "CYF-T3-019"
+            ),
+            None,
+        )
+
+        if enrolment_faq:
+            return [enrolment_faq][:limit]
+
+    
+    # Childcare funding and contact questions
+    if childcare_support_intent(question):
+        text = question.lower()
+
+        is_contact_question = any(
+            phrase in text
+            for phrase in (
+                "who should i contact",
+                "who can i contact",
+                "who do i contact",
+                "who should i speak to",
+            )
+        )
+
+        ids = (
+            ["CYF-T3-020", "CYF-T3-006"]
+            if is_contact_question
+            else ["CYF-T3-020", "CYF-T1-013"]
+        )
+
+        matches = [
+            record
+            for faq_id in ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+
+        if matches:
+            return matches[:limit]
+    
+
+    # GitHub pull request troubleshooting
+    if pull_request_problem_intent(question):
+        ids = ["CYF-T3-006", "CYF-T5-010"]
+
+        matches = [
+            record
+            for faq_id in ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+
+        if matches:
+            return matches[:limit]
+
+
     rejection_ids = eligibility_rejection_intent(question)
 
     if rejection_ids:
