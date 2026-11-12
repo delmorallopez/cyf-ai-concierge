@@ -1,0 +1,493 @@
+[
+  {
+    "id": "CYF-V-001",
+    "tier": 1,
+    "category": "Volunteer eligibility",
+    "question": "Am I eligible to volunteer?",
+    "answer": "You must be over 18 years old and able to volunteer consistently for at least 6 months, committing at least 4 hours per week. You must also spend at least 20 minutes weekly catching up and communicating with volunteers and trainees on Slack. Volunteers must follow the CYF Code of Conduct, Volunteer Agreement, values and working principles. There is flexibility for holidays and other circumstances.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Reviewed against the CYF Volunteer FAQ.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-002",
+    "tier": 1,
+    "category": "Volunteer roles",
+    "question": "Can I volunteer without professional experience?",
+    "answer": "Yes. You can support Intro to Digital and Basic Online Skills courses even if you do not have professional experience. CYF also welcomes volunteers without a technical background because trainees need support with a wide range of professional skills.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Reviewed against the CYF Volunteer FAQ.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-003",
+    "tier": 2,
+    "category": "Volunteer onboarding",
+    "question": "I signed up to volunteer. What happens next?",
+    "answer": "After signing up, you should receive a confirmation email with a link to book the next available Welcome Session. Check your spam or junk folder if you cannot find it. During onboarding, you will learn about CYF, complete the required quiz and Volunteer Agreement, review the Code of Conduct and Safeguarding policies, receive Slack access, complete relevant training and start contributing to your local community.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Reviewed against the CYF Volunteer FAQ.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-004",
+    "tier": 2,
+    "category": "I am interested in volunteering",
+    "question": "How can I help as a volunteer?",
+    "answer": "CodeYourFuture offers different volunteering opportunities depending on your professional experience, availability, and interests.\n\nWhen choosing a role, consider:\n- Whether you prefer volunteering remotely or in person.\n- Whether you can commit at least 4 hours per week.\n- Whether you are available on weekdays or Saturdays.\n- Your professional experience.\n\nVolunteers with less than 2 years of professional experience:\n- Class Facilitator: Support Basic Online Skills or Intro to Digital sessions.\n- Coursework Reviewer: Review Basic Online Skills submissions or Intro to Digital exercises.\n\nVolunteers with 2–5 years of professional experience:\n- Class Facilitator: Support Intro to Programming classes.\n- Career Mentor: Support trainees with career development.\n- Employability Reviewer: Review CVs, conduct mock interviews, or provide presentation feedback.\n- Pair Programmer: Work individually with trainees to develop technical skills.\n- Code Reviewer: Review trainee pull requests and provide feedback.\n\nVolunteers with more than 5 years of professional experience:\n- Class Facilitator: Support Software Development Course classes, either in person or remotely.\n- Code Reviewer: Review trainee pull requests and provide feedback.\n\nOther opportunities include:\n- Community event management.\n- Marketing and communications.\n- Outreach, partnerships, and speaking at events.\n\nSome roles have additional expectations, such as reviewing approximately 10 pull requests per week.\n\nThe most suitable opportunity depends on your experience, availability, and the needs of CodeYourFuture.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Reviewed against supplied Volunteer FAQ. Reformatted for clarity while preserving role descriptions. Official CYF approval not confirmed.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-005",
+    "tier": 2,
+    "category": "I am interested in volunteering",
+    "question": "What courses do you have?",
+    "answer": "CodeYourFuture offers two main learning programmes:\n\n1. Basic Online Skills\nA free, hands-on three-week course that helps learners use smartphones and other devices, manage apps and files, and stay safer online.\n\nMore information:\nhttps://codeyourfuture.io/dds/\n\n2. Software Development Course pathway\nThis pathway includes several stages:\n\n- Intro to Digital: An introduction to essential digital skills.\n- Intro to Programming: The next stage after passing the eligibility check.\n- Checkpoint: Follows Intro to Programming after passing a technical test.\n- Software Development Course: Follows successful completion of Checkpoint assignments.\n- Job search: Trainees completing the Software Development Course can progress towards engineering opportunities. The pathway also shows an entry-level tech job-search route for learners who do not continue after Intro to Programming.\n\nCourse information:\n- Intro to Digital: https://itd.codeyourfuture.io/\n- Intro to Programming: https://programming.codeyourfuture.io/\n- Checkpoint: https://checkout.codeyourfuture.io/\n- Software Development Course: https://sdc.codeyourfuture.io/\n\nVolunteer opportunities may involve supporting learners at different stages of these programmes.",
+    "source_urls": [
+      "https://codeyourfuture.io/dds/",
+      "https://itd.codeyourfuture.io/",
+      "https://programming.codeyourfuture.io/",
+      "https://checkout.codeyourfuture.io/",
+      "https://sdc.codeyourfuture.io/"
+    ],
+    "status": "needs_review",
+    "review_notes": "Reformatted the supplied Volunteer FAQ, removed Mermaid syntax and corrected URL formatting. Awaiting verification of course details and links.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-006",
+    "tier": 2,
+    "category": "I am interested in volunteering",
+    "question": "What knowledge do I need to have for each course?",
+    "answer": "CodeYourFuture welcomes volunteers from different professional backgrounds. You do not need to be an expert in every tool or programming language to support a class.\n\nThe knowledge and experience expected depend on the course:\n\nIntro to Digital\n- Suggested experience: Less than 2 years of professional experience.\n- Tools: Slack, AI tools, and Google Sheets.\n- Technical topics: HTML and CSS.\n\nIntro to Programming\n- Suggested experience: At least 2 years of professional experience.\n- Professional skills: Time management, presentations, job searching, and planning.\n- Technical topics: JavaScript and HTML.\n\nCheckpoint\n- Participation is by invitation only.\n- The supplied FAQ does not specify the knowledge required for volunteers.\n\nSoftware Development Course\n- Suggested experience: More than 5 years of professional experience.\n- Professional skills: Time management, presentations, job searching, and planning.\n- Technical knowledge: Enough experience to support trainees with JavaScript questions.\n\nThese descriptions are taken from the supplied Volunteer FAQ and may need confirmation against current CodeYourFuture volunteering requirements.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Corrected duplicated text and removed incomplete wording. Checkpoint requirements are not specified in the source. Awaiting confirmation of course-specific requirements.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-007",
+    "tier": 2,
+    "category": "I am interested in volunteering",
+    "question": "I can only volunteer for a few hours. What’s the minimum expected commitment?",
+    "answer": "We have some roles that have a reduced number of hours and/or just happen every other month.\nWe expect you to volunteer at least 4 hours a week.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Reviewed against supplied Volunteer FAQ content. Clear answer; official CYF approval not confirmed.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-008",
+    "tier": 2,
+    "category": "I am interested in volunteering",
+    "question": "I can only volunteer remotely.",
+    "answer": "We have some roles that can be done remotely, for example, code reviewer and career mentor. It will depend on your capacity to support us.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Reviewed against supplied Volunteer FAQ content. Clear answer; official CYF approval not confirmed.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-009",
+    "tier": 2,
+    "category": "I am interested in volunteering",
+    "question": "I have no technical background. Can I still volunteer?",
+    "answer": "Yes! You can volunteer with CodeYourFuture even if you don't have a technical background. CYF welcomes people from different professional backgrounds who can help trainees develop the professional skills needed to find employment in technology.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Reviewed against supplied Volunteer FAQ text. Reworded for clarity without adding new requirements. Official CYF approval not confirmed.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-010",
+    "tier": 2,
+    "category": "I am interested in volunteering",
+    "question": "I want to volunteer in person.",
+    "answer": "Our classes run on Saturdays from 10-5, so we’d expect you to be there at 9.45. Sign up on the Class Planner, so we all know you are joining us.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-011",
+    "tier": 2,
+    "category": "I am interested in volunteering",
+    "question": "What teaching method do you use?",
+    "answer": "CodeYourFuture uses the flipped classroom model. Trainees are expected to prepare independently before attending classes and take responsibility for their learning.\n\nClasses are not traditional lectures. Instead, volunteers and trainees use their time together for practical activities such as debugging, pair programming, code reviews, and building projects.\n\nThe aim is to help trainees overcome challenges, collaborate, and develop skills through practical experience.\n\nYou can learn more about the flipped classroom here: https://youtu.be/r2b7GeuqkPc",
+    "source_urls": [
+      "https://youtu.be/r2b7GeuqkPc"
+    ],
+    "status": "reviewed",
+    "review_notes": "Reviewed against supplied Volunteer FAQ text. Reworded for clarity without adding new requirements. Official CYF approval not confirmed.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-012",
+    "tier": 2,
+    "category": "I am interested in volunteering",
+    "question": "I want to volunteer. Where do I start?",
+    "answer": "To start volunteering with CodeYourFuture:\n\n1. Sign up through the CodeYourFuture website.\n2. Wait for your confirmation email.\n3. Follow the instructions in the email to book the next available Welcome Session.",
+    "source_urls": [],
+    "status": "reviewed",
+    "review_notes": "Reviewed against supplied Volunteer FAQ text. Reworded for clarity without adding new requirements. Official CYF approval not confirmed.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-013",
+    "tier": 2,
+    "category": "I am interested in volunteering",
+    "question": "Which day and time are the classes?",
+    "answer": "Classes vary according to the course.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-014",
+    "tier": 2,
+    "category": "I am interested in volunteering",
+    "question": "Which regions are you located in?",
+    "answer": "We are in 5 regions in the UK and 1 in South Africa.\nWest Midlands - Birmingham area\nScotland - Glasgow area\nNorth West - Manchester area\nLondon\nSheffield\nCape Town\nMore information can be found on this link: https://codeyourfuture.io/regions/",
+    "source_urls": [
+      "https://codeyourfuture.io/regions/"
+    ],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-015",
+    "tier": 2,
+    "category": "I am interested in volunteering",
+    "question": "What is the address of the classes?",
+    "answer": "Our classes are held in the city centres of the following cities, or a 15-minute walk from the nearest train station.\nLondon - Brixton\nNorth West - near Manchester University\nScotland - Glasgow city centre\nSheffield - city centre\nWest Midlands - near Aston University, Birmingham\nCape Town - Bridgetown\n> The address will be made available on Slack or sent to you via email once you register with us.\n>\nThe venues we use are offices or university spaces that those organisations give us access to.\nIn these partnerships, we might have agreements to achieve targets for the region so they can achieve their Social Value purpose, marketing and communication of the partnership, etc.\nWe must respect these spaces, keep them clean and follow their rules. If we do not do this, we might lose the space, and that means the courses cannot continue in your region.\n> If you know of any office or organisation with a space that would like to partner with an organisation such as CodeYourFuture, let us know on your community Slack channel.\n>",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-016",
+    "tier": 2,
+    "category": "I signed up - next step",
+    "question": "Tell me about the onboarding process",
+    "answer": "These are steps for onboarding:\n1. Sign-up\n2. Receive sign-up confirmation email with link for first session\n3. Welcome Session: find out more about CYF\n4. Receive an email with a presentation and quiz, sign the Volunteer agreement, read about our Code of Conduct and Safeguarding policies\n5. Receive an invite to our Slack workspace\n6. Introduce yourself on the channel #cyf-volunteers\n7. Do the relevant trainings (Edu Training, Tools Training, Code review training, etc)\n8. Come to the nearest class to you to get to know people\n9. Watch our Slack Essentials at CYF video\n10. Start contributing",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-017",
+    "tier": 2,
+    "category": "I signed up - next step",
+    "question": "How do I find my community, volunteers or trainees in my region?",
+    "answer": "That’s a great question! The community is the heart of CodeYourFuture, so knowing how to get in touch with them is crucial!\nThe main online place to get in touch with your community is on Slack, a platform for collaboration and instant communication.\nYou will get access to Slack once you have done the onboarding process.\nOn Slack, we have community channels, in which all trainees and volunteers are in. And we have volunteer channels, in which trainees are not in. Join the relevant channels for you\n\\| CYF Region | Volunteer Channels | Community Channels |\n\\| --- | --- | --- |\n\\| London | #london-volunteers | #london-community |\n\\| Manchester/North West | #northwest-volunteers  | #north-west-community |\n\\| Glasgow/Scotland | #scotland-volunteers  | #scotland-community |\n\\| Sheffield | #sheffield-volunteers  | #sheffield-community |\n\\| Cape Town/South Africa | #south-africa-volunteers  | #cape-town-community |\n\\| Birmingham/West Midlands | #west-midlands-volunteers | #west-midlands-community |",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-018",
+    "tier": 2,
+    "category": "I signed up - next step",
+    "question": "I arrived at the class. What do I do?",
+    "answer": "There should be other volunteers in class - so identify them and introduce yourself, explaining this is your first time here.\nTalk to anyone else who is in class, always clearly stating it’s your first day with us.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-019",
+    "tier": 2,
+    "category": "I signed up - next step",
+    "question": "What happens when the course finishes?",
+    "answer": "When the course finishes, the next one starts. Our calendar runs all year long, so you can join the next group of volunteers, since you’ll be very helpful in supporting new volunteers now.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-020",
+    "tier": 2,
+    "category": "I signed up - next step",
+    "question": "What is Slack and how does it work?",
+    "answer": "Slack is the operating system that brings people together. And because we all just meet on Saturdays, we need a way of talking to each other during the week too. Slack is that place.\nSlack is also a software used actively in the tech industry for communication. So by learning how to use it, you’ll already know how to get around it on your first job.\nOur Slack is organised as follows:\nIntro to Digital and Basic Online Skills workspace\nCYF Community workspace: includes all trainees and volunteers\nAll workspaces have the same channel structure, so search for keywords such as your region i.e. “London” and find the channels that you’d like to join, for example, #london-community\nOur automated workflows will invite you to the most important channels, but some channels might be missing, so join them yourself.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-021",
+    "tier": 2,
+    "category": "I signed up - next step",
+    "question": "I can't find/access the Slack workspace. What do I do?",
+    "answer": "If you haven't received an invite, check the email address you applied with. The invites are sent after the volunteer agreement has been signed, and the quiz has been completed. If it's been more than 5 working days and you still don't have access, email volunteering@codeyourfuture.io with your full name and the email you applied with.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-022",
+    "tier": 2,
+    "category": "I signed up - next step",
+    "question": "Where do I find the fire safety information of the venue?",
+    "answer": "This information will be available on our Slack channel as well as at the venue itself.\nPlease go to your community channel (i.e. #scotland-community) and check the pinned documents on the top of the channel",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-023",
+    "tier": 2,
+    "category": "I signed up - next step",
+    "question": "Where do I send my feedback to?",
+    "answer": "The answer depends on what type of feedback.\nIf it's something related to you to make your community better, share it on Slack or during a class with the community. Sharing what is going well or isn’t going well is very important to make your day-to-day better.\nIf your feedback is something direct to one person (trainee, volunteers, staff), we suggest you talk to them directly. We suggest using the SBI feedback model (Situation, Behaviour, Impact) to do so.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-024",
+    "tier": 2,
+    "category": "I signed up - next step",
+    "question": "Who can help me with a referral or reference letter?",
+    "answer": "Once you have completed 12 months of volunteering at least 4 hours a week at CodeYourFuture, we’ll happily provide you with a reference letter (for example, for a job application, a visa, or a course).\nThese letters use a template in which we state which region you are in, what type of volunteering you supported us with, and explain CYF and the impact.\nTo request this, please fill in this form:\n👉 Request a Reference or Letter of Support\nTell us what you need and why. This helps us write the right letter for you.\nPlease allow enough time before your deadline. We will take up to 5 working days to reply to you.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-025",
+    "tier": 2,
+    "category": "I signed up - next step",
+    "question": "Does CodeYourFuture help volunteers get jobs too?",
+    "answer": "No. Our primary focus and resources are dedicated to supporting our trainees into software development and tech careers.\nHowever, we are happy to support volunteers with employment referrals once they have been consistently volunteering with CodeYourFuture for over 12 months.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-026",
+    "tier": 2,
+    "category": "I signed up - next step",
+    "question": "I need help finding information about a problem or a question",
+    "answer": "If in doubt, reach out. We are here to support you.\nWe might not always be able to solve your problem, but we can at least help you find a way when we have contacts.\n\\<aside>\nQuestions that are not personal\nUsually, at least 1 other person will have the same question as you. So ask on your community channel on Slack\n\\</aside>\n\\<aside>\nCommunity\nTalk to a volunteer or trainee you trust, or reach out to a staff member. We are here to understand your issue and guide you.\n\\</aside>\n\\<aside>\nhttps://signposts.codeyourfuture.io/\nOur signpost website has many internal and external resources, so go to it, select your region, and choose the theme you need help with\n\\</aside>\n\\<aside>\nCode of Conduct\nWe do not tolerate discrimination or harassment in our community. This page explains examples and tells you how to report it.\nIt’s important to report these situations to keep our community safe.\n\\</aside>\n\\<aside>\nSafeguarding\nIf you see any kind of abuse, you must report it immediately. See this page for examples and how to report it.\n\\</aside>",
+    "source_urls": [
+      "https://signposts.codeyourfuture.io/"
+    ],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-027",
+    "tier": 2,
+    "category": "What do I need to know about the courses",
+    "question": "What are the most important things I need to know about the Intro to Programming course?",
+    "answer": "Classes follow the CYF Curriculum using a flipped classroom model. Volunteers self-organise how to best facilitate Saturday classes.\nBegin with How this works to get familiar with our curriculum\nIf you want to check where we are in the class, check the Class Planner\nIf you want to know acceptable AI use amongst trainees, you can check out our AI Use Cheat Sheet or the full AI guide.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-028",
+    "tier": 2,
+    "category": "What do I need to know about the courses",
+    "question": "How do you use AI in the course?",
+    "answer": "Our AI Use Cheat Sheet or the full AI guide will explain the acceptable AI use amongst trainees.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-029",
+    "tier": 2,
+    "category": "What do I need to know about the courses",
+    "question": "Make sure you did the relevant training sessions, so you know our CYF Way",
+    "answer": "Edu Training\nTools Training\nCode review training\nCareer mentor training",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-030",
+    "tier": 2,
+    "category": "Supporting trainees",
+    "question": "How should we advise students about their use of AI whilst learning at CYF?",
+    "answer": "As volunteers, you have a huge range of experience with AI as well as opinions about its role in learning. So we've designed some guidelines that can help you guide students in the right direction to learn, ask the right questions around AI use, and prioritise learning objectives as the courses progress. You can find a quick cheat sheet here or the full guidelines here",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-031",
+    "tier": 2,
+    "category": "Supporting trainees",
+    "question": "How can I help with job searches?",
+    "answer": "If you come across a good opportunity, post it on the #cyf-employment.\nWe also have a Wednesday online session to work together on this. We believe that searching together helps our trainees to build up their resilience in this difficult process. Read more on this guide: https://curriculum.codeyourfuture.io/guides/employability/job-search/collective-exercise/",
+    "source_urls": [
+      "https://curriculum.codeyourfuture.io/guides/employability/job-search/collective-exercise/"
+    ],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-032",
+    "tier": 2,
+    "category": "Supporting trainees",
+    "question": "How do I help with employability, interview prep, CV review?",
+    "answer": "Join the relevant channels, introduce yourself and get notifications of trainees asking for help:\n#cyf-interview-practice\n#cyf-profile-review\n#cyf-employment",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-033",
+    "tier": 2,
+    "category": "Supporting trainees",
+    "question": "How do I know if my trainees are doing well or falling behind?",
+    "answer": "You can request access to our Dashboard system, and you can see how many steps they have submitted - and if this is in line with the expectation, considering where you are at on the course.\nSearch for the questions about system access to find more information.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-034",
+    "tier": 2,
+    "category": "Supporting trainees",
+    "question": "Where can I see how many trainees we have in the course?",
+    "answer": "You can request access to our Dashboard system, and you can filter your region and cohort, so you know how many trainees should be coming to class.\nSearch for the questions about system access to find more information.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-035",
+    "tier": 2,
+    "category": "Supporting trainees",
+    "question": "How do I review coursework and pull requests?",
+    "answer": "Follow these steps to review Intro to Programming and Software Development Course submissions:\n1. Join the Slack channel #cyf-code-review-volunteer-team\n2. Read our Code Review Guide to understand how we review code at CYF\n3. Learn about the Code Reviewer role in this document.\n4. Attend a Code Review training session\n5. Join the CYF GitHub Organisation: fill in the Reviewer Application Form\n6. Check out the Code Review Resources\n7. Start reviewing:\n1. Intro to Programming PRs Needing Review\n2. Software Development Course PRs Needing Review",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-036",
+    "tier": 2,
+    "category": "Supporting trainees",
+    "question": "How do I start reviewing the Intro to Digital steps?",
+    "answer": "You must request access to our Dashboard system, and you can see how many steps they have submitted - and if this is in line with the expectation, considering where you are in the course.\nImportant resources:\nJoin the Slack channel: #cyf-intro-to-digital-course-volunteers\nThe acceptance criteria for the coursework are on this page: https://curriculum.codeyourfuture.io/itd/\nSearch for the questions about system access to find more information.",
+    "source_urls": [
+      "https://curriculum.codeyourfuture.io/itd/"
+    ],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-037",
+    "tier": 2,
+    "category": "Supporting trainees",
+    "question": "How do I start pair programming?",
+    "answer": "Follow these steps to pair programming with Intro to Programming or Software Development Course trainees:\n1. Join the Slack channel: #cyf-pair-programming\n2. Read this guidance on how we pair programme at CodeYourFuture\n3. Use a calendar tool to tell people what your availability is. Example: Calendly, Doodle, Google Calendar\n4. Share your availability on the canvas bookmarked on the Slack channel.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-038",
+    "tier": 2,
+    "category": "Supporting trainees",
+    "question": "How do I start mentoring someone?",
+    "answer": "Follow these steps to become a career mentor:\n1. Join the Slack channel: #cyf-career-mentors\n2. Read our https://curriculum.codeyourfuture.io/guides/employability/ to understand how we work with employability at CodeYourFuture\n3. Join our onboarding sessions - sign up using this link\n4. Use a calendar tool to tell people what your availability is. Example: Calendly, Doodle, Google Calendar\n5. Add your name, calendar link and LinkedIn link to the Career Mentor Directory spreadsheet\n6. One trainee will select you and book a time in with you",
+    "source_urls": [
+      "https://curriculum.codeyourfuture.io/guides/employability/"
+    ],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-039",
+    "tier": 2,
+    "category": "Supporting CodeYourFuture",
+    "question": "I want to introduce CYF to my company",
+    "answer": "That’s fantastic news. Our suggested steps are:\n1. Identify the highest level in your organisation that you would feel comfortable introducing us to. This can be the CEO, CTO, VP, Director or other role\n2. Send them an email introducing CYF and Jemima and German - make sure you copy them into it\n1. jemima AT code.yourfuture.io\n2. german AT codeyourfuture.io (substitute AT by @) on the email\nSuggested email: “I have been volunteering for CodeYourFuture (CYF), an organisation with the mission to move those from marginalised communities into employment.\nCYF helps reduce the company's hiring risk: their engineers have rigorous training, employability support and recruitment turns into an efficient and successful process.\nI have been impressed with the calibre of talent at CYF. I’d like to introduce you to the CEO/Founder, Germán Bencci, to explore whether we could benefit from partnering with CYF.”",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-040",
+    "tier": 2,
+    "category": "Supporting CodeYourFuture",
+    "question": "I want to speak at events representing CYF",
+    "answer": "Please post on #general about this interest and share:\nType of event you want to talk at (or will talk at)\nLink to the previous talks you have given\nThemes you would like to talk about",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-041",
+    "tier": 2,
+    "category": "Supporting CodeYourFuture",
+    "question": "I want to post about CYF. Do you have a blurb I could use?",
+    "answer": "Check our website for now. We’ll work on this in the near future.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-042",
+    "tier": 2,
+    "category": "I would like to leave",
+    "question": "I want a new role",
+    "answer": "1. Let the current team you are supporting know you no longer want to do this specific role. Make sure you hand over any tasks and find a replacement for yourself, so your community isn’t let down\n2. If you know what you want to do, join that specific channel. If you are not sure yet, reach out to a more experienced volunteer or a staff member, and have a chat about the options you have",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  },
+  {
+    "id": "CYF-V-043",
+    "tier": 2,
+    "category": "I would like to leave",
+    "question": "I can’t or don’t want to support CYF anymore",
+    "answer": "We understand this can happen.\nLet the current team you are supporting know you no longer want to do this specific role. Make sure you hand over any tasks and find a replacement for yourself, so your community isn’t let down.\nIf you want all your data to be deleted, please email us at ops AT codeyourfuture.io (replace AT by @ and remove the spaces.",
+    "source_urls": [],
+    "status": "needs_review",
+    "review_notes": "Imported from supplied Volunteer FAQ. Check formatting, completeness, links, and accuracy before review; tier is provisional.",
+    "risk_level": "low"
+  }
+]

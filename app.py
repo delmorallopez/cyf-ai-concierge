@@ -6,8 +6,21 @@ import streamlit as st
 from dotenv import load_dotenv
 from openai import OpenAI
 
-from app_policy import SYSTEM_POLICY, NO_MATCH_REPLY, NO_RECORDS_REPLY, controlled_reply
-from faq_loader import approved_faq, reviewed_faq, build_faq_context, retrieve
+from app_policy import (
+    get_system_policy,
+    NO_MATCH_REPLY,
+    NO_RECORDS_REPLY,
+    controlled_reply,
+)
+
+from faq_loader import (
+    approved_faq,
+    reviewed_faq,
+    build_faq_context,
+    retrieve,
+    retrieve_volunteer,
+)
+
 from chat_utils import TOPIC_RESPONSES
 
 load_dotenv()
@@ -15,8 +28,20 @@ st.set_page_config(page_title="CYF AI Concierge", page_icon="💬")
 st.title("CYF AI Concierge Model B")
 st.caption("Information pilot · Not an official application or eligibility decision")
 
+
 dev_mode = os.getenv("CYF_DEV_MODE", "").lower() == "true"
-records = reviewed_faq() if dev_mode else approved_faq()
+
+if st.session_state.get("user_role") == "volunteer":
+    faq_path = "data/faq_volunteers.json"
+else:
+    faq_path = "data/faq_alltiers.json"
+
+records = (
+    reviewed_faq(faq_path)
+    if dev_mode
+    else approved_faq(faq_path)
+)
+
 if dev_mode:
     st.warning("DEVELOPMENT MODE: Answers use reviewed but not officially approved CYF content.")
 if not records:
@@ -40,15 +65,22 @@ CAPABILITY_QUESTIONS = {
     "who are you",
 }
 
-def get_greeting_response(message: str) -> str | None:
-    normalized = re.sub(
-        r"[^\w\s]", "",
-        message.lower()
-    ).strip()
 
+def get_greeting_response(message: str, user_role: str) -> str | None:
+    normalized = re.sub(r"[^\w\s]", "", message.lower()).strip()
     normalized = " ".join(normalized.split())
 
+    # Handle greetings
     if normalized in GREETINGS:
+        if user_role == "volunteer":
+            return (
+                "Hello! 👋 Welcome to the CodeYourFuture AI Concierge. "
+                "I can help you with volunteering opportunities, "
+                "eligibility, onboarding, volunteer roles, "
+                "and supporting trainees. "
+                "What would you like to know?"
+            )
+
         return (
             "Hello! 👋 Welcome to the CodeYourFuture AI Concierge. "
             "I can help you with course information, eligibility, "
@@ -56,7 +88,21 @@ def get_greeting_response(message: str) -> str | None:
             "What would you like to know?"
         )
 
+    # Handle questions about chatbot capabilities
     if normalized in CAPABILITY_QUESTIONS:
+        if user_role == "volunteer":
+            return (
+                "I'm the CodeYourFuture AI Concierge! 👋 "
+                "I can help you with:\n\n"
+                "- Volunteer eligibility and requirements\n"
+                "- Volunteering opportunities and roles\n"
+                "- Registration and onboarding\n"
+                "- Slack and volunteer communication\n"
+                "- Supporting trainees and reviewing code\n"
+                "- Volunteer training and resources\n\n"
+                "What would you like to know about volunteering?"
+            )
+
         return (
             "I'm the CodeYourFuture AI Concierge! 👋 "
             "I can help you with:\n\n"
@@ -68,12 +114,14 @@ def get_greeting_response(message: str) -> str | None:
             "- Career support and next steps\n\n"
             "What would you like to know about CodeYourFuture?"
         )
-    
+
+    # Handle predefined topic responses
     if normalized in TOPIC_RESPONSES:
         return TOPIC_RESPONSES[normalized]
 
     return None
 
+   
 
 def contextual_query(prompt, history):
     """Resolve short follow-ups from the previous user topic without exposing chat history."""
@@ -90,8 +138,57 @@ def contextual_query(prompt, history):
     return prompt
 
 
+
+# Initialise conversation state
 if "messages" not in st.session_state:
     st.session_state.messages = []
+
+# Initialise user role
+if "user_role" not in st.session_state:
+    st.session_state.user_role = None
+
+
+# Ask the user to select their role
+if st.session_state.user_role is None:
+    st.subheader("Welcome to CodeYourFuture!")
+
+    st.write(
+        "To help you find the right information, "
+        "please tell us who you are."
+    )
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        if st.button(
+            "🎓 I'm a trainee",
+            use_container_width=True
+        ):
+            st.session_state.user_role = "trainee"
+            st.rerun()
+
+    with col2:
+        if st.button(
+            "🤝 I'm a volunteer",
+            use_container_width=True
+        ):
+            st.session_state.user_role = "volunteer"
+            st.rerun()
+
+    st.stop()
+
+
+# Display the selected role
+st.caption(
+    f"Current role: {st.session_state.user_role.capitalize()}"
+)
+
+# Allow users to switch roles
+if st.button("Switch role"):
+    st.session_state.user_role = None
+    st.session_state.messages = []
+    st.rerun()
+
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
@@ -112,7 +209,10 @@ if prompt := st.chat_input("Ask about CodeYourFuture courses"):
     with st.chat_message("assistant"):
 
         # 1. Handle greetings before FAQ retrieval
-        greeting_reply = get_greeting_response(prompt)
+        greeting_reply = get_greeting_response(
+            prompt,
+            st.session_state.user_role
+        )
 
         if greeting_reply is not None:
             reply = greeting_reply
@@ -123,7 +223,11 @@ if prompt := st.chat_input("Ask about CodeYourFuture courses"):
 
         else:
             # 3. Retrieve relevant FAQ records
-            matches = retrieve(search_query, records)
+            if st.session_state.user_role == "volunteer":
+                matches = retrieve_volunteer(search_query, records)
+            else:
+                matches = retrieve(search_query, records)
+
 
             if not matches:
                 reply = NO_MATCH_REPLY
@@ -161,10 +265,11 @@ if prompt := st.chat_input("Ask about CodeYourFuture courses"):
                                 {
                                     "role": "system",
                                     "content": (
-                                        SYSTEM_POLICY
+                                        get_system_policy(st.session_state.user_role)
                                         + "\nFAQ EVIDENCE:\n"
                                         + build_faq_context(evidence)
                                     )
+
                                 },
                                 {
                                     "role": "user",

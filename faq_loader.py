@@ -1321,3 +1321,42 @@ def retrieve(question, faq_records, limit=4):
         if score >= max(0.36, best - 0.15)
     ][:limit]
 
+
+def retrieve_volunteer(question, faq_records, limit=4):
+    """Retrieve volunteer FAQs without trainee-specific intent rules."""
+
+    if not question.strip():
+        return []
+
+    query_tokens = tokens(question)
+
+    if not query_tokens:
+        return []
+
+    scored = []
+
+    for record in faq_records:
+        question_tokens = tokens(record["question"])
+        category_tokens = tokens(record["category"])
+
+        overlap = len(query_tokens & question_tokens)
+        category_overlap = len(query_tokens & category_tokens)
+
+        similarity = SequenceMatcher(
+            None,
+            question.lower(),
+            record["question"].lower()
+        ).ratio()
+
+        score = (
+            overlap * 3
+            + category_overlap
+            + similarity * 2
+        )
+
+        if overlap > 0 or similarity >= 0.65:
+            scored.append((score, record))
+
+    scored.sort(key=lambda item: item[0], reverse=True)
+
+    return [record for _, record in scored[:limit]]
