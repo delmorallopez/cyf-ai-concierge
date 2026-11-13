@@ -199,7 +199,7 @@ def test_suggested_question_retrieves_correct_faq(
         ),
         (
             "Do I have to pay anything for the courses?",
-            "CYF-T1-014",
+            "CYF-T1-007",
         ),
         (
             "Can I apply if I'm working part-time?",

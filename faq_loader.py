@@ -914,6 +914,42 @@ def retrieve(question, faq_records, limit=4):
     if not question.strip():
         return []
 
+    # Course fees: prioritise the verified FAQ covering all CYF courses.
+    fee_question = re.sub(r"[^\w\s]", " ", question.lower())
+    fee_words = set(fee_question.split())
+
+    fee_intent = (
+        "free" in fee_words
+        or "fees" in fee_words
+        or "tuition" in fee_words
+        or "cost" in fee_words
+        or "costs" in fee_words
+        or "paid" in fee_words
+        or "pay" in fee_words
+    )
+
+    if fee_intent and (
+        "course" in fee_words
+        or "courses" in fee_words
+        or "software" in fee_words
+        or "programming" in fee_words
+        or "digital" in fee_words
+        or "cyf" in fee_words
+        or "codeyourfuture" in fee_words
+    ):
+        fee_faq = next(
+            (
+                record
+                for record in faq_records
+                if record["id"] == "CYF-T1-007"
+            ),
+            None,
+        )
+
+        if fee_faq:
+            return [fee_faq][:limit]
+
+
     normalized = " ".join(
     re.sub(r"[^\w\s]", " ", question.lower()).split()
     )

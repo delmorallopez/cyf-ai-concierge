@@ -10,6 +10,8 @@ import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+import ast
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -95,6 +97,49 @@ CASES = [
 ]
 
 
+MULTI_TURN_CASES = [
+    {
+        "id": "MT-T-001",
+        "role": "trainee",
+        "question": "And is it free?",
+        "history": [
+            {
+                "role": "user",
+                "content": "How long is the Software Development Course?",
+            },
+            {
+                "role": "assistant",
+                "content": "The Software Development Course is 12 weeks long and part-time.",
+            },
+        ],
+        "expected": (
+            "Answer whether the Software Development Course "
+            "is free, using verified FAQ information."
+        ),
+    },
+    {
+        "id": "MT-V-001",
+        "role": "volunteer",
+        "question": "What about the minimum commitment?",
+        "history": [
+            {
+                "role": "user",
+                "content": "Can I volunteer remotely?",
+            },
+            {
+                "role": "assistant",
+                "content": "Some volunteer roles can be done remotely.",
+            },
+        ],
+        "expected": (
+            "Explain the minimum volunteering commitment "
+            "using verified volunteer FAQ information."
+        ),
+    },
+]
+
+
+
 def load_records(role, mode):
     path = (
         "data/faq_volunteers.json"
@@ -106,11 +151,34 @@ def load_records(role, mode):
     return approved_faq(path)
 
 
-def evaluate_case(case, mode):
+def load_contextual_query():
+    """Load the app's context function without starting Streamlit."""
+    app_path = ROOT / "app.py"
+    tree = ast.parse(app_path.read_text(encoding="utf-8"))
+
+    function = next(
+        node
+        for node in tree.body
+        if isinstance(node, ast.FunctionDef)
+        and node.name == "contextual_query"
+    )
+
+    module = ast.Module(body=[function], type_ignores=[])
+    namespace = {"re": re}
+    exec(compile(module, str(app_path), "exec"), namespace)
+
+    return namespace["contextual_query"]
+
+
+contextual_query = load_contextual_query()
+
+def evaluate_case(case, mode, history=None):
     role = case["role"]
     question = case["question"]
     records = load_records(role, mode)
-    history = []
+    history = list(history) if history is not None else []
+
+    search_query = contextual_query(question, history, role)
 
     # Same deterministic guardrail ordering as app.py.
     reply = repeated_onboarding_followup(question, history, role)
@@ -125,7 +193,7 @@ def evaluate_case(case, mode):
         matches = (
             retrieve_volunteer(question, records)
             if role == "volunteer"
-            else retrieve(question, records)
+            else retrieve(search_query, records)
         )
 
         if not matches:
@@ -140,7 +208,7 @@ def evaluate_case(case, mode):
                 ]
 
                 reply = generate_ai_reply(
-                    search_query=question,
+                    search_query=search_query,
                     user_role=role,
                     evidence=evidence,
                     history=history,
@@ -158,7 +226,13 @@ def evaluate_case(case, mode):
 
 
 def main():
+
     parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--multi-turn",
+        action="store_true",
+        help="Evaluate multi-turn follow-up scenarios",
+    )
     parser.add_argument(
         "--mode",
         choices=["reviewed", "approved"],
@@ -183,7 +257,14 @@ def main():
     if not os.getenv("OPENAI_API_KEY"):
         raise SystemExit("OPENAI_API_KEY is missing.")
 
-    cases = CASES if args.limit == 0 else CASES[:args.limit]
+
+    selected_cases = MULTI_TURN_CASES if args.multi_turn else CASES
+    cases = (
+        selected_cases
+        if args.limit == 0
+        else selected_cases[:args.limit]
+    )
+
 
     output_dir = ROOT / "evaluation" / "pilot_runs"
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -197,7 +278,12 @@ def main():
         print(f"[{index}/{len(cases)}] {case['id']}", flush=True)
 
         try:
-            result = evaluate_case(case, args.mode)
+            result = evaluate_case(
+                case,
+                args.mode,
+                history=case.get("history", []),
+            )
+
         except Exception as error:
             result = {
                 "case_id": case["id"],
