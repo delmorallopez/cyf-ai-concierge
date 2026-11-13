@@ -6,12 +6,15 @@ import streamlit as st
 from dotenv import load_dotenv
 from openai import OpenAI
 
+
 from app_policy import (
     get_system_policy,
-    NO_MATCH_REPLY,
-    NO_RECORDS_REPLY,
+    get_no_match_reply,
+    get_no_records_reply,
     controlled_reply,
+    sensitive_account_reply,
 )
+
 
 from faq_loader import (
     approved_faq,
@@ -193,7 +196,15 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-if prompt := st.chat_input("Ask about CodeYourFuture courses"):
+
+chat_placeholder = (
+    "Ask about volunteering at CodeYourFuture"
+    if st.session_state.user_role == "volunteer"
+    else "Ask about CodeYourFuture courses"
+)
+
+if prompt := st.chat_input(chat_placeholder):
+
 
     # Save the user's message
     search_query = contextual_query(prompt, st.session_state.messages)
@@ -214,12 +225,16 @@ if prompt := st.chat_input("Ask about CodeYourFuture courses"):
             st.session_state.user_role
         )
 
+    
         if greeting_reply is not None:
             reply = greeting_reply
 
-        # 2. Check whether FAQ records are available
+        elif sensitive_account_reply(prompt) is not None:
+            reply = sensitive_account_reply(prompt)
+
         elif not records:
-            reply = NO_RECORDS_REPLY
+            reply = get_no_records_reply(st.session_state.user_role)
+
 
         else:
             # 3. Retrieve relevant FAQ records
@@ -230,7 +245,7 @@ if prompt := st.chat_input("Ask about CodeYourFuture courses"):
 
 
             if not matches:
-                reply = NO_MATCH_REPLY
+                reply = get_no_match_reply(st.session_state.user_role)
 
             else:
                 # 4. Check whether the answer needs special handling
@@ -278,10 +293,12 @@ if prompt := st.chat_input("Ask about CodeYourFuture courses"):
                             ],
                         )
 
+                       
                         reply = (
                             response.choices[0].message.content
-                            or NO_MATCH_REPLY
+                            or get_no_match_reply(st.session_state.user_role)
                         )
+
 
                     except Exception as error:
                         print(
