@@ -29,7 +29,7 @@ EXPECTED_FAQ_IDS = {
     "Can CodeYourFuture provide a laptop?": "CYF-T3-010",
     "How do I request a laptop for ITP?": "CYF-T3-010",
     "What is the Software Development Course?": "CYF-T2-005",
-    "How many hours per week do I need to study?": "CYF-T2-028",
+    "How many hours per week do I need to study?": "CYF-T1-011",
     "Where can I find trainee support?": "CYF-T3-005",
     "What career support is available?": "CYF-T1-021",
     "What happens after completing the programme?": "CYF-T3-013",

@@ -139,6 +139,51 @@ MULTI_TURN_CASES = [
 ]
 
 
+CONVERSATION_CASES = [
+    {
+        "id": "CONV-T-001",
+        "role": "trainee",
+        "turns": [
+            {
+                "question": "How long is the Software Development Course?",
+                "expected": "Correct SDC duration from FAQ",
+            },
+            {
+                "question": "And is it free?",
+                "expected": "Confirm CYF courses are free",
+            },
+            {
+                "question": "How many hours per week do I need to study?",
+                "expected": "Correct weekly study commitment",
+            },
+            {
+                "question": "Can I work full-time while attending?",
+                "expected": "Accurate guidance on working while studying",
+            },
+        ],
+    },
+    {
+        "id": "CONV-V-001",
+        "role": "volunteer",
+        "turns": [
+            {
+                "question": "Can I volunteer remotely?",
+                "expected": "Correct remote volunteering information",
+            },
+            {
+                "question": "What about the minimum commitment?",
+                "expected": "Correct volunteering commitment",
+            },
+            {
+                "question": "Can I volunteer as a code reviewer?",
+                "expected": "Accurate code reviewer information",
+            },
+        ],
+    },
+]
+
+
+
 
 def load_records(role, mode):
     path = (
@@ -173,6 +218,7 @@ def load_contextual_query():
 contextual_query = load_contextual_query()
 
 def evaluate_case(case, mode, history=None):
+    retrieved_ids = []
     role = case["role"]
     question = case["question"]
     records = load_records(role, mode)
@@ -191,10 +237,16 @@ def evaluate_case(case, mode, history=None):
 
     if reply is None and records:
         matches = (
-            retrieve_volunteer(question, records)
+            retrieve_volunteer(search_query, records)
             if role == "volunteer"
             else retrieve(search_query, records)
         )
+
+        retrieved_ids = [
+            record["id"]
+            for record in matches
+        ]
+
 
         if not matches:
             reply = get_no_match_reply(role)
@@ -222,7 +274,63 @@ def evaluate_case(case, mode, history=None):
         "response": reply,
         "manual_result": "not_reviewed",
         "reviewer_notes": "",
+        "retrieved_faq_ids": ",".join(retrieved_ids),
     }
+
+
+
+def evaluate_conversation(conversation, mode):
+    """Evaluate a complete conversation using real previous responses."""
+    role = conversation["role"]
+    history = []
+    results = []
+
+    for turn_number, turn in enumerate(conversation["turns"], start=1):
+        case = {
+            "id": f"{conversation['id']}-T{turn_number}",
+            "role": role,
+            "question": turn["question"],
+            "expected": turn["expected"],
+        }
+
+        result = evaluate_case(
+            case,
+            mode,
+            history=history,
+        )
+
+        results.append(result)
+
+        # Preserve the real exchange for the next turn.
+        history.append({
+            "role": "user",
+            "content": turn["question"],
+        })
+        history.append({
+            "role": "assistant",
+            "content": result["response"],
+        })
+
+    return results
+
+
+
+def build_faq_cases(mode):
+    """Build evaluation cases from the available FAQ records."""
+    cases = []
+
+    for role in ("trainee", "volunteer"):
+        records = load_records(role, mode)
+
+        for record in records:
+            cases.append({
+                "id": record["id"],
+                "role": role,
+                "question": record["question"],
+                "expected": record["answer"],
+            })
+
+    return cases
 
 
 def main():
@@ -233,6 +341,29 @@ def main():
         action="store_true",
         help="Evaluate multi-turn follow-up scenarios",
     )
+
+    parser.add_argument(
+        "--conversation",
+        action="store_true",
+        help="Evaluate complete multi-turn conversations",
+    )
+
+
+    parser.add_argument(
+        "--start",
+        type=int,
+        default=0,
+        help="Zero-based starting case index (default: 0)",
+    )
+
+
+    parser.add_argument(
+        "--full-faq",
+        action="store_true",
+        help="Evaluate every available FAQ record",
+    )
+
+
     parser.add_argument(
         "--mode",
         choices=["reviewed", "approved"],
@@ -258,12 +389,49 @@ def main():
         raise SystemExit("OPENAI_API_KEY is missing.")
 
 
-    selected_cases = MULTI_TURN_CASES if args.multi_turn else CASES
+
+    selected_modes = [
+        args.multi_turn,
+        args.conversation,
+        args.full_faq,
+    ]
+
+    if sum(selected_modes) > 1:
+        parser.error(
+            "Choose only one of --multi-turn, "
+            "--conversation, or --full-faq."
+        )
+
+    if args.full_faq:
+        selected_cases = build_faq_cases(args.mode)
+    elif args.conversation:
+        selected_cases = CONVERSATION_CASES
+    elif args.multi_turn:
+        selected_cases = MULTI_TURN_CASES
+    else:
+        selected_cases = CASES
+
+
+    if args.start < 0:
+        parser.error("--start must be zero or greater.")
+
+    if args.limit < 0:
+        parser.error("--limit must be zero or greater.")
+
+    if args.start > len(selected_cases):
+        parser.error(
+            f"--start exceeds the number of available cases "
+            f"({len(selected_cases)})."
+        )
+
+    remaining_cases = selected_cases[args.start:]
+
     cases = (
-        selected_cases
+        remaining_cases
         if args.limit == 0
-        else selected_cases[:args.limit]
+        else remaining_cases[:args.limit]
     )
+
 
 
     output_dir = ROOT / "evaluation" / "pilot_runs"
@@ -274,8 +442,25 @@ def main():
 
     results = []
 
+
     for index, case in enumerate(cases, 1):
         print(f"[{index}/{len(cases)}] {case['id']}", flush=True)
+
+        if args.conversation:
+            try:
+                conversation_results = evaluate_conversation(
+                    case,
+                    args.mode,
+                )
+                results.extend(conversation_results)
+            except Exception as error:
+                print(
+                    f"Conversation {case['id']} failed: "
+                    f"{type(error).__name__}: {error}",
+                    flush=True,
+                )
+                raise
+            continue
 
         try:
             result = evaluate_case(
@@ -283,7 +468,6 @@ def main():
                 args.mode,
                 history=case.get("history", []),
             )
-
         except Exception as error:
             result = {
                 "case_id": case["id"],
@@ -293,9 +477,11 @@ def main():
                 "response": "",
                 "manual_result": "error",
                 "reviewer_notes": type(error).__name__,
+                "retrieved_faq_ids": ""
             }
 
         results.append(result)
+
 
     with output.open("w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(
@@ -308,6 +494,7 @@ def main():
                 "response",
                 "manual_result",
                 "reviewer_notes",
+                "retrieved_faq_ids",
             ],
         )
         writer.writeheader()

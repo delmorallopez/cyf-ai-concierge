@@ -92,7 +92,7 @@ def application_intent(query: str) -> str | None:
         "where can i see my application status",
     }:
         return "CYF-T2-027"
-    
+
     if normalized in {
         "how many hours per week do i need to study",
         "how much time do i need to study each week",
@@ -100,7 +100,7 @@ def application_intent(query: str) -> str | None:
         "how many hours a week is the course",
     }:
         return "CYF-T2-028"
-    
+
     if normalized in {
         "where can i find trainee support",
         "where can i get help as a trainee",
@@ -121,7 +121,7 @@ def application_intent(query: str) -> str | None:
         "what support is available after graduation",
     }:
         return "CYF-T3-013"
-    
+
     if normalized in {
         "can codeyourfuture provide a laptop",
         "can cyf provide a laptop",
@@ -131,7 +131,7 @@ def application_intent(query: str) -> str | None:
         "how do i request a laptop for itp",
     }:
         return "CYF-T3-010"
-    
+
     if normalized in {
         "what is a trainee",
         "what does trainee mean",
@@ -140,7 +140,7 @@ def application_intent(query: str) -> str | None:
         "who is considered a trainee",
     }:
         return "CYF-T3-009"
-    
+
     location_phrases = (
         "i live in ",
         "i am living in ",
@@ -214,7 +214,7 @@ def eligibility_intent(question):
 
     if any(term in normalized for term in location_terms):
         return ["CYF-T1-008", "CYF-T1-001"]
-    
+
     # Income verification and supporting documents
     income_proof_terms = (
         "proof of income",
@@ -229,7 +229,7 @@ def eligibility_intent(question):
 
     if any(term in normalized for term in income_proof_terms):
         return ["CYF-T2-018", "CYF-T1-005"]
-    
+
 
     # Financial circumstances and income eligibility
     if any(term in normalized for term in (
@@ -793,7 +793,7 @@ def complex_eligibility_intent(question):
     ):
         return ["CYF-T1-001", "CYF-T2-028", "CYF-T1-011"]
 
-    
+
     # English proficiency
     if any(term in normalized for term in (
         "don t speak english very well",
@@ -914,6 +914,33 @@ def retrieve(question, faq_records, limit=4):
     if not question.strip():
         return []
 
+
+    # Weekly study commitment: use the FAQ covering course hours.
+    normalized_question = " ".join(
+        re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    study_hours_intent = (
+        "hours per week" in normalized_question
+        or "hours a week" in normalized_question
+        or "weekly study commitment" in normalized_question
+        or "weekly commitment" in normalized_question
+        or "time commitment" in normalized_question
+    )
+
+    if study_hours_intent:
+        study_faq = next(
+            (
+                record
+                for record in faq_records
+                if record["id"] == "CYF-T1-011"
+            ),
+            None,
+        )
+
+        if study_faq:
+            return [study_faq][:limit]
+
     # Course fees: prioritise the verified FAQ covering all CYF courses.
     fee_question = re.sub(r"[^\w\s]", " ", question.lower())
     fee_words = set(fee_question.split())
@@ -969,7 +996,7 @@ def retrieve(question, faq_records, limit=4):
         ]
         if matches:
             return matches[:limit]
-        
+
     # Normalize the user's question
     normalized = " ".join(
         re.sub(r"[^\w\s]", " ", question.lower()).split()
@@ -997,7 +1024,7 @@ def retrieve(question, faq_records, limit=4):
             if record["id"] == "CYF-T1-001":
                 return [record]
 
-    
+
     # Application rejection and reapplication questions
     if application_rejection_intent(question):
         rejection_faq = next(
@@ -1025,7 +1052,7 @@ def retrieve(question, faq_records, limit=4):
         if programming_faq:
             return [programming_faq][:limit]
 
-    
+
 
     # Broken laptop and technical device support
     if broken_laptop_intent(question):
@@ -1041,7 +1068,7 @@ def retrieve(question, faq_records, limit=4):
             return [laptop_faq][:limit]
 
 
-    
+
     # Personal issues and trainee wellbeing support
     if personal_issue_support_intent(question):
         personal_support_faq = next(
@@ -1055,7 +1082,7 @@ def retrieve(question, faq_records, limit=4):
         if personal_support_faq:
             return [personal_support_faq][:limit]
 
-    
+
 
     # Trainee enrolment and first-module completion
     if trainee_enrolment_intent(question):
@@ -1070,7 +1097,7 @@ def retrieve(question, faq_records, limit=4):
         if enrolment_faq:
             return [enrolment_faq][:limit]
 
-    
+
     # Childcare funding and contact questions
     if childcare_support_intent(question):
         text = question.lower()
@@ -1100,7 +1127,7 @@ def retrieve(question, faq_records, limit=4):
 
         if matches:
             return matches[:limit]
-    
+
 
     # GitHub pull request troubleshooting
     if pull_request_problem_intent(question):
@@ -1128,7 +1155,7 @@ def retrieve(question, faq_records, limit=4):
         ]
         if matches:
             return matches[:limit]
-        
+
     career_ids = career_support_intent(question)
 
     if career_ids:
@@ -1141,7 +1168,7 @@ def retrieve(question, faq_records, limit=4):
 
         if matches:
             return matches[:limit]
-        
+
     complex_ids = complex_eligibility_intent(question)
 
     if complex_ids:
@@ -1154,7 +1181,7 @@ def retrieve(question, faq_records, limit=4):
 
         if matches:
             return matches[:limit]
-        
+
     laptop_ids = laptop_support_intent(question)
 
     if laptop_ids:
@@ -1167,7 +1194,7 @@ def retrieve(question, faq_records, limit=4):
 
         if matches:
             return matches[:limit]
-        
+
     trainee_ids = trainee_support_intent(question)
 
     if trainee_ids:
@@ -1180,7 +1207,7 @@ def retrieve(question, faq_records, limit=4):
 
         if matches:
             return matches[:limit]
-        
+
     learning_ids = learning_pathway_intent(question)
 
     if learning_ids:
@@ -1206,7 +1233,7 @@ def retrieve(question, faq_records, limit=4):
 
         if matches:
             return matches[:limit]
-        
+
     enquiry_ids = application_enquiry_intent(question)
 
     if enquiry_ids:
@@ -1219,7 +1246,7 @@ def retrieve(question, faq_records, limit=4):
 
         if matches:
             return matches[:limit]
-        
+
     eligibility_ids = eligibility_intent(question)
 
     if eligibility_ids:
@@ -1232,7 +1259,7 @@ def retrieve(question, faq_records, limit=4):
 
         if matches:
             return matches[:limit]
-        
+
     # Retrieve multiple FAQs for general trainee support
     if normalized in {
         "where can i find trainee support",
@@ -1290,7 +1317,7 @@ def retrieve(question, faq_records, limit=4):
         ]
 
         return matches[:limit]
-    
+
 
     # Existing explicit intent routing
     target_id = application_intent(question)
