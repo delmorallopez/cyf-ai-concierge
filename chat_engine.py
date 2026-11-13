@@ -30,8 +30,17 @@ def generate_ai_reply(
         "check whether the requested information was already given.\n"
         + "- If the previous answer already covered all relevant FAQ steps, "
         "briefly acknowledge this instead of repeating the same process.\n"
+
         + "- Never invent additional steps to continue a conversation.\n"
+        + "- Preserve important qualifications, conditions, exceptions, "
+        "and uncertainty stated in the FAQ evidence.\n"
+        + "- If the FAQ says a requirement needs confirmation, "
+        "do not present it as definitively confirmed.\n"
+        + "- For eligibility, legal status, financial support, or "
+        "course requirements, clearly distinguish confirmed information "
+        "from information that CYF still needs to verify.\n"
         + "- If the current FAQ evidence is insufficient, say so."
+
     )
 
     messages = [{"role": "system", "content": system_message}]

@@ -15,4 +15,6 @@ __pycache__/
 # OS and editor files
 .DS_Store
 .vscode/
-EOF
+
+# Generated pilot evaluation results
+/evaluation/pilot_runs/

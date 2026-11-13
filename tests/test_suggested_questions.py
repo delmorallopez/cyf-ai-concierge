@@ -190,8 +190,8 @@ def test_suggested_question_retrieves_correct_faq(
     "question, expected_id",
     [
         (
-            "I'm currently receiving Universal Credit. Can I apply?",
-            "CYF-T1-001",
+        "I'm currently receiving Universal Credit. Can I apply?",
+        "CYF-T1-004",
         ),
         (
             "Do I need to provide proof of my income?",

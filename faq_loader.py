@@ -920,6 +920,72 @@ def retrieve(question, faq_records, limit=4):
         re.sub(r"[^\w\s]", " ", question.lower()).split()
     )
 
+
+
+    # Questions specifically about how CYF measures low income.
+    low_income_measurement_intent = (
+        "low income" in normalized_question
+        and any(
+            phrase in normalized_question
+            for phrase in (
+                "how",
+                "measure",
+                "defined",
+                "definition",
+                "threshold",
+                "calculate",
+                "assess",
+            )
+        )
+    )
+
+    if low_income_measurement_intent:
+        low_income_faq = next(
+            (
+                record
+                for record in faq_records
+                if record["id"] == "CYF-T1-005"
+            ),
+            None,
+        )
+
+        if low_income_faq:
+            return [low_income_faq][:limit]
+
+
+    # Questions about attending CYF while receiving UK benefits.
+    benefits_intent = (
+        "benefits" in normalized_question
+        or "universal credit" in normalized_question
+        or "jobseeker allowance" in normalized_question
+        or "jobseekers allowance" in normalized_question
+    )
+
+    if benefits_intent and any(
+        phrase in normalized_question
+        for phrase in (
+            "can i",
+            "can you",
+            "take this course",
+            "join",
+            "attend",
+            "study",
+            "eligible",
+        )
+    ):
+        benefits_faq = next(
+            (
+                record
+                for record in faq_records
+                if record["id"] == "CYF-T1-004"
+            ),
+            None,
+        )
+
+        if benefits_faq:
+            return [benefits_faq][:limit]
+
+
     study_hours_intent = (
         "hours per week" in normalized_question
         or "hours a week" in normalized_question
