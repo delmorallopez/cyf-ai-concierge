@@ -24,7 +24,7 @@ from faq_loader import (
     retrieve_volunteer,
 )
 
-from chat_utils import TOPIC_RESPONSES
+from chat_utils import TOPIC_RESPONSES, repeated_onboarding_followup
 
 load_dotenv()
 st.set_page_config(page_title="CYF AI Concierge", page_icon="💬")
@@ -126,19 +126,73 @@ def get_greeting_response(message: str, user_role: str) -> str | None:
 
    
 
-def contextual_query(prompt, history):
-    """Resolve short follow-ups from the previous user topic without exposing chat history."""
-    followup = bool(re.search(r"\b(it|that|this|they|those)\b", prompt.lower())) or len(prompt.split()) <= 6
-    if not followup:
-        return prompt
-    previous = next((m["content"] for m in reversed(history) if m["role"] == "user"), "")
+
+def contextual_query(prompt: str, history: list, user_role: str = "trainee") -> str:
+    """Resolve short follow-ups using the previous user question."""
+
+    # Only use previous user messages, never assistant-generated text.
+    previous = next(
+        (
+            message["content"]
+            for message in reversed(history)
+            if message["role"] == "user"
+        ),
+        "",
+    )
+
     if not previous:
         return prompt
-    # Prefer the explicit course in the previous question; avoid arbitrary context.
-    course = re.search(r"\b(ITP|ITD|SDC|Intro to Programming|Intro to Digital|Software Development Course)\b", previous, re.I)
-    if course and not re.search(r"\b(ITP|ITD|SDC|Intro to Programming|Intro to Digital|Software Development Course)\b", prompt, re.I):
-        return f"{prompt} {course.group(0)}"
+
+    # Explicit topic changes should not inherit previous context.
+    if re.search(
+        r"\b(new topic|different question|unrelated question)\b",
+        prompt,
+        re.I,
+    ):
+        return prompt
+
+    # Keep the previous course when the user asks a short follow-up.
+    courses = (
+        r"ITP|ITD|SDC|Intro to Programming|"
+        r"Intro to Digital|Software Development Course"
+    )
+
+    previous_course = re.search(
+        rf"\b({courses})\b",
+        previous,
+        re.I,
+    )
+
+    current_course = re.search(
+        rf"\b({courses})\b",
+        prompt,
+        re.I,
+    )
+
+    is_short_followup = len(prompt.split()) <= 8
+
+    if (
+        user_role == "trainee"
+        and is_short_followup
+        and previous_course
+        and not current_course
+    ):
+        return f"{prompt} {previous_course.group(0)}"
+
+    # Add role context to short volunteer follow-ups.
+    if (
+        user_role == "volunteer"
+        and is_short_followup
+        and re.search(
+            r"\b(it|that|this|what about|and|how about)\b",
+            prompt,
+            re.I,
+        )
+    ):
+        return f"{prompt} volunteering at CodeYourFuture"
+
     return prompt
+
 
 
 
@@ -207,7 +261,13 @@ if prompt := st.chat_input(chat_placeholder):
 
 
     # Save the user's message
-    search_query = contextual_query(prompt, st.session_state.messages)
+    
+    search_query = contextual_query(
+        prompt,
+        st.session_state.messages,
+        st.session_state.user_role,
+    )
+
 
     st.session_state.messages.append({
         "role": "user",
@@ -228,6 +288,17 @@ if prompt := st.chat_input(chat_placeholder):
     
         if greeting_reply is not None:
             reply = greeting_reply
+        
+
+        elif (
+            followup_reply := repeated_onboarding_followup(
+                prompt,
+                st.session_state.messages[:-1],
+                st.session_state.user_role,
+            )
+        ) is not None:
+            reply = followup_reply
+
 
         elif sensitive_account_reply(prompt) is not None:
             reply = sensitive_account_reply(prompt)
@@ -270,27 +341,57 @@ if prompt := st.chat_input(chat_placeholder):
 
                     # 7. Generate a grounded answer using OpenAI
                     try:
+
+                        # Include recent conversation for natural follow-up responses.
+                        # FAQ evidence remains the only source of CYF-specific facts.
+                        recent_history = st.session_state.messages[:-1][-4:]
+
+                        conversation_messages = [
+                            {
+                                "role": "system",
+                                "content": (
+                                    get_system_policy(st.session_state.user_role)
+                                    + "\nFAQ EVIDENCE:\n"
+                                    + build_faq_context(evidence)
+                                    
+                                    + "\n\nCONVERSATION RULES:\n"
+                                    + "- Use recent conversation only to understand context.\n"
+                                    + "- Do not treat previous assistant answers as factual evidence.\n"
+                                    + "- Avoid repeating information already explained.\n"
+                                    + "- For vague follow-ups such as 'And what happens next?', "
+                                    "check whether the requested information was already given.\n"
+                                    + "- If the previous answer already covered all relevant FAQ steps, "
+                                    "briefly acknowledge this instead of repeating the same process.\n"
+                                    + "- Never invent additional steps to continue a conversation.\n"
+                                    + "- If the current FAQ evidence is insufficient, say so."
+
+                                ),
+                            },
+                        ]
+
+                        conversation_messages.extend(
+                            {
+                                "role": message["role"],
+                                "content": message["content"],
+                            }
+                            for message in recent_history
+                            if message["role"] in {"user", "assistant"}
+                        )
+
+                        conversation_messages.append(
+                            {
+                                "role": "user",
+                                "content": search_query,
+                            }
+                        )
+
                         response = OpenAI().chat.completions.create(
                             model=os.getenv(
                                 "OPENAI_MODEL",
                                 "gpt-4.1-mini"
                             ),
                             temperature=0.0,
-                            messages=[
-                                {
-                                    "role": "system",
-                                    "content": (
-                                        get_system_policy(st.session_state.user_role)
-                                        + "\nFAQ EVIDENCE:\n"
-                                        + build_faq_context(evidence)
-                                    )
-
-                                },
-                                {
-                                    "role": "user",
-                                    "content": search_query
-                                }
-                            ],
+                            messages=conversation_messages,
                         )
 
                        

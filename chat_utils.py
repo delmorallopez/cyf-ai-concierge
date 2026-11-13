@@ -1,3 +1,5 @@
+import re
+
 TOPIC_RESPONSES = {
     "cyf courses and learning pathways": (
         "CodeYourFuture offers a learning pathway that includes "
@@ -54,3 +56,69 @@ TOPIC_RESPONSES = {
         "- What happens after completing the programme?"
     ),
 }
+
+def repeated_onboarding_followup(
+    message: str,
+    history: list,
+    user_role: str,
+) -> str | None:
+    """Avoid repeating an already explained volunteer onboarding process."""
+
+    if user_role != "volunteer":
+        return None
+
+    normalized = re.sub(r"[^\w\s]", "", message.lower())
+    normalized = " ".join(normalized.split())
+
+    vague_followups = {
+        "and what happens next",
+        "what happens next",
+        "and then",
+        "what about after that",
+    }
+
+    if normalized not in vague_followups:
+        return None
+
+    if len(history) < 2:
+        return None
+
+    previous_user = next(
+        (
+            item["content"].lower()
+            for item in reversed(history)
+            if item["role"] == "user"
+        ),
+        "",
+    )
+
+    previous_assistant = next(
+        (
+            item["content"].lower()
+            for item in reversed(history)
+            if item["role"] == "assistant"
+        ),
+        "",
+    )
+
+    onboarding_question = (
+        "become a volunteer" in previous_user
+        or "sign up" in previous_user
+        or "onboarding" in previous_user
+    )
+
+    onboarding_already_explained = (
+        "welcome session" in previous_assistant
+        and "training" in previous_assistant
+    )
+
+    if onboarding_question and onboarding_already_explained:
+        return (
+            "Once you've completed the onboarding steps, "
+            "you can begin contributing to your local "
+            "CodeYourFuture community. I've already outlined "
+            "the main steps, but I can explain any particular "
+            "part in more detail."
+        )
+
+    return None
