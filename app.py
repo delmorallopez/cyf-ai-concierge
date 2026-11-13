@@ -4,7 +4,6 @@ import re
 
 import streamlit as st
 from dotenv import load_dotenv
-from openai import OpenAI
 
 
 from app_policy import (
@@ -25,6 +24,8 @@ from faq_loader import (
 )
 
 from chat_utils import TOPIC_RESPONSES, repeated_onboarding_followup
+from chat_engine import generate_ai_reply
+
 
 load_dotenv()
 st.set_page_config(page_title="CYF AI Concierge", page_icon="💬")
@@ -341,64 +342,13 @@ if prompt := st.chat_input(chat_placeholder):
 
                     # 7. Generate a grounded answer using OpenAI
                     try:
-
-                        # Include recent conversation for natural follow-up responses.
-                        # FAQ evidence remains the only source of CYF-specific facts.
-                        recent_history = st.session_state.messages[:-1][-4:]
-
-                        conversation_messages = [
-                            {
-                                "role": "system",
-                                "content": (
-                                    get_system_policy(st.session_state.user_role)
-                                    + "\nFAQ EVIDENCE:\n"
-                                    + build_faq_context(evidence)
-                                    
-                                    + "\n\nCONVERSATION RULES:\n"
-                                    + "- Use recent conversation only to understand context.\n"
-                                    + "- Do not treat previous assistant answers as factual evidence.\n"
-                                    + "- Avoid repeating information already explained.\n"
-                                    + "- For vague follow-ups such as 'And what happens next?', "
-                                    "check whether the requested information was already given.\n"
-                                    + "- If the previous answer already covered all relevant FAQ steps, "
-                                    "briefly acknowledge this instead of repeating the same process.\n"
-                                    + "- Never invent additional steps to continue a conversation.\n"
-                                    + "- If the current FAQ evidence is insufficient, say so."
-
-                                ),
-                            },
-                        ]
-
-                        conversation_messages.extend(
-                            {
-                                "role": message["role"],
-                                "content": message["content"],
-                            }
-                            for message in recent_history
-                            if message["role"] in {"user", "assistant"}
+                        reply = generate_ai_reply(
+                            search_query=search_query,
+                            user_role=st.session_state.user_role,
+                            evidence=evidence,
+                            history=st.session_state.messages[:-1],
                         )
 
-                        conversation_messages.append(
-                            {
-                                "role": "user",
-                                "content": search_query,
-                            }
-                        )
-
-                        response = OpenAI().chat.completions.create(
-                            model=os.getenv(
-                                "OPENAI_MODEL",
-                                "gpt-4.1-mini"
-                            ),
-                            temperature=0.0,
-                            messages=conversation_messages,
-                        )
-
-                       
-                        reply = (
-                            response.choices[0].message.content
-                            or get_no_match_reply(st.session_state.user_role)
-                        )
 
 
                     except Exception as error:
