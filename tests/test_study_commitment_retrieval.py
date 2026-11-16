@@ -1,3 +1,4 @@
+
 from faq_loader import retrieve, reviewed_faq
 
 
@@ -23,4 +24,16 @@ def test_general_weekly_study_commitment():
     )
 
     assert matches
-    assert matches[0]["id"] == "CYF-T1-011"
+    assert matches[0]["id"] == "CYF-T2-028"
+
+
+def test_general_study_hours_question():
+    records = reviewed_faq()
+
+    matches = retrieve(
+        "How many hours per week do I need to study?",
+        records,
+    )
+
+    assert matches
+    assert matches[0]["id"] == "CYF-T2-028"

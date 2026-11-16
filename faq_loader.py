@@ -1069,6 +1069,8 @@ def retrieve(question, faq_records, limit=4):
 
 
 
+    
+    # Route study commitment questions based on course context.
     study_hours_intent = (
         "hours per week" in normalized_question
         or "hours a week" in normalized_question
@@ -1078,17 +1080,33 @@ def retrieve(question, faq_records, limit=4):
     )
 
     if study_hours_intent:
+        sdc_context = any(
+            phrase in normalized_question
+            for phrase in (
+                "software development course",
+                "software development",
+                "sdc",
+            )
+        )
+
+        target_id = (
+            "CYF-T1-011"
+            if sdc_context
+            else "CYF-T2-028"
+        )
+
         study_faq = next(
             (
                 record
                 for record in faq_records
-                if record["id"] == "CYF-T1-011"
+                if record["id"] == target_id
             ),
             None,
         )
 
         if study_faq:
             return [study_faq][:limit]
+
 
 
 
