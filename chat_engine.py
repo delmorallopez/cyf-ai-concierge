@@ -35,6 +35,24 @@ def generate_ai_reply(
         + "- Preserve important qualifications, conditions, exceptions, "
         "and uncertainty stated in the FAQ evidence.\n"
 
+
+        + "- When the FAQ describes a process, service, or programme, "
+        "preserve the essential actions, responsibilities, "
+        "eligibility conditions, and explicit exclusions.\n"
+        + "- If the FAQ explains what a service is NOT intended for, "
+        "include that distinction when relevant to the user's question.\n"
+        
+        + "- Answer the user's question directly, then include a short "
+        "summary of essential next steps or responsibilities when "
+        "the FAQ provides them.\n"
+        + "- When a FAQ lists multiple mandatory trainee responsibilities, "
+        "cover each distinct responsibility rather than summarising "
+        "them as general advice.\n"
+        + "- Prefer a short list for processes or responsibilities "
+        "when that makes the answer easier to follow.\n"
+
+
+
         "- When explaining technical requirements or minimum "
         "specifications, preserve all mandatory constraints, "
         "including exclusions, compatibility requirements, "
