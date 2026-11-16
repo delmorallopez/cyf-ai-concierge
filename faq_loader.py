@@ -922,6 +922,50 @@ def retrieve(question, faq_records, limit=4):
 
 
 
+    # Questions asking which courses CYF offers.
+    course_list_intent = (
+        any(
+            phrase in normalized_question
+            for phrase in (
+                "what courses",
+                "which courses",
+                "list the courses",
+                "list the cyf courses",
+                "list cyf courses",
+                "courses available",
+                "courses does cyf",
+                "courses does codeyourfuture",
+            )
+        )
+        and not any(
+            phrase in normalized_question
+            for phrase in (
+                "free",
+                "cost",
+                "fee",
+                "online",
+                "in person",
+                "hours",
+                "schedule",
+                "time",
+            )
+        )
+    )
+
+    if course_list_intent:
+        course_list_faq = next(
+            (
+                record
+                for record in faq_records
+                if record["id"] == "CYF-T1-015"
+            ),
+            None,
+        )
+
+        if course_list_faq:
+            return [course_list_faq][:limit]
+
+
     # Questions specifically about how CYF measures low income.
     low_income_measurement_intent = (
         "low income" in normalized_question
