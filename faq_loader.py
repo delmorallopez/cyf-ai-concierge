@@ -959,6 +959,46 @@ def retrieve(question, faq_records, limit=4):
             return [workspace_faq][:limit]
 
 
+    # Laptop requests and application process.
+    laptop_request_intent = (
+        "laptop" in normalized_question
+        and any(
+            phrase in normalized_question
+            for phrase in (
+                "request",
+                "apply",
+                "get a laptop",
+                "need a laptop",
+                "provide a laptop",
+            )
+        )
+        and not any(
+            phrase in normalized_question
+            for phrase in (
+                "return",
+                "broken",
+                "not working",
+                "stopped working",
+                "repair",
+                "keep my laptop",
+            )
+        )
+    )
+
+    if laptop_request_intent:
+        laptop_request_faq = next(
+            (
+                record
+                for record in faq_records
+                if record["id"] == "CYF-T3-010"
+            ),
+            None,
+        )
+
+        if laptop_request_faq:
+            return [laptop_request_faq][:limit]
+
+
     # Questions asking which courses CYF offers.
     course_list_intent = (
         any(
@@ -1065,9 +1105,6 @@ def retrieve(question, faq_records, limit=4):
 
         if benefits_faq:
             return [benefits_faq][:limit]
-
-
-
 
     
     # Route study commitment questions based on course context.
