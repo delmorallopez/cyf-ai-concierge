@@ -922,6 +922,43 @@ def retrieve(question, faq_records, limit=4):
 
 
 
+    
+    # Route Slack workspace joining questions to the correct FAQ.
+    slack_workspace_intent = (
+        "slack" in normalized_question
+        and any(
+            phrase in normalized_question
+            for phrase in (
+                "join",
+                "invitation",
+                "invite",
+                "access",
+            )
+        )
+        and any(
+            phrase in normalized_question
+            for phrase in (
+                "workspace",
+                "eligibility",
+                "trainee agreement",
+            )
+        )
+    )
+
+    if slack_workspace_intent:
+        workspace_faq = next(
+            (
+                record
+                for record in faq_records
+                if record["id"] == "CYF-T5-005"
+            ),
+            None,
+        )
+
+        if workspace_faq:
+            return [workspace_faq][:limit]
+
+
     # Questions asking which courses CYF offers.
     course_list_intent = (
         any(
@@ -1030,6 +1067,8 @@ def retrieve(question, faq_records, limit=4):
             return [benefits_faq][:limit]
 
 
+
+
     study_hours_intent = (
         "hours per week" in normalized_question
         or "hours a week" in normalized_question
@@ -1050,6 +1089,8 @@ def retrieve(question, faq_records, limit=4):
 
         if study_faq:
             return [study_faq][:limit]
+
+
 
     # Course fees: prioritise the verified FAQ covering all CYF courses.
     fee_question = re.sub(r"[^\w\s]", " ", question.lower())
