@@ -23,7 +23,7 @@ from faq_loader import (
     retrieve_volunteer,
 )
 
-from chat_utils import TOPIC_RESPONSES, repeated_onboarding_followup
+from chat_utils import TOPIC_RESPONSES, repeated_onboarding_followup, clarify_ambiguous_link
 from chat_engine import generate_ai_reply
 
 
@@ -151,6 +151,104 @@ def contextual_query(prompt: str, history: list, user_role: str = "trainee") -> 
         re.I,
     ):
         return prompt
+    
+
+    # Resolve answers to a previous link clarification.
+    if user_role == "trainee":
+        previous_assistant = next(
+            (
+                message["content"]
+                for message in reversed(history)
+                if message["role"] == "assistant"
+            ),
+            "",
+        )
+
+        clarification_pattern = (
+            r"Do you mean the "
+            r"(Intro to Digital|Intro to Programming|"
+            r"Software Development Course)"
+            r" registration link or the curriculum link"
+        )
+
+        clarification_match = re.search(
+            clarification_pattern,
+            previous_assistant,
+            re.I,
+        )
+
+        if clarification_match:
+            course = clarification_match.group(1)
+
+            normalized = re.sub(
+                r"[^\w\s]", " ", prompt.lower()
+            ).strip()
+
+            if normalized in {
+                "the curriculum",
+                "curriculum",
+                "curriculum link",
+                "the curriculum link",
+            }:
+                return f"Where is the {course} curriculum link?"
+
+            if normalized in {
+                "registration",
+                "the registration",
+                "registration link",
+                "the registration link",
+                "sign up",
+                "sign up link",
+            }:
+                return f"What is the registration link for {course}?"
+
+
+    
+    # Resolve short link requests using the previous conversation.
+    if user_role == "trainee":
+        link_followup = re.fullmatch(
+            r"(?:can you\s+|could you\s+)?"
+            r"(?:(?:share|send|give|show)\s+)?"
+            r"(?:(?:me|us)\s+)?"
+            r"(?:(?:the|a)\s+)?"
+            r"link"
+            r"(?:\s+(?:pls|please))?\s*[?!.]*",
+            prompt.strip(),
+            re.I,
+        )
+
+        if link_followup:
+            # Prefer the previous user question for identifying intent.
+            course_pattern = (
+                r"\b(Intro to Digital|ITD|"
+                r"Intro to Programming|ITP|"
+                r"Software Development Course|SDC|"
+                r"Checkpoint)\b"
+            )
+
+            course_match = re.search(
+                course_pattern,
+                previous,
+                re.I,
+            )
+
+            if course_match:
+                course = course_match.group(0)
+
+                if re.search(
+                    r"\b(register|registration|sign[\s-]?up)\b",
+                    previous,
+                    re.I,
+                ):
+                    return f"What is the registration link for {course}?"
+
+                if re.search(
+                    r"\b(curriculum|course content|course materials)\b",
+                    previous,
+                    re.I,
+                ):
+                    return f"Where is the {course} curriculum link?"
+
 
     # Keep the previous course when the user asks a short follow-up.
     courses = (
@@ -303,6 +401,17 @@ if prompt := st.chat_input(chat_placeholder):
 
         elif sensitive_account_reply(prompt) is not None:
             reply = sensitive_account_reply(prompt)
+        
+
+        elif (
+            clarification_reply := clarify_ambiguous_link(
+                prompt,
+                st.session_state.messages[:-1],
+                st.session_state.user_role,
+            )
+        ) is not None:
+            reply = clarification_reply
+
 
         elif not records:
             reply = get_no_records_reply(st.session_state.user_role)

@@ -914,6 +914,72 @@ def retrieve(question, faq_records, limit=4):
     if not question.strip():
         return []
 
+    
+    # Route explicit course-link requests to reviewed FAQ evidence.
+    normalized_link_query = " ".join(
+        re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    link_requested = any(
+        term in normalized_link_query.split()
+        for term in ("link", "url", "website", "page")
+    )
+
+    curriculum_requested = (
+        "curriculum" in normalized_link_query
+        or "course content" in normalized_link_query
+        or "course materials" in normalized_link_query
+    )
+
+    registration_requested = any(
+        term in normalized_link_query
+        for term in (
+            "register",
+            "registration",
+            "sign up",
+            "signup",
+        )
+    )
+
+    itd_requested = any(
+        term in normalized_link_query
+        for term in ("intro to digital", "itd")
+    )
+
+    course_mentioned = any(
+        term in normalized_link_query
+        for term in (
+            "intro to digital",
+            "itd",
+            "intro to programming",
+            "itp",
+            "software development course",
+            "sdc",
+            "checkpoint",
+        )
+    )
+
+    target_faq_id = None
+
+    if course_mentioned and curriculum_requested:
+        target_faq_id = "CYF-T3-001"
+
+    elif itd_requested and registration_requested and link_requested:
+        target_faq_id = "CYF-T1-018"
+
+    if target_faq_id:
+        matching_faq = next(
+            (
+                record
+                for record in faq_records
+                if record["id"] == target_faq_id
+            ),
+            None,
+        )
+
+        if matching_faq:
+            return [matching_faq][:limit]
+
 
     # Weekly study commitment: use the FAQ covering course hours.
     normalized_question = " ".join(

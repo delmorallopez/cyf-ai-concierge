@@ -122,3 +122,65 @@ def repeated_onboarding_followup(
         )
 
     return None
+
+
+
+def clarify_ambiguous_link(
+    message: str,
+    history: list,
+    user_role: str,
+) -> str | None:
+    """Clarify vague link requests when multiple resources are discussed."""
+
+    if user_role != "trainee":
+        return None
+
+    normalized = re.sub(r"[^\w\s]", " ", message.lower())
+    normalized = " ".join(normalized.split())
+
+    vague_link_requests = {
+        "the link",
+        "link",
+        "share the link",
+        "share the link pls",
+        "share the link please",
+        "send me the link",
+        "can you share the link",
+        "can you send me the link",
+    }
+
+    if normalized not in vague_link_requests:
+        return None
+
+    # Only inspect a small window of recent conversation.
+    recent_messages = history[-6:]
+
+    context = " ".join(
+        item["content"].lower()
+        for item in recent_messages
+        if item["role"] == "assistant"
+    )
+
+    registration_mentioned = bool(
+        re.search(r"\b(register|registration|sign up|signup)\b", context)
+    )
+
+    curriculum_mentioned = bool(
+        re.search(r"\b(curriculum|course content|study materials)\b", context)
+    )
+
+    course_mentioned = bool(
+        re.search(r"\b(intro to digital|itd)\b", context)
+    )
+
+    if (
+        course_mentioned
+        and registration_mentioned
+        and curriculum_mentioned
+    ):
+        return (
+            "Do you mean the Intro to Digital registration link "
+            "or the curriculum link where you can start studying?"
+        )
+
+    return None
