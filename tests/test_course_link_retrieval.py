@@ -42,3 +42,29 @@ def test_itp_registration_does_not_route_to_itd_registration():
         record["id"] != "CYF-T1-018"
         for record in matches
     )
+
+
+
+def test_start_itd_now_includes_curriculum_evidence():
+    matches = retrieve(
+        "Can I start Intro to Digital now?",
+        reviewed_faq(),
+    )
+
+    ids = [record["id"] for record in matches]
+
+    assert ids[:2] == [
+        "CYF-T1-016",
+        "CYF-T3-001",
+    ]
+
+
+
+def test_itd_registration_question_without_link_keyword():
+    matches = retrieve(
+        "How do I register for Intro to Digital?",
+        reviewed_faq(),
+    )
+
+    assert matches
+    assert matches[0]["id"] == "CYF-T1-018"

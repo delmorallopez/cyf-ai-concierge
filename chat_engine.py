@@ -45,6 +45,18 @@ def generate_ai_reply(
         + "- Answer the user's question directly, then include a short "
         "summary of essential next steps or responsibilities when "
         "the FAQ provides them.\n"
+
+        + "- When the user asks how or when to start a course, "
+        "how to register, or where to find learning materials, "
+        "include the relevant direct URL from the reviewed FAQ "
+        "evidence whenever one is available.\n"
+        + "- Prefer a relevant direct URL over a generic reference "
+        "to the CYF website or registration page.\n"
+        + "- Do not invent URLs. Only include links explicitly "
+        "provided in the reviewed FAQ evidence.\n"
+        + "- Distinguish starting self-paced learning from joining "
+        "a scheduled cohort when the evidence supports it.\n"
+
         + "- When a FAQ lists multiple mandatory trainee responsibilities, "
         "cover each distinct responsibility rather than summarising "
         "them as general advice.\n"

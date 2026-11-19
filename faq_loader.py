@@ -915,7 +915,47 @@ def retrieve(question, faq_records, limit=4):
         return []
 
     
+
+    # Provide introductory and curriculum evidence when users
+    # ask whether they can start Intro to Digital now.
+    normalized_start_query = " ".join(
+        re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    itd_start_now = (
+        re.search(
+            r"\b(?:intro to digital|itd)\b",
+            normalized_start_query,
+        )
+        and re.search(
+            r"\bstart\b",
+            normalized_start_query,
+        )
+        and re.search(
+            r"\b(?:now|right now|immediately|today)\b",
+            normalized_start_query,
+        )
+    )
+
+    if itd_start_now:
+        target_ids = [
+            "CYF-T1-016",
+            "CYF-T3-001",
+        ]
+
+        matches = [
+            record
+            for faq_id in target_ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+
+        if len(matches) == len(target_ids):
+            return matches[:limit]
+
     # Route explicit course-link requests to reviewed FAQ evidence.
+
+    
     normalized_link_query = " ".join(
         re.sub(r"[^\w\s]", " ", question.lower()).split()
     )
@@ -964,8 +1004,17 @@ def retrieve(question, faq_records, limit=4):
     if course_mentioned and curriculum_requested:
         target_faq_id = "CYF-T3-001"
 
-    elif itd_requested and registration_requested and link_requested:
+   
+    elif (
+        itd_requested
+        and registration_requested
+        and not re.search(
+            r"\b(restart|restarting|re-register)\b",
+            normalized_link_query,
+        )
+    ):
         target_faq_id = "CYF-T1-018"
+
 
     if target_faq_id:
         matching_faq = next(

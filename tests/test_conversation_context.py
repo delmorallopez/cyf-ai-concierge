@@ -263,3 +263,82 @@ def test_registration_answer_to_link_clarification():
     )
 
     assert result == "What is the registration link for Intro to Digital?"
+
+
+
+def test_start_now_uses_previous_assistant_course_context():
+    history = [
+        {
+            "role": "user",
+            "content": "What's up with the courses?",
+        },
+        {
+            "role": "assistant",
+            "content": (
+                "CodeYourFuture courses start with Intro to Digital, "
+                "then Intro to Programming, followed by Checkpoint "
+                "and the Software Development Course. "
+                "You can sign up for Intro to Digital and begin "
+                "studying the open curriculum immediately."
+            ),
+        },
+    ]
+
+    result = contextual_query(
+        "Can I start like now?",
+        history,
+        "trainee",
+    )
+
+    assert result == "Can I start Intro to Digital now?"
+
+
+
+def test_registration_followup_after_small_talk():
+    history = [
+        {
+            "role": "user",
+            "content": "What's up with the courses?",
+        },
+        {
+            "role": "assistant",
+            "content": (
+                "You can start with Intro to Digital "
+                "and study its curriculum online."
+            ),
+        },
+        {
+            "role": "user",
+            "content": "ok",
+        },
+        {
+            "role": "assistant",
+            "content": "Great! Let me know if you have questions.",
+        },
+        {
+            "role": "user",
+            "content": "I have no experience, is it a problem?",
+        },
+        {
+            "role": "assistant",
+            "content": (
+                "Intro to Digital is designed for beginners."
+            ),
+        },
+        {
+            "role": "user",
+            "content": "cool",
+        },
+        {
+            "role": "assistant",
+            "content": "Great! Let me know if you have questions.",
+        },
+    ]
+
+    result = contextual_query(
+        "Ok, how do I register?",
+        history,
+        "trainee",
+    )
+
+    assert result == "How do I register for Intro to Digital?"

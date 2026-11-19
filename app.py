@@ -123,6 +123,43 @@ def get_greeting_response(message: str, user_role: str) -> str | None:
     if normalized in TOPIC_RESPONSES:
         return TOPIC_RESPONSES[normalized]
 
+    
+    # Handle short conversational messages without FAQ retrieval.
+    acknowledgements = {
+        "ok",
+        "okay",
+        "cool",
+        "great",
+        "got it",
+        "understood",
+        "alright",
+    }
+
+    thanks = {
+        "thanks",
+        "thank you",
+        "thank you so much",
+        "thx",
+        "tks",
+    }
+
+    followup_introductions = {
+        "one more thing",
+        "ah one more thing",
+        "oh one more thing",
+        "i have another question",
+        "can i ask another question",
+    }
+
+    if normalized in acknowledgements:
+        return "Great! Let me know if you have any other questions."
+
+    if normalized in thanks:
+        return "You're welcome! Happy to help."
+
+    if normalized in followup_introductions:
+        return "Of course! What else would you like to know?"
+
     return None
 
    
@@ -143,6 +180,49 @@ def contextual_query(prompt: str, history: list, user_role: str = "trainee") -> 
 
     if not previous:
         return prompt
+
+    
+    # Resolve questions about starting immediately using the
+    # previous assistant response.
+    if user_role == "trainee":
+        start_now_question = re.fullmatch(
+            r"(?:can|could)\s+i\s+start"
+            r"(?:\s+like)?\s+(?:right\s+)?now\s*[?!.]*",
+            prompt.strip(),
+            re.I,
+        )
+
+        if start_now_question:
+            previous_assistant = next(
+                (
+                    message["content"]
+                    for message in reversed(history)
+                    if message["role"] == "assistant"
+                ),
+                "",
+            )
+
+            # Only infer ITD when the assistant explicitly
+            # identifies it as the starting point.
+            itd_starting_context = (
+                re.search(
+                    r"\b(?:courses?\s+start\s+with|"
+                    r"start\s+with|begin\s+with)\s+"
+                    r"Intro to Digital\b",
+                    previous_assistant,
+                    re.I,
+                )
+                or re.search(
+                    r"\b(?:sign up for|register for)\s+"
+                    r"Intro to Digital\b",
+                    previous_assistant,
+                    re.I,
+                )
+            )
+
+            if itd_starting_context:
+                return "Can I start Intro to Digital now?"
+
 
     # Explicit topic changes should not inherit previous context.
     if re.search(
@@ -248,6 +328,51 @@ def contextual_query(prompt: str, history: list, user_role: str = "trainee") -> 
                     re.I,
                 ):
                     return f"Where is the {course} curriculum link?"
+
+
+
+    
+    # Resolve short registration questions using recent course context.
+    if user_role == "trainee":
+        registration_followup = re.fullmatch(
+            r"(?:ok(?:ay)?[,\s]+)?"
+            r"how\s+do\s+i\s+(?:register|sign\s+up)\s*\??",
+            prompt.strip(),
+            re.I,
+        )
+
+        if registration_followup:
+            course_pattern = (
+                r"\b(Intro to Digital|Intro to Programming|"
+                r"Software Development Course|"
+                r"ITD|ITP|SDC|Checkpoint)\b"
+            )
+
+            # Search backwards, ignoring small-talk messages.
+            for message in reversed(history[-10:]):
+                content = message["content"]
+
+                course_match = re.search(
+                    course_pattern,
+                    content,
+                    re.I,
+                )
+
+                if course_match:
+                    course = course_match.group(1)
+
+                    course_names = {
+                        "itd": "Intro to Digital",
+                        "itp": "Intro to Programming",
+                        "sdc": "Software Development Course",
+                    }
+
+                    course = course_names.get(
+                        course.lower(),
+                        course,
+                    )
+
+                    return f"How do I register for {course}?"
 
 
     # Keep the previous course when the user asks a short follow-up.
