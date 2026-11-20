@@ -163,24 +163,121 @@ def tokens(text):
     return {w for w in expanded if w not in STOPWORDS and len(w) > 1}
 
 
+
 def _intent_target(question, records):
     """Route a few high-impact, unambiguous intents to their exact reviewed FAQ."""
     q = question.lower()
     targets = []
-    if re.search(r"\b(skip|skipping|bypass|need to do|need|have to do|mandatory)\b", q) and re.search(r"\b(itd|intro to digital|course|programming|coding)\b", q):
+
+    # Questions about progressing from Intro to Digital to Intro to Programming.
+    from_itd = re.search(
+        r"\b(?:intro to digital|itd)\b",
+        q,
+    )
+
+    to_itp = re.search(
+        r"\b(?:intro to programming|itp)\b",
+        q,
+    )
+
+    progression = re.search(
+        r"\b(?:complete|completed|finish|finishing|"
+        r"after|automatically|accepted|guarantee|join)\b",
+        q,
+    )
+
+    if from_itd and to_itp and progression:
+        targets.append("CYF-T2-013")
+
+    # Questions about skipping or bypassing a course.
+    # Do not confuse progression questions with skipping questions.
+    if (
+        not (from_itd and to_itp and progression)
+        and re.search(
+            r"\b(skip|skipping|bypass|need to do|need|"
+            r"have to do|mandatory)\b",
+            q,
+        )
+        and re.search(
+            r"\b(itd|intro to digital|course|programming|coding)\b",
+            q,
+        )
+    ):
         targets.append("CYF-T2-001")
-    if re.search(r"\b(guarantee|guaranteed|promise|promised)\b", q) and re.search(r"\b(job|employment|work|google|hired)\b", q):
+
+    # Questions about guaranteed employment.
+    if (
+        re.search(
+            r"\b(guarantee|guaranteed|promise|promised)\b",
+            q,
+        )
+        and re.search(
+            r"\b(job|employment|work|google|hired)\b",
+            q,
+        )
+    ):
         targets.append("CYF-T1-020")
-    if re.search(r"\b(how long|duration|how many weeks|how much time)\b", q) and re.search(r"\b(itp|intro to programming)\b", q):
+
+    # Questions about Intro to Programming duration.
+    if (
+        re.search(
+            r"\b(how long|duration|how many weeks|how much time)\b",
+            q,
+        )
+        and re.search(
+            r"\b(itp|intro to programming)\b",
+            q,
+        )
+    ):
         targets.append("CYF-T2-003")
-    if re.search(r"\b(duolingo|english test)\b", q) and re.search(r"\b(portal|missing|not showing|not appearing|recognis|recogniz)\w*", q):
+
+    # Questions about missing English test results in the portal.
+    if (
+        re.search(
+            r"\b(duolingo|english test)\b",
+            q,
+        )
+        and re.search(
+            r"\b(portal|missing|not showing|not appearing|"
+            r"recognis|recogniz)\w*",
+            q,
+        )
+    ):
         targets.append("CYF-T5-003")
-    if re.search(r"\b(portal)\b", q) and re.search(r"\b(email|login|log in|recognis|recogniz)\w*", q):
+
+    # Questions about portal login or email issues.
+    if (
+        re.search(
+            r"\b(portal)\b",
+            q,
+        )
+        and re.search(
+            r"\b(email|login|log in|recognis|recogniz)\w*",
+            q,
+        )
+    ):
         targets.append("CYF-T5-004")
-    if re.search(r"\b(address|location|where exactly)\b", q) and re.search(r"\b(venue|saturday|class)\b", q):
+
+    # Questions about class or venue locations.
+    if (
+        re.search(
+            r"\b(address|location|where exactly)\b",
+            q,
+        )
+        and re.search(
+            r"\b(venue|saturday|class)\b",
+            q,
+        )
+    ):
         targets.append("CYF-T4-005")
+
     indexed = {r["id"]: r for r in records}
-    return [indexed[rid] for rid in targets if rid in indexed]
+
+    return [
+        indexed[rid]
+        for rid in targets
+        if rid in indexed
+    ]
 
 
 def eligibility_intent(question):
