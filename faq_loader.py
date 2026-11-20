@@ -1052,7 +1052,26 @@ def retrieve(question, faq_records, limit=4):
             if "intro to digital" in normalized_laptop_query:
                 target_ids = ["CYF-T1-012"]
 
+    
     if target_ids:
+        # Include study information when the question combines
+        # laptop access, full-time employment, and Intro to Digital.
+        full_time_work = re.search(
+            r"\b(?:full[\s-]?time|working full[\s-]?time)\b",
+            normalized_laptop_query,
+        )
+
+        asks_about_itd = re.search(
+            r"\b(?:intro to digital|itd)\b",
+            normalized_laptop_query,
+        )
+
+        if full_time_work and asks_about_itd:
+            target_ids.extend([
+                "CYF-T1-016",
+                "CYF-T1-011",
+            ])
+
         matches = [
             record
             for faq_id in target_ids
@@ -1062,6 +1081,7 @@ def retrieve(question, faq_records, limit=4):
 
         if matches:
             return matches[:limit]
+
 
     # Provide introductory and curriculum evidence when users
     # ask whether they can start Intro to Digital now.
