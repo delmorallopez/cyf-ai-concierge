@@ -915,6 +915,56 @@ def retrieve(question, faq_records, limit=4):
         return []
 
     
+    
+
+    # Route laptop access and loan questions to relevant FAQs.
+    normalized_laptop_query = " ".join(
+        re.sub(r"[^\w\s]", " ", question.lower()).split()
+    )
+
+    has_device = re.search(
+        r"\b(?:laptop|laptops|computer|computers)\b",
+        normalized_laptop_query,
+    )
+
+    access_intent = re.search(
+        r"\b(?:need|own|buy|without|access|have to|don t have)\b",
+        normalized_laptop_query,
+    )
+
+    loan_intent = re.search(
+        r"\b(?:lend|loan|loans|borrow|provide|request)\b",
+        normalized_laptop_query,
+    )
+
+    # Do not intercept device maintenance or specifications.
+    excluded_intent = re.search(
+        r"\b(?:return|broken|repair|damaged|working|"
+        r"specifications|specs|minimum|keep)\b",
+        normalized_laptop_query,
+    )
+
+    target_ids = []
+
+    if has_device and not excluded_intent:
+        if loan_intent:
+            target_ids = ["CYF-T3-010", "CYF-T1-012"]
+        elif access_intent:
+            target_ids = ["CYF-T1-012", "CYF-T3-010"]
+
+            if "intro to digital" in normalized_laptop_query:
+                target_ids = ["CYF-T1-012"]
+
+    if target_ids:
+        matches = [
+            record
+            for faq_id in target_ids
+            for record in faq_records
+            if record["id"] == faq_id
+        ]
+
+        if matches:
+            return matches[:limit]
 
     # Provide introductory and curriculum evidence when users
     # ask whether they can start Intro to Digital now.
