@@ -32,6 +32,36 @@ def test_role_specific_fallbacks():
     assert "become-a-student" not in get_no_records_reply("volunteer")
 
 
+def test_fallback_provides_clear_uncertainty_and_next_step():
+    trainee_reply = get_no_match_reply("trainee").lower()
+    volunteer_reply = get_no_match_reply("volunteer").lower()
+
+    # Both roles should receive clear uncertainty.
+    assert "can't confirm" in trainee_reply
+    assert "can't confirm" in volunteer_reply
+
+    # Trainees should receive an official next step.
+    assert "https://codeyourfuture.io/become-a-student/" in trainee_reply
+    assert "guidance" in trainee_reply
+
+    # Volunteers should not be sent to a trainee-specific page.
+    assert "become-a-student" not in volunteer_reply
+    assert "volunteer team" in volunteer_reply
+
+
+def test_course_intake_fallback_provides_relevant_guidance():
+    reply = get_no_match_reply(
+        "trainee",
+        "Is there a capacity limit for Intro to Digital?",
+    ).lower()
+
+    assert "can't confirm" in reply
+    assert "capacity" in reply
+    assert "https://codeyourfuture.io/become-a-student/" in reply
+    assert "cyf team" in reply
+
+
+
 def test_sensitive_credentials():
     assert sensitive_account_reply(
         "What is my CYF Portal password?"

@@ -123,7 +123,7 @@ def get_greeting_response(message: str, user_role: str) -> str | None:
     if normalized in TOPIC_RESPONSES:
         return TOPIC_RESPONSES[normalized]
 
-    
+
     # Handle short conversational messages without FAQ retrieval.
     acknowledgements = {
         "ok",
@@ -160,9 +160,35 @@ def get_greeting_response(message: str, user_role: str) -> str | None:
     if normalized in followup_introductions:
         return "Of course! What else would you like to know?"
 
+
+    # Handle clearly unrelated questions without FAQ retrieval.
+    # Keep patterns narrow to avoid blocking CYF-related questions.
+    out_of_scope_patterns = (
+        r"\b(?:weather|temperature|forecast)\b",
+        r"\b(?:train|bus|flight)\s+ticket\s+(?:price|cost)\b",
+        r"\bhow much does a (?:train|bus|flight) ticket cost\b",
+    )
+
+    if (
+        not re.search(
+            r"\b(?:cyf|codeyourfuture|course|class|volunteer)\b",
+            normalized,
+        )
+        and any(
+            re.search(pattern, normalized)
+            for pattern in out_of_scope_patterns
+        )
+    ):
+        return (
+            "I can help with CodeYourFuture courses, applications, "
+            "eligibility and volunteering, but I can't answer "
+            "general weather or travel-price questions. "
+            "What would you like to know about CodeYourFuture?"
+        )
+
     return None
 
-   
+
 
 
 def contextual_query(prompt: str, history: list, user_role: str = "trainee") -> str:
@@ -181,7 +207,7 @@ def contextual_query(prompt: str, history: list, user_role: str = "trainee") -> 
     if not previous:
         return prompt
 
-    
+
     # Resolve questions about starting immediately using the
     # previous assistant response.
     if user_role == "trainee":
@@ -231,7 +257,7 @@ def contextual_query(prompt: str, history: list, user_role: str = "trainee") -> 
         re.I,
     ):
         return prompt
-    
+
 
     # Resolve answers to a previous link clarification.
     if user_role == "trainee":
@@ -283,7 +309,7 @@ def contextual_query(prompt: str, history: list, user_role: str = "trainee") -> 
                 return f"What is the registration link for {course}?"
 
 
-    
+
     # Resolve short link requests using the previous conversation.
     if user_role == "trainee":
         link_followup = re.fullmatch(
@@ -331,7 +357,7 @@ def contextual_query(prompt: str, history: list, user_role: str = "trainee") -> 
 
 
 
-    
+
     # Resolve short registration questions using recent course context.
     if user_role == "trainee":
         registration_followup = re.fullmatch(
@@ -393,7 +419,36 @@ def contextual_query(prompt: str, history: list, user_role: str = "trainee") -> 
         re.I,
     )
 
-    is_short_followup = len(prompt.split()) <= 8
+
+
+    # Inherit course context only when the question clearly
+    # refers to the previous topic or is a short course follow-up.
+    followup_pattern = (
+        r"\b(?:"
+        r"it|its|they|them|their|that|this|those|"
+        r"what about|how about|and|"
+        r"can i start|could i start|"
+        r"requirements|eligible|eligibility|"
+        r"free|duration"
+        r")\b"
+    )
+
+    course_question_pattern = (
+        r"\b(?:"
+        r"how long(?:\s+does\s+it)?|"
+        r"how much(?:\s+does\s+it)?|"
+        r"how many(?:\s+(?:hours|weeks|months))?"
+        r")\s*(?:\?|$)"
+    )
+
+    is_short_followup = (
+        len(prompt.split()) <= 8
+        and (
+            re.search(followup_pattern, prompt, re.I) is not None
+            or re.search(course_question_pattern, prompt, re.I) is not None
+        )
+    )
+
 
     if (
         user_role == "trainee"
@@ -485,7 +540,7 @@ if prompt := st.chat_input(chat_placeholder):
 
 
     # Save the user's message
-    
+
     search_query = contextual_query(
         prompt,
         st.session_state.messages,
@@ -509,10 +564,10 @@ if prompt := st.chat_input(chat_placeholder):
             st.session_state.user_role
         )
 
-    
+
         if greeting_reply is not None:
             reply = greeting_reply
-        
+
 
         elif (
             followup_reply := repeated_onboarding_followup(
@@ -526,7 +581,7 @@ if prompt := st.chat_input(chat_placeholder):
 
         elif sensitive_account_reply(prompt) is not None:
             reply = sensitive_account_reply(prompt)
-        
+
 
         elif (
             clarification_reply := clarify_ambiguous_link(
@@ -549,9 +604,12 @@ if prompt := st.chat_input(chat_placeholder):
             else:
                 matches = retrieve(search_query, records)
 
-
             if not matches:
-                reply = get_no_match_reply(st.session_state.user_role)
+                reply = get_no_match_reply(
+                    st.session_state.user_role,
+                    search_query,
+                )
+
 
             else:
                 # 4. Check whether the answer needs special handling

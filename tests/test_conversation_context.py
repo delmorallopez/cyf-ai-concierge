@@ -342,3 +342,49 @@ def test_registration_followup_after_small_talk():
     )
 
     assert result == "How do I register for Intro to Digital?"
+
+
+def test_unrelated_short_question_does_not_inherit_course():
+    history = [
+        {
+            "role": "user",
+            "content": "Is there a capacity limit for Intro to Digital?",
+        },
+        {
+            "role": "assistant",
+            "content": "I can't confirm the current course capacity.",
+        },
+    ]
+
+    question = "What is the weather in London?"
+
+    result = contextual_query(
+        question,
+        history,
+        "trainee",
+    )
+
+    assert result == question
+
+
+def test_unrelated_question_with_followup_keywords():
+    history = [
+        {
+            "role": "user",
+            "content": "What is Intro to Digital?",
+        },
+        {
+            "role": "assistant",
+            "content": "Intro to Digital is a beginner course.",
+        },
+    ]
+
+    question = "How much does a train ticket cost?"
+
+    result = contextual_query(
+        question,
+        history,
+        "trainee",
+    )
+
+    assert result == question

@@ -58,27 +58,50 @@ RESPONSE STYLE:
 - Be friendly, clear, and professional.
 """
 
+
 NO_MATCH_REPLY = (
-    "I couldn't find enough information in the reviewed CYF FAQ to answer that reliably. "
-    "Please check https://codeyourfuture.io/become-a-student/ or ask the CYF team."
+    "I can't confirm that from the available CodeYourFuture FAQ information. "
+    "For official application and course guidance, please check "
+    "https://codeyourfuture.io/become-a-student/. "
+    "If your question concerns a specific course or intake, "
+    "please confirm the details directly with the CYF team."
 )
+
 
 NO_RECORDS_REPLY = (
     "No CYF FAQ answers are available in this mode yet. "
     "Please check https://codeyourfuture.io/become-a-student/ for official guidance."
 )
 
-def get_no_match_reply(user_role: str) -> str:
-    """Return an appropriate fallback for the selected user role."""
+
+def get_no_match_reply(user_role: str, question: str = "") -> str:
+    """Return a safe, role-appropriate fallback with useful guidance."""
+
     if user_role == "volunteer":
         return (
-            "I couldn't find enough verified information in the "
-            "CodeYourFuture Volunteer FAQ to answer that reliably. "
+            "I can't confirm that from the available CodeYourFuture "
+            "Volunteer FAQ information. "
             "Please contact the CodeYourFuture volunteer team "
             "for further guidance."
         )
 
+    normalized = question.lower()
+
+    # Course capacity and intake availability
+    if re.search(
+        r"\b(capacity|places|spaces|slots|intake|cohort|full)\b",
+        normalized,
+    ):
+        return (
+            "I can't confirm the current course capacity or intake "
+            "availability from the reviewed CodeYourFuture FAQs. "
+            "For official course and application guidance, visit "
+            "https://codeyourfuture.io/become-a-student/. "
+            "Please confirm current availability directly with the CYF team."
+        )
+
     return NO_MATCH_REPLY
+
 
 
 def get_no_records_reply(user_role: str) -> str:

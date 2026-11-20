@@ -65,3 +65,33 @@ def test_real_questions_are_not_swallowed():
     assert respond("Thanks, when does the course start?", "trainee") is None
     assert respond("Cool, can I volunteer?", "volunteer") is None
 
+
+
+def test_unrelated_questions_get_out_of_scope_response():
+    respond = load_greeting_response()
+
+    questions = [
+        "What is the weather in London?",
+        "How much does a train ticket cost?",
+    ]
+
+    for question in questions:
+        reply = respond(question, "trainee")
+
+        assert reply is not None, question
+        assert "CodeYourFuture" in reply
+        assert "can't answer" in reply.lower()
+
+
+def test_cyf_questions_are_not_blocked():
+    respond = load_greeting_response()
+
+    questions = [
+        "How do I travel to my CYF class?",
+        "What is the course schedule?",
+        "Can CYF reimburse my travel expenses?",
+        "How do I register for Intro to Digital?",
+    ]
+
+    for question in questions:
+        assert respond(question, "trainee") is None, question
